@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+
+.manrope-light {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+.manrope-medium {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.manrope-bold {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.solway-light {
+  font-family: "Solway", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.solway-regular {
+  font-family: "Solway", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.solway-medium {
+  font-family: "Solway", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.solway-bold {
+  font-family: "Solway", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.solway-extrabold {
+  font-family: "Solway", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.kalam-light {
+  font-family: "Kalam", cursive;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.kalam-regular {
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kalam-bold {
+  font-family: "Kalam", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.alex-brush-regular {
+  font-family: "Alex Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@theme {
+    --color-warm-green: #53822A;
+    --color-warm-green-rgb: 83, 130, 42;
+    --color-cool-green: #007A73;
+    --color-cool-green-rgb: 0, 122, 115;
+    --font-sans: "Manrope", "sans-serif";
+    --font-serif: "Solway", "serif";
+    --font-script: "Kalam", "serif";
+    --font-cursive: "Alex Brush", "cursive";
+}
+
+ul.checklist {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+ul.checklist li {
+  padding-left: 1.5em;
+  position: relative;
+}
+ul.checklist li::before {
+  content: "✅ "; /* Use your preferred checkmark emoji */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1em;
+}

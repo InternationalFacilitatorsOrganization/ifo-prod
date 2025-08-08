@@ -1,0 +1,32 @@
+{
+  "name": "ifo-dev",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/db": "^0.15.1",
+    "@astrojs/react": "^4.3.0",
+    "@heroui/system": "^2.4.20",
+    "@heroui/table": "^2.2.24",
+    "@heroui/theme": "^2.4.20",
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "astro": "^5.10.1",
+    "framer-motion": "^12.23.12",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-photo-album": "^3.1.0",
+    "tailwindcss": "^4.1.11",
+    "yet-another-react-lightbox": "^3.24.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.1",
+    "prettier-plugin-tailwindcss": "^0.6.13"
+  }
+}

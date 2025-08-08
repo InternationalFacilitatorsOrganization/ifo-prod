@@ -1,0 +1,22 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Header />
+  <div class="w-full mx-auto">
+    <div
+      class="pt-38 px-10 pb-18 bg-linear-to-br from-warm-green to-cool-green"
+    >
+      <p class="text-center text-white text-3xl lg:text-5xl manrope-bold pb-10">
+        Not Found
+      </p>
+      <p class="text-lg md:text-2xl solway-light text-center text-white">
+        The page you are looking for does not exist.
+      </p>
+    </div>
+  </div>
+  <Footer />
+</Layout>

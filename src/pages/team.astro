@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ContactButton from "../components/utils/ContactButton.html";
+import MoHeadshot from "../assets/mo-headshot.avif";
+import NancyHeadshot from "../assets/nancy-headshot.avif";
+import SloaneHeadshot from "../assets/sloane-headshot.jpg";
+import LinkedInLogo from "../assets/LI-Logo.png";
+import ShrmPS from "../assets/shrm-ps.png";
+---
+
+<Layout>
+  <Header />
+  <div class="w-full mx-auto">
+    <div
+      class="pt-38 px-10 pb-18 bg-linear-to-br from-warm-green to-cool-green"
+    >
+      <p class="text-center text-white text-3xl lg:text-5xl manrope-bold">
+        The Team
+      </p>
+    </div>
+    <div
+      class="container mx-auto md:px-30 bg-white md:w-3/4 pt-8 manrope-light"
+    >
+      <p class="mb-6">
+        IFO, a leading provider of facilitators and related group facilitation
+        services, exists to provide training, certification, marketing services,
+        education, and community for peer group facilitators at all stages of
+        their career.
+      </p>
+      <p class="mb-6">
+        Our mission is to support 1 billion people in peer groups by 2053
+        because we believe peer groups have the transformative power to provide
+        every person with a place to learn and grow in a supportive community.
+        Peer groups teach important skills for empathy, vulnerability, that
+        enable meaningful connections and growth. The transformative power of
+        forum has the exponential potential to change how we see ourselves, each
+        other, the world, and our place within it. We support communities so
+        communities can support the world.
+      </p>
+      <p class="mb-6">
+        In the video below, IFO Founder & President Mo Fathelbab explains his
+        vision and purpose for IFO. Have questions for our team? Learn more
+        about the benefits of beginning your journey with IFO by reaching out
+        today!
+      </p>
+    </div>
+    <div class="container mx-auto md:px-20 bg-white py-5 md:w-3/4">
+      <!-- width="827"
+        height="465" -->
+      <iframe
+        class="w-full h-100"
+        src="https://www.youtube.com/embed/5W_gt2_gyqU"
+        title="Introducing IFO"
+        frameborder="2"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+
+    <ContactButton />
+
+    <div class="container mx-auto lg:px-30 bg-white md:flex md:flex-row gap-2">
+      <div class="md:w-1/2 text-center justify-center">
+        <img
+          src={MoHeadshot.src}
+          alt="photo of Mo Fathelbab"
+          class="w-2/3 mx-auto md:w-full"
+        />
+        <p class="py-6 text-2xl solway-medium">Mo Fathelbab</p>
+        <p
+          class="mb-6 manrope-light text-pretty md:w-5/6 mx-auto lg:px-4 leading-8"
+        >
+          Mo is an expert facilitator and trusted advisor with decades of
+          experience helping leaders build authentic connections and
+          high-performing peer groups. He specializes in creating safe,
+          transformative spaces where participants can learn, share, and grow
+          together.
+        </p>
+
+        <a
+          href="https://www.linkedin.com/in/mofathelbab/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={LinkedInLogo.src} width="110" class="mx-auto pb-10" />
+        </a>
+
+        <div class="pb-4 w-fit mx-auto">
+          <p class="pb-4">Mo's weekly podcast:</p>
+          <a
+            href="https://www.shrm.org/topics-tools/flagships/people-strategy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ShrmPS.src} width="130" class="mx-auto pb-10" />
+          </a>
+        </div>
+      </div>
+      <div
+        class="md:w-1/2 text-center border-t-1 md:border-t-0 border-gray-300 pt-10 md:pt-0"
+      >
+        <img
+          src={NancyHeadshot.src}
+          alt="photo of Nancy Koleda"
+          class="w-2/3 mx-auto md:w-full"
+        />
+
+        <p class="py-6 text-2xl solway-medium">Nancy Koleda</p>
+        <p
+          class="mb-6 manrope-light text-pretty md:w-5/6 mx-auto lg:px-4 leading-8"
+        >
+          Nancy is a seasoned facilitator and leadership coach with deep
+          experience guiding executives and teams through transformational
+          growth. She brings a thoughtful, practical approach to training,
+          helping leaders strengthen communication, build trust, and foster
+          meaningful collaboration.
+        </p>
+        <a
+          href="https://www.linkedin.com/in/nancy-koleda-2349585/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={LinkedInLogo.src} width="110" class="mx-auto pb-10" />
+        </a>
+      </div>
+      <div
+        class="md:w-1/2 text-center border-t-1 md:border-t-0 border-gray-300 pt-10 md:pt-0"
+      >
+        <img
+          src={SloaneHeadshot.src}
+          alt="photo of Sloane Kaplan"
+          class="w-2/3 mx-auto md:w-full"
+        />
+
+        <p class="py-6 text-2xl solway-medium">Sloane Kaplan</p>
+        <p
+          class="mb-6 manrope-light text-pretty md:w-5/6 mx-auto lg:px-4 leading-8"
+        >
+          Sloane is passionate about people, details, and getting things
+          done—with heart and humor. Owing to her background in hospitality,
+          office administration, and international volunteer work, she
+          approaches every challenge with clarity, care, and a deep commitment
+          to making things, and people, better than she found them.
+        </p>
+        <a
+          href="https://www.linkedin.com/in/sloane-kaplan-52a14817/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={LinkedInLogo.src} width="110" class="mx-auto pb-10" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Layout>

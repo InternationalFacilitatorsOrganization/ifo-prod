@@ -1,0 +1,37 @@
+---
+import PeopleMeeting from "../assets/people-meeting.avif";
+---
+
+<div class="container flex items-center justify-between p-12 bg-white mx-auto">
+  <div class="grow-0 px-5 w-1/2 hidden md:block">
+    <picture class="w-full">
+      <img
+        src={PeopleMeeting.src}
+        class="h-auto w-5/6 object-cover"
+        alt="A group of people in a business meeting"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+  <div class="md:w-1/2">
+    <p class="text-4xl solway-medium text-cool-green">About Us</p>
+    <p class="leading-8 py-4 manrope-light">
+      We specialize in <span class="manrope-bold">Forum Peer Groups</span>,
+      creating transformative spaces for professionals to connect, reflect, and
+      grow. Alongside our peer group expertise, we offer General Facilitation
+      Services that foster open dialogue and collaboration across teams.
+    </p><p class="leading-8 py-4 manrope-light">
+      With a growing community of over 40 members across 6 countries our
+      expertly facilitated experiences are designed to meet people where they
+      are—both personally and professionally.
+    </p>
+    <div class="py-10 lg:hidden mx-auto w-full text-center">
+      <a href="team" class="no-underline">
+        <button
+          class="rounded-full bg-orange-300 text-orange-800 font-bold p-2 flex-nowrap manrope-bold text-xl md:text-2xl px-8"
+          >Meet the Team</button
+        >
+      </a>
+    </div>
+  </div>
+</div>

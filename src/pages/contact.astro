@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<Layout>
+  <Header />
+
+  <div class="w-full mx-auto bg-white">
+    <div
+      class="pt-38 px-10 pb-18 bg-linear-to-br from-warm-green to-cool-green"
+    >
+      <p class="text-center text-white text-3xl lg:text-5xl manrope-bold">
+        Contact Us
+      </p>
+    </div>
+    <div class="container md:p-2 mx-auto w-3/4 md:w-3/5 mt-10 px-0">
+      <p>
+        Whether inquiring about Membership information, Certification training,
+        Forum availability, Event planning, or anything else, we would love to
+        hear from you!
+      </p>
+    </div>
+    <ContactForm />
+  </div>
+</Layout>
+
+<Footer />

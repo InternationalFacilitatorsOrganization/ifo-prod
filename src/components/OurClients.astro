@@ -1,0 +1,94 @@
+---
+import ClientList from "../components/ClientList.astro";
+import ContactButton from "./utils/ContactButton.html";
+---
+
+<div class="bg-white w-full">
+  <div class="container flex items-center justify-between md:p-6 mx-auto">
+    <section class="py-8 md:py-6 solway-light">
+      <div class="container mx-auto px-4">
+        <h2 class="text-cool-green text-4xl font-bold text-center mb-6">
+          Our Clients
+        </h2>
+        <p
+          class="text-gray-800 text-center manrope-light w-full md:w-3/4 mx-auto mb-10 text-pretty md:text-balanced"
+        >
+          Clients of International Facilitators Organization (IFO) and our
+          facilitators are associations, industry trade groups, companies of all
+          sizes, academic institutions and associations, government agencies,
+          school districts (both central offices and licensed school
+          professionals).
+        </p>
+
+        <ClientList />
+      </div>
+    </section>
+  </div>
+
+  <ContactButton />
+
+  <div class="bg-cool-green">
+    <div
+      class="mx-auto manrope-light px-4 w-full md:px-25 lg:px-20 pb-10 lg:max-w-250"
+    >
+      <div class="p-10">
+        <h3 class="text-gray-100 text-3xl solway-medium text-center">
+          Testimonials
+        </h3>
+      </div>
+
+      <div class="flex md:mx-14 text-center justify-center">
+        <span class="text-lime-300 text-9xl font-cursive leading-12"
+          >&quot;</span
+        >
+        <p
+          class="text-white text-xl md:text-3xl font-script text-pretty leading-8"
+        >
+          Forum has provided me with the best learning mechanism I have yet to
+          come across.
+        </p>
+      </div>
+      <div class="pt-2 md:pt-6 pb-10 md:mx-14 mx-6 text-center">
+        <p class="text-gray-200 text-md text-pretty md:text-xl font-sans">
+          —Steven Ettridge, Founder CEO, Temps & Co.
+        </p>
+      </div>
+      <hr class="border-1 border-gray-400" />
+      <div class="flex mt-12 md:mx-14 text-center justify-center">
+        <span class="text-lime-300 text-9xl font-cursive leading-14"
+          >&quot;</span
+        >
+        <p
+          class="text-white text-xl md:text-3xl font-script text-pretty leading-8"
+        >
+          I have grown personally and professionally because of my forum
+          experience.
+        </p>
+      </div>
+      <div class="pt-2 md:pt-6 pb-10 mx-14 text-center">
+        <p class="text-gray-200 text-md md:text-xl font-sans">
+          —Jaimie B Coulter, Founder, Lone Star Steakhouse & Saloon
+        </p>
+      </div>
+
+      <hr class="border-1 border-gray-300" />
+
+      <div class="flex mt-12 md:mx-14 text-center justify-center">
+        <span class="text-lime-200 text-9xl font-cursive leading-14"
+          >&quot;</span
+        >
+        <p
+          class="text-white text-xl md:text-3xl font-script text-pretty leading-8"
+        >
+          Long-term relationships between peers makes the forum experience very
+          special.
+        </p>
+      </div>
+      <div class="pt-2 md:pt-6 pb-10 mx-14 text-center">
+        <p class="text-gray-200 text-md md:text-xl font-sans">
+          —Neil Balter, Founder, California Closets Co.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

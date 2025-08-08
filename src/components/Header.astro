@@ -1,0 +1,118 @@
+---
+import ifoLogo from "../assets/IFO-no-background.jpg";
+---
+
+<div id="container" class="fixed top-0 z-50 w-full">
+  <header class="bg-white shadow-lg/20 top-0 z-50">
+    <div
+      class="mx-4 md:mx-10 max-w-1fr grid grid-cols-2 items-center justify-between py-4 px-4"
+    >
+      <!-- Logo -->
+      <a href="/" class="flex items-center text-primary hover:text-secondary">
+        <img src={ifoLogo.src} width="200" alt="IFO Homepage" />
+      </a>
+
+      <!-- Desktop Navigation (Hidden on smaller screens) -->
+      <nav class="hidden md:block manrope-light justify-items-end">
+        <ul class="flex space-x-8 text-nowrap">
+          <li>
+            <a
+              href="/facilitator-training"
+              class="hover:text-primary transition-colors duration-300"
+              >Get Certified</a
+            >
+          </li>
+          <li>
+            <a
+              href="/facilitators/"
+              class="hover:text-primary transition-colors duration-300"
+              >Facilitator Directory</a
+            >
+          </li>
+          <li>
+            <a
+              href="/team"
+              class="hover:text-primary transition-colors duration-300"
+              >Meet the Team</a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact"
+              class="hover:text-primary transition-colors duration-300"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Button (Hidden on larger screens) -->
+      <div class="md:hidden text-right">
+        <button
+          id="menu-toggle"
+          class="text-gray-800 hover:text-primary focus:outline-none transition-colors duration-300"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <nav
+      id="mobile-menu"
+      class="hidden md:hidden bg-gray-100 border-t border-gray-300 text-cool-green transition-height duration-300 ease-in-out manrope-light mt-3 py-3 text-right"
+    >
+      <ul class="px-4">
+        <li>
+          <a href="/facilitator-training" class="block py-2">Get Certified</a>
+        </li>
+        <li>
+          <a href="/facilitators/" class="block py-2">Facilitator Directory</a>
+        </li>
+        <li>
+          <a href="/team" class="block py-2">Meet the Team</a>
+        </li>
+        <li>
+          <a href="/contact" class="block py-2">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <script>
+    // Toggle mobile menu
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.style.height = mobileMenu.scrollHeight + "px"; // Set height for transition
+        } else {
+          mobileMenu.style.height = "0";
+        }
+      });
+    }
+  </script>
+
+  <style>
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</div>

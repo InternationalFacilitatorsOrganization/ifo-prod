@@ -1,0 +1,153 @@
+---
+import ContactButton from "./utils/ContactButton.html";
+import TrainingCourse from "../assets/training-course.avif";
+import GroupTherapy from "../assets/group-therapy.avif";
+import Marketing from "../assets/marketing.jpg";
+---
+
+<div class="bg-gray-200">
+  <div class="flex items-center justify-center pt-8 md:px-8 md:pt-12 w-full">
+    <section class="solway-medium">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl mb-6">What We Offer</h2>
+        <p class="manrope-light mb-10 w-3/4 mx-auto">
+          Join our growing list of partners to experience the IFO difference. We
+          will turbocharge your organization and help you realize and expand
+          your goals beyond what you thought possible.
+        </p>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-center mx-4 min-h-85"
+        >
+          <!-- Card 1 -->
+          <a href="/facilitators">
+            <div
+              class="text-teal-200 bg-cool-green rounded-xl shadow-lg/50 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl/35 h-full"
+            >
+              <img
+                src={Marketing.src}
+                alt="Marketing image"
+                class="w-full h-36 object-top object-cover"
+              />
+              <div class="px-3 py-4 md:p-6 text-center">
+                <h3 class="text-3xl solway-medium pb-2">
+                  Facilitator Directory
+                </h3>
+                <p class="solway-light">
+                  IFO certified facilitators are highly trained professionals
+                  who are ready to help you achieve your goals. Request a
+                  booking today!
+                </p>
+              </div>
+            </div>
+          </a>
+          <!-- Card 2 -->
+          <div
+            class="bg-orange-300 rounded-xl shadow-lg/25 overflow-hidden h-full"
+          >
+            <img
+              src={GroupTherapy.src}
+              alt="Image of a seated man talking in a group"
+              class="w-full h-36 object-cover"
+            />
+            <div class="px-3 py-4 md:p-6 text-center text-orange-900">
+              <h3 class="text-3xl solway-medium pb-2">Forums</h3>
+              <p class="solway-light">
+                Connect, support, and grow with a confidential group of peer
+                facilitators for personal and professional benefits.
+              </p>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <a href="/facilitator-training">
+            <div
+              class="bg-warm-green rounded-xl shadow-lg/25 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl/35 h-full"
+            >
+              <img
+                src={TrainingCourse.src}
+                alt="Image of a group of seated participants facing a projector screen with an instructor standing"
+                class="w-full h-36 object-top object-cover"
+              />
+              <div class="px-3 py-4 md:p-6 text-center text-lime-200">
+                <h3 class="text-3xl solway-medium pb-2">Certification</h3>
+                <p class="solway-light">
+                  Training program for facilitators, empowering confidence,
+                  recognition, and client appeal. Join us to unlock
+                  opportunities.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="p-10 md:py-20 mx-auto w-full text-center">
+    <a href="contact" class="no-underline">
+      <button
+        class="rounded-full bg-cool-green text-white font-bold p-2 flex-nowrap manrope-bold text-2xl md:text-2xl px-16 md:px-8 hover:cursor-pointer hover:bg-orange-300 hover:text-orange-800 focus:bg-warm-green focus:text-white"
+        >Join IFO</button
+      >
+    </a>
+  </div>
+</div>
+
+<!-- <h2 class="text-3xl md:text-4xl text-center mb-8 mt-10 solway-medium">
+  Membership Tiers
+</h2>
+
+<div
+  class="container grid grid-rows-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center bg-white mx-auto md:w-7/10 md:border-3 border-gray-300 rounded-xl place-content-start min-w-fit p-0"
+>
+  <div class="space-y-2 text-lg text-center manrope-light">
+    <p
+      class="text-2xl rounded-3xl bg-orange-800 p-2 w-3/4 mx-auto font-bold text-orange-200 my-4"
+    >
+      BRONZE
+    </p>
+    <p class="border-b-1 border-gray-200 pb-2">Forum</p>
+    <p class="border-b-1 border-gray-200 pb-2">Monthly Speaker Series</p>
+    <p class="border-b-1 border-gray-200 pb-2">Quarterly Town Hall</p>
+    <p class="border-b-1 border-gray-200 pb-2">Directory Listing</p>
+    <p class="border-b-1 border-gray-200 text-gray-300 line-through pb-2">
+      Podcast Interview
+    </p>
+    <p class="border-b-1 border-gray-200 text-gray-300 line-through pb-2">
+      Social Media Promotion
+    </p>
+    <p class="border-b-1 border-gray-200 text-gray-300 line-through pb-2">
+      Annual Retreat
+    </p>
+  </div>
+  <div class="mt-8 md:mt-0 space-y-2 text-lg text-center manrope-light">
+    <p
+      class="text-2xl rounded-3xl bg-gray-400 p-2 w-3/4 mx-auto font-bold text-gray-100 my-4"
+    >
+      SILVER
+    </p>
+    <p class="border-b-1 border-gray-200 pb-2">Forum</p>
+    <p class="border-b-1 border-gray-200 pb-2">Monthly Speaker Series</p>
+    <p class="border-b-1 border-gray-200 pb-2">Quarterly Town Hall</p>
+    <p class="border-b-1 border-gray-200 pb-2">Directory Listing</p>
+    <p class="border-b-1 border-gray-200 pb-2">Podcast Interview</p>
+    <p class="border-b-1 border-gray-200 pb-2">Social Media Promotion</p>
+    <p
+      class="border-b-1 border-gray-200 text-md text-gray-300 pb-2 line-through"
+    >
+      Annual Retreat
+    </p>
+  </div>
+  <div class="mt-8 md:mt-0 space-y-2 text-lg text-center manrope-light">
+    <p
+      class="text-2xl rounded-3xl bg-yellow-600 p-2 w-3/4 mx-auto font-bold text-yellow-100 my-4"
+    >
+      GOLD
+    </p>
+    <p class="border-b-1 border-gray-200 pb-2">Forum</p>
+    <p class="border-b-1 border-gray-200 pb-2">Monthly Speaker Series</p>
+    <p class="border-b-1 border-gray-200 pb-2">Quarterly Town Hall</p>
+    <p class="border-b-1 border-gray-200 pb-2">Directory Listing</p>
+    <p class="border-b-1 border-gray-200 pb-2">Podcast Interview</p>
+    <p class="border-b-1 border-gray-200 pb-2">Social Media Promotion</p>
+    <p class="border-b-1 border-gray-200 pb-2">Annual Retreat</p>
+  </div>
+</div> -->

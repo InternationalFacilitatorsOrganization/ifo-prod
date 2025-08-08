@@ -1,0 +1,84 @@
+---
+import IFOlogo from "../assets/ifo-logo-only.png";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<img src={IFOlogo.src} class="absolute top left w-35 pl-16" />
+
+<div
+  class="bg-gray-900 py-24 px-12 md:px-24 text-sm manrope-light leading-8 border-t-10 border-white"
+>
+  <footer
+    class="flex flex-col md:flex-row md:gap-10 md:justify-between mx-auto md:px-33"
+  >
+    <div class="text-gray-200 pb-8">
+      <p class="uppercase md:pb-6 manrope-bold text-nowrap">
+        international facilitators org
+      </p>
+      <p>277 S. Washington Street</p><p>Suite 210</p><p>Alexandria, VA 22314</p>
+      <p>
+        <a href="mailto:info@internationalfacilitators.org"
+          >info@internationalfacilitators.org</a
+        >
+      </p>
+    </div>
+    <div class="text-gray-200 pb-8">
+      <p class="uppercase md:pb-6 manrope-bold text-nowrap">site map</p>
+
+      <nav class="md:flex-wrap">
+        <p>
+          <a class="hover:text-white" href="/">Home</a>
+        </p>
+        <p>
+          <a class="hover:text-white" href="facilitator-training"
+            >Facilitator Training</a
+          >
+        </p>
+        <!-- <p><a class="hover:text-white" href="join">Join IFO</a></p> -->
+        <p><a class="hover:text-white" href="team">Meet the Team</a></p>
+        <p><a class="hover:text-white" href="contact">Contact Us</a></p>
+      </nav>
+    </div>
+    <div class="text-gray-200 pb-8">
+      <p class="uppercase md:pb-6 manrope-bold text-nowrap">connect with ifo</p>
+      <a
+        href="https://www.facebook.com/profile.php?id=61577188505144&mibextid=ZbWKwL"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+      <p>
+        <a
+          href="https://www.linkedin.com/company/international-facilitators-organization/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://www.instagram.com/internationalfacilitatorsorg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://www.youtube.com/channel/UCaEG0Ms-RZQQBrVU_1e42lQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          YouTube
+        </a>
+      </p>
+    </div>
+  </footer>
+  <p class="text-gray-200 text-center pt-8 md:pt-20 md:p-10">
+    &copy; 2025 International Facilitators Organization, LLC. All rights
+    reserved.
+  </p>
+</div>

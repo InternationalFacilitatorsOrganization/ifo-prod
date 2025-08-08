@@ -1,0 +1,105 @@
+---
+
+---
+
+<script>
+  const url = new URL(window.location.href);
+  const facilitatorName = url.searchParams.get("book-facilitator");
+  const formSubject = document.getElementById("subject") as HTMLInputElement;
+  if (facilitatorName && formSubject) {
+    formSubject.value = "Request to book " + facilitatorName;
+  }
+</script>
+
+<div class="w-full">
+  <div class="container md:p-2 mx-auto w-3/4 md:w-3/5 py-10 px-0">
+    <section class="md:py-10 md:w-full manrope-light">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        action="/form-success"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <p class="hidden">
+          <label>
+            Bots only: <input name="bot-field" />
+          </label>
+        </p>
+        <div class="flex flex-col gap-4 md:flex-row">
+          <p class="md:w-1/2">
+            <label class="text-sm"
+              >First Name <br />
+              <input
+                type="text"
+                name="firstname"
+                class="rounded-sm p-2 border-1 border-gray-500 w-full"
+              />
+            </label>
+          </p>
+          <p class="md:w-1/2 pb-6">
+            <label class="text-sm"
+              >Last Name <br />
+              <input
+                type="text"
+                name="lastname"
+                class="rounded-sm border-1 border-gray-500 w-full p-2"
+              />
+            </label>
+          </p>
+        </div>
+        <div class="md:flex flex-col md:flex-row gap-4">
+          <p class="md:w-1/2 pb-6">
+            <label class="text-sm"
+              >Email <span class="text-red-500 text-bold">*</span><input
+                type="email"
+                name="email"
+                class="rounded-sm p-2 border-1 border-gray-500 w-full required"
+                required
+              /></label
+            >
+          </p>
+          <p class="md:w-1/2 pb-6">
+            <label class="text-sm"
+              >Phone <input
+                type="tel"
+                name="phone"
+                class="rounded-sm p-2 border-1 border-gray-500 w-full"
+              /></label
+            >
+          </p>
+        </div>
+        <p class="w-full pb-6">
+          <label class="text-sm"
+            >Subject
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="rounded-sm p-2 border-1 border-gray-500 w-full"
+              placeholder="Membership, Find a Facilitator, etc."
+              value=""
+            /></label
+          >
+        </p>
+        <p class="w-full pb-6">
+          <label class="text-sm"
+            >Message <span class="text-red-500 text-bold">*</span>
+            <textarea
+              name="message"
+              class="field-sizing-content w-full rounded-sm p-2 border-1 border-gray-500 h-30 required"
+              required></textarea></label
+          >
+        </p>
+        <p class="text-right">
+          <input
+            type="submit"
+            class="rounded-full bg-orange-300 text-orange-800 font-bold p-2 w-30 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green"
+            value="Send"
+          />
+        </p>
+      </form>
+    </section>
+  </div>
+</div>

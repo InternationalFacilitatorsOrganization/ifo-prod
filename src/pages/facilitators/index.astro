@@ -1,0 +1,116 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import FacilitatorCard from "../../components/FacilitatorCard.astro";
+import { db, Facilitators } from "astro:db";
+
+import { FacilitatorGrid } from "../../components/FacilitatorGrid.tsx";
+
+const facilitators = await db
+  .select()
+  .from(Facilitators)
+  .orderBy(Facilitators.lastName);
+---
+
+<Layout title="Facilitators">
+  <Header />
+  <div class="w-full mx-auto">
+    <div
+      class="pt-38 px-10 pb-18 bg-linear-to-br from-warm-green to-cool-green"
+    >
+      <p class="text-center text-white text-3xl lg:text-5xl manrope-bold">
+        Facilitator Directory
+      </p>
+    </div>
+  </div>
+  <div class="container mx-auto w-full pt-8 pb-0 flex flex-row justify-between">
+    <p class="text-center text-gray-600">
+      There are {facilitators.length} facilitators in the directory.
+    </p>
+
+    <div class="text-right hidden md:block">
+      <div class="flex flex-row space-x-2">
+        <span class="text-gray-400">Display as:</span>
+        <a
+          id="cardToggle"
+          class="mx-4 px-2 rounded-md border-1 text-gray-400 manrope-bold hover:cursor-pointer hover:underline"
+        >
+          Cards
+        </a>
+        <a
+          id="gridToggle"
+          class="px-2 rounded-md text-cool-green hover:cursor-pointer hover:underline"
+        >
+          List
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle grid v card
+    const cardToggle = document.getElementById("cardToggle");
+    const gridToggle = document.getElementById("gridToggle");
+    const cardsContainer = document.getElementById("cardsContainer");
+    const gridContainer = document.getElementById("gridContainer");
+
+    if (cardToggle && cardsContainer && gridToggle && gridContainer) {
+      cardToggle.addEventListener("click", () => {
+        cardsContainer.classList.remove("hidden");
+        gridContainer.classList.add("hidden");
+        gridToggle.classList.remove(
+          "text-gray-400",
+          "manrope-bold",
+          "border-1"
+        );
+        gridToggle.classList.add("text-cool-green");
+        cardToggle.classList.remove("text-cool-green");
+        cardToggle.classList.add("text-gray-400", "manrope-bold", "border-1");
+      });
+      gridToggle.addEventListener("click", () => {
+        cardsContainer.classList.add("hidden");
+        gridContainer.classList.remove("hidden");
+        gridToggle.classList.remove("text-cool-green");
+        gridToggle.classList.add("text-gray-400", "manrope-bold", "border-1");
+        cardToggle.classList.remove(
+          "text-gray-400",
+          "manrope-bold",
+          "border-1"
+        );
+        cardToggle.classList.add("text-cool-green");
+      });
+    }
+  </script>
+
+  <!-- <script>
+  const facilitatorTable = document.getElementById(
+    "facilitator-directory-table"
+  );
+  // add an event listener for each row in the table, and toggle the subrow when the row is clicked
+  const rows = facilitatorTable ? facilitatorTable.querySelectorAll("tr") : [];
+  rows.forEach((row) => {
+    row.addEventListener("click", () => {
+      const subrow = row.nextElementSibling;
+      if (subrow) {
+        subrow.classList.toggle("hidden");
+      }
+    });
+  });
+</script> -->
+
+  <div
+    id="cardsContainer"
+    class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-4 pb-16"
+  >
+    {
+      facilitators.map((facilitator: any) => (
+        <FacilitatorCard facilitator={facilitator} />
+      ))
+    }
+  </div>
+  <div id="gridContainer" class="hidden lg:mx-8 mx-2 pt-8 pb-16">
+    <FacilitatorGrid facilitatorList={facilitators} />
+  </div>
+  <Footer />
+</Layout>
