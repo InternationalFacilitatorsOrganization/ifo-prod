@@ -1,0 +1,100 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FrnLogo from "../assets/frn-logo.png";
+import ContactButton from "../components/utils/ContactButton.html";
+---
+
+<Layout>
+  <Header />
+  <div class="w-full mx-auto">
+    <div
+      class="pt-38 px-10 pb-18 bg-linear-to-br from-warm-green to-cool-green"
+    >
+      <p class="text-center text-white text-3xl lg:text-5xl manrope-bold">
+        Forums
+      </p>
+    </div>
+    <div
+      class="container mx-auto md:px-30 bg-white md:w-3/4 pt-8 manrope-light"
+    >
+      <p class="mb-6 text-xl md:text-3xl text-cool-green solway-medium">
+        What is a Forum?
+      </p>
+      <p class="pb-6">
+        A forum is a public meeting place for open discussion or a medium for
+        exchanging ideas, information, and experiences, usually among experts
+        and often including audience participation. Also referred to as a <span
+          class="bold">Peer Group</span
+        >.
+      </p>
+      <ul class="diamond">
+        <li>Groups of 8 members: monthly meetings for focused discussions.</li>
+        <li>
+          Annual retreats: designed to deepen connections and strengthen
+          relationships.
+        </li>
+        <li>
+          Flexible meeting formats: Some groups meet quarterly in-person, while
+          others meet virtually with annual in-person retreats.
+        </li>
+        <li>
+          Structured meeting process: ensures productive and engaging sessions.
+        </li>
+        <li>
+          Flexible facilitation options: Peer groups can be fully, partially, or
+          self-facilitated.
+        </li>
+      </ul>
+    </div>
+    <div
+      class="container mx-auto md:px-30 bg-white md:w-3/4 py-8 manrope-light"
+    >
+      <p class="mb-6 text-xl md:text-3xl text-cool-green solway-medium">
+        Benefits
+      </p>
+
+      <ul class="diamond">
+        <li>
+          Increased Professional Engagement & Development: Build networks, gain
+          insights, and stay updated on industry trends through active
+          participation.
+          <li>
+            Enhanced Problem Solving & Innovation: Share challenges, brainstorm
+            solutions, and discover new perspectives to foster creativity and
+            growth, especially in crises.
+          </li>
+          <li>
+            Support During Crises: Access a valuable support network for
+            resources, strategies, and best practices to navigate difficult
+            situations and emerge stronger.
+          </li>
+          <li>
+            Reduced Isolation & Burnout: Combat isolation and burnout by
+            connecting with peers for support and advice, boosting mental health
+            and job satisfaction.
+          </li>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="container mx-auto md:px-30 bg-white md:w-3/4 pb-8 manrope-light"
+    >
+      <div class="flex flex-col md:flex-row md:gap-8 content-center">
+        <div
+          class="pt-8 md:p-10 md:pt-5 md: md:pb-20 mx-auto w-full text-center"
+        >
+          <a href="/facilitators" class="no-underline">
+            <button
+              class="rounded-full bg-orange-300 text-orange-800 font-bold p-2 flex-nowrap manrope-bold text-2xl md:text-2xl px-16 md:px-8 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap"
+              >Find a Facilitator
+            </button>
+          </a>
+        </div>
+        <ContactButton />
+      </div>
+    </div>
+    <Footer />
+  </div>
+</Layout>

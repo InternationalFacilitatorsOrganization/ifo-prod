@@ -5,43 +5,34 @@ import ifoLogo from "../assets/IFO-no-background.jpg";
 <div id="container" class="fixed top-0 z-50 w-full">
   <header class="bg-white shadow-lg/20 top-0 z-50">
     <div
-      class="mx-4 md:mx-10 max-w-1fr grid grid-cols-2 items-center justify-between py-4 px-4"
+      class="mx-0 md:mx-4 lg:mx-10 grid grid-cols-[1fr_auto] items-center justify-between py-4 px-4"
     >
-      <!-- Logo -->
-      <a href="/" class="flex items-center text-primary hover:text-secondary">
-        <img src={ifoLogo.src} width="200" alt="IFO Homepage" />
-      </a>
-
+      <div class="">
+        <!-- Logo -->
+        <a
+          href="/"
+          class="flex items-center text-primary hover:text-secondary shrink"
+        >
+          <img src={ifoLogo.src} width="200" alt="IFO Homepage" />
+        </a>
+      </div>
       <!-- Desktop Navigation (Hidden on smaller screens) -->
-      <nav class="hidden md:block manrope-light justify-items-end">
-        <ul class="flex space-x-8 text-nowrap">
+      <nav class="hidden md:block manrope-light justify-items-end md:ml-6">
+        <ul class="flex space-x-6 text-nowrap flex-wrap">
           <li>
-            <a
-              href="/facilitator-training"
-              class="hover:text-primary transition-colors duration-300"
-              >Get Certified</a
-            >
+            <a href="/facilitator-training">Get Certified</a>
           </li>
           <li>
-            <a
-              href="/facilitators/"
-              class="hover:text-primary transition-colors duration-300"
-              >Facilitator Directory</a
-            >
+            <a href="/facilitators/">Facilitator Directory</a>
           </li>
           <li>
-            <a
-              href="/team"
-              class="hover:text-primary transition-colors duration-300"
-              >Meet the Team</a
-            >
+            <a href="/forums/">Forums</a>
           </li>
           <li>
-            <a
-              href="/contact"
-              class="hover:text-primary transition-colors duration-300"
-              >Contact Us</a
-            >
+            <a href="/team">The Team</a>
+          </li>
+          <li>
+            <a href="/contact">Contact Us</a>
           </li>
         </ul>
       </nav>
@@ -81,7 +72,10 @@ import ifoLogo from "../assets/IFO-no-background.jpg";
           <a href="/facilitators/" class="block py-2">Facilitator Directory</a>
         </li>
         <li>
-          <a href="/team" class="block py-2">Meet the Team</a>
+          <a href="/forums/" class="block py-2">Forums</a>
+        </li>
+        <li>
+          <a href="/team" class="block py-2">The Team</a>
         </li>
         <li>
           <a href="/contact" class="block py-2">Contact Us</a>

@@ -106,9 +106,29 @@ ul.checklist li {
   position: relative;
 }
 ul.checklist li::before {
-  content: "✅ "; /* Use your preferred checkmark emoji */
+  content: "✅ "; 
   position: absolute;
   left: 0;
   top: 0;
   font-size: 1em;
 }
+
+ul.diamond {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1.5em;
+}
+ul.diamond li {
+  padding-bottom: 0.5em;
+  padding-left: 1.75em;
+  position: relative;
+}
+ul.diamond li::before {
+  content: "❇️ "; 
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.9em;
+
+}
+

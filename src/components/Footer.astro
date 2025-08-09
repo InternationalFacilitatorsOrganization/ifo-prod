@@ -6,12 +6,12 @@ import ContactForm from "../components/ContactForm.astro";
 <img src={IFOlogo.src} class="absolute top left w-35 pl-16" />
 
 <div
-  class="bg-gray-900 py-24 px-12 md:px-24 text-sm manrope-light leading-8 border-t-10 border-white"
+  class="bg-gray-800 py-24 px-12 md:px-24 text-sm manrope-light leading-8 border-t-10 border-white max-w-full"
 >
-  <footer
-    class="flex flex-col md:flex-row md:gap-10 md:justify-between mx-auto md:px-33"
+  <div
+    class="flex flex-col md:flex-row md:gap-10 mx-auto md:pl-15 max-w-full flex-wrap"
   >
-    <div class="text-gray-200 pb-8">
+    <div class="text-gray-200 pb-8 md:basis-1/4 md:pr-20">
       <p class="uppercase md:pb-6 manrope-bold text-nowrap">
         international facilitators org
       </p>
@@ -22,7 +22,7 @@ import ContactForm from "../components/ContactForm.astro";
         >
       </p>
     </div>
-    <div class="text-gray-200 pb-8">
+    <div class="text-gray-200 pb-8 md:basis-1/5">
       <p class="uppercase md:pb-6 manrope-bold text-nowrap">site map</p>
 
       <nav class="md:flex-wrap">
@@ -34,12 +34,14 @@ import ContactForm from "../components/ContactForm.astro";
             >Facilitator Training</a
           >
         </p>
-        <!-- <p><a class="hover:text-white" href="join">Join IFO</a></p> -->
-        <p><a class="hover:text-white" href="team">Meet the Team</a></p>
+        <p>
+          <a class="hover:text-white" href="forums">Forums</a>
+        </p>
+        <p><a class="hover:text-white" href="team">The Team</a></p>
         <p><a class="hover:text-white" href="contact">Contact Us</a></p>
       </nav>
     </div>
-    <div class="text-gray-200 pb-8">
+    <div class="text-gray-200 pb-8 md:basis-1/5">
       <p class="uppercase md:pb-6 manrope-bold text-nowrap">connect with ifo</p>
       <a
         href="https://www.facebook.com/profile.php?id=61577188505144&mibextid=ZbWKwL"
@@ -76,8 +78,40 @@ import ContactForm from "../components/ContactForm.astro";
         </a>
       </p>
     </div>
-  </footer>
-  <p class="text-gray-200 text-center pt-8 md:pt-20 md:p-10">
+
+    <div class="text-gray-200 pb-8 md:basis-1/5">
+      <p class="uppercase md:pb-6 manrope-bold text-nowrap">affiliated sites</p>
+      <p>
+        <a
+          href="https://www.forumresourcesnetwork.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Forum Resource Network
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://www.shrm.org/topics-tools/flagships/people-strategy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SHRM Podcast
+        </a>
+        <p>
+          <a
+            href="https://www.mofathelbab.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            MoFathelbab.com
+          </a>
+        </p>
+      </p>
+    </div>
+  </div>
+
+  <p class="text-gray-400 text-center md:pt-12">
     &copy; 2025 International Facilitators Organization, LLC. All rights
     reserved.
   </p>

@@ -1,5 +1,4 @@
 ---
-import ContactButton from "./utils/ContactButton.html";
 import TrainingCourse from "../assets/training-course.avif";
 import GroupTherapy from "../assets/group-therapy.avif";
 import Marketing from "../assets/marketing.jpg";
@@ -41,22 +40,24 @@ import Marketing from "../assets/marketing.jpg";
             </div>
           </a>
           <!-- Card 2 -->
-          <div
-            class="bg-orange-300 rounded-xl shadow-lg/25 overflow-hidden h-full"
-          >
-            <img
-              src={GroupTherapy.src}
-              alt="Image of a seated man talking in a group"
-              class="w-full h-36 object-cover"
-            />
-            <div class="px-3 py-4 md:p-6 text-center text-orange-900">
-              <h3 class="text-3xl solway-medium pb-2">Forums</h3>
-              <p class="solway-light">
-                Connect, support, and grow with a confidential group of peer
-                facilitators for personal and professional benefits.
-              </p>
+          <a href="/forums">
+            <div
+              class="bg-orange-300 rounded-xl shadow-lg/25 overflow-hidden h-full transform transition duration-300 hover:scale-105 hover:shadow-xl/35"
+            >
+              <img
+                src={GroupTherapy.src}
+                alt="Image of a seated man talking in a group"
+                class="w-full h-36 object-cover"
+              />
+              <div class="px-3 py-4 md:p-6 text-center text-orange-900">
+                <h3 class="text-3xl solway-medium pb-2">Forums</h3>
+                <p class="solway-light">
+                  Connect, support, and grow with a confidential group of peer
+                  facilitators for personal and professional benefits.
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
           <!-- Card 3 -->
           <a href="/facilitator-training">
             <div
@@ -90,64 +91,3 @@ import Marketing from "../assets/marketing.jpg";
     </a>
   </div>
 </div>
-
-<!-- <h2 class="text-3xl md:text-4xl text-center mb-8 mt-10 solway-medium">
-  Membership Tiers
-</h2>
-
-<div
-  class="container grid grid-rows-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center bg-white mx-auto md:w-7/10 md:border-3 border-gray-300 rounded-xl place-content-start min-w-fit p-0"
->
-  <div class="space-y-2 text-lg text-center manrope-light">
-    <p
-      class="text-2xl rounded-3xl bg-orange-800 p-2 w-3/4 mx-auto font-bold text-orange-200 my-4"
-    >
-      BRONZE
-    </p>
-    <p class="border-b-1 border-gray-200 pb-2">Forum</p>
-    <p class="border-b-1 border-gray-200 pb-2">Monthly Speaker Series</p>
-    <p class="border-b-1 border-gray-200 pb-2">Quarterly Town Hall</p>
-    <p class="border-b-1 border-gray-200 pb-2">Directory Listing</p>
-    <p class="border-b-1 border-gray-200 text-gray-300 line-through pb-2">
-      Podcast Interview
-    </p>
-    <p class="border-b-1 border-gray-200 text-gray-300 line-through pb-2">
-      Social Media Promotion
-    </p>
-    <p class="border-b-1 border-gray-200 text-gray-300 line-through pb-2">
-      Annual Retreat
-    </p>
-  </div>
-  <div class="mt-8 md:mt-0 space-y-2 text-lg text-center manrope-light">
-    <p
-      class="text-2xl rounded-3xl bg-gray-400 p-2 w-3/4 mx-auto font-bold text-gray-100 my-4"
-    >
-      SILVER
-    </p>
-    <p class="border-b-1 border-gray-200 pb-2">Forum</p>
-    <p class="border-b-1 border-gray-200 pb-2">Monthly Speaker Series</p>
-    <p class="border-b-1 border-gray-200 pb-2">Quarterly Town Hall</p>
-    <p class="border-b-1 border-gray-200 pb-2">Directory Listing</p>
-    <p class="border-b-1 border-gray-200 pb-2">Podcast Interview</p>
-    <p class="border-b-1 border-gray-200 pb-2">Social Media Promotion</p>
-    <p
-      class="border-b-1 border-gray-200 text-md text-gray-300 pb-2 line-through"
-    >
-      Annual Retreat
-    </p>
-  </div>
-  <div class="mt-8 md:mt-0 space-y-2 text-lg text-center manrope-light">
-    <p
-      class="text-2xl rounded-3xl bg-yellow-600 p-2 w-3/4 mx-auto font-bold text-yellow-100 my-4"
-    >
-      GOLD
-    </p>
-    <p class="border-b-1 border-gray-200 pb-2">Forum</p>
-    <p class="border-b-1 border-gray-200 pb-2">Monthly Speaker Series</p>
-    <p class="border-b-1 border-gray-200 pb-2">Quarterly Town Hall</p>
-    <p class="border-b-1 border-gray-200 pb-2">Directory Listing</p>
-    <p class="border-b-1 border-gray-200 pb-2">Podcast Interview</p>
-    <p class="border-b-1 border-gray-200 pb-2">Social Media Promotion</p>
-    <p class="border-b-1 border-gray-200 pb-2">Annual Retreat</p>
-  </div>
-</div> -->
