@@ -276,16 +276,6 @@ export default async function() {
       status: 'Active'
     },
     {
-      id: '16',
-      createdDate: new Date(),
-      updatedDate: new Date(),
-      firstName: 'Brian',
-      lastName: 'Costanzo',
-      email: 'briankcostanzo@gmail.com',
-      areasOfExpertise: 'leadership',
-      status: 'Active'
-    },
-    {
       id: '17',
       createdDate: new Date(),
       updatedDate: new Date(),
@@ -570,17 +560,7 @@ export default async function() {
       timezone: 'EST +8',
       location: 'Taipei'
     },
-    {
-      id: '38',
-      createdDate: new Date(),
-      updatedDate: new Date(),
-      firstName: 'Hillary',
-      lastName: 'Rovario',
-      email: 'hillary@accp.org',
-      languages: 'English',
-      country: 'USA',
-      location: 'Winter Park, FL'
-    },
+    
     {
       id: '39',
       createdDate: new Date(),
@@ -635,17 +615,6 @@ export default async function() {
       languages: 'English',
       country: 'USA',
       location: 'Atlanta, GA'
-    },
-    {
-      id: '44',
-      createdDate: new Date(),
-      updatedDate: new Date(),
-      firstName: 'Ash',
-      lastName: 'Shabudin',
-      email: 'ash.shabudin@gmail.com',
-      languages: 'English',
-      country: 'USA',
-      location: 'Washington, DC'
     },
     {
       id: '45',
