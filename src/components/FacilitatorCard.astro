@@ -1,6 +1,8 @@
 ---
 const { facilitator } = Astro.props;
 const name = `${facilitator.firstName} ${facilitator.lastName}`;
+// if item.lastName contains an apostraphe, strip it out for the photo URL
+const lastNameWithoutApostrophe = facilitator.lastName.replace(/'/g, "");
 ---
 
 <div
@@ -9,7 +11,7 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
   <div
     class="rounded-full border-3 border-white w-24 h-24 mx-auto"
     style={{
-      backgroundImage: `url(/facilitator-photos/${facilitator.firstName}${facilitator.lastName}.jpg)`,
+      backgroundImage: `url(/facilitator-photos/${facilitator.firstName}${lastNameWithoutApostrophe}.jpg)`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       width: "6rem",

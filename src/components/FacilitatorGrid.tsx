@@ -7,10 +7,9 @@ import {
   TableCell,
   getKeyValue,
 } from "@heroui/table";
-import { toggle } from "@heroui/theme";
 
 import React, { useState } from "react";
-import { createRoot } from "react-dom/client";
+
 
 const columns = [
   {
@@ -60,13 +59,16 @@ export const FacilitatorGrid = ({ facilitatorList }: { facilitatorList: any }) =
   
   function RenderCell({ item, columnKey }: any) {
     const value = getKeyValue(item, columnKey);
-    switch (columnKey) {
+      // if item.lastName contains an apostraphe, strip it out for the photo URL
+    const lastNameWithoutApostrophe = item.lastName.replace(/'/g, '');
+
+    switch (columnKey) {      
       case "identity":
         return (
           <div className="flex flex-row items-center">
             <div
               style={{
-                backgroundImage: `url(/facilitator-photos/${item.firstName}${item.lastName}.jpg)`,
+                backgroundImage: `url(/facilitator-photos/${item.firstName}${lastNameWithoutApostrophe}.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 width: "3rem",

@@ -107,7 +107,7 @@ export default async function() {
       email: 'yuval@yeretagility.com',
       languages: 'English, Hebrew',
       country: 'USA',
-      location: 'Boston',
+      location: 'Boston, MA',
       website: 'https://yuvalyeret.com',
       yearsOfExperience: '31',
       areasOfExpertise: 'Organizational Agility, Product Development, Team and Organizational Coaching, Agile Leadership, OKRs, Strategic Alignment, Scaling',
@@ -177,7 +177,7 @@ export default async function() {
       email: 'smcroberts@vaceos.org',
       languages: 'English',
       country: 'USA',
-      location: 'Richmond VA',
+      location: 'Richmond, VA',
       website: 'https://www.vaceos.org',
       yearsOfExperience: '24',
       areasOfExpertise: 'Structure, care and feeding of successful peer roundtables.',
@@ -211,7 +211,7 @@ export default async function() {
       email: 'katijalali@icloud.com',
       languages: 'English, Farsi',
       country: 'USA',
-      location: 'Washington DC',
+      location: 'Washington, DC',
       website: 'https://www.happycinnamon.com',
       yearsOfExperience: '10',
       areasOfExpertise: 'Life & Transition Coaching, Leadership Development, Energy Leadership™ Master Practitioner, Energy Management, Wellness Strategist',
@@ -304,7 +304,7 @@ export default async function() {
       languages: 'English',
       country: 'USA',
       timezone: 'EST',
-      location: 'Charlottesville Virginia',
+      location: 'Charlottesville, VA',
       website: 'https://sightcastingconsulting.com',
       yearsOfExperience: '30',
       areasOfExpertise: 'Assessing personal, team, and organization mission, vision and values. Building high performing teams and culture. Strategic planning. Corporate and team retreats. Constructive feedback tools.',
@@ -359,7 +359,7 @@ export default async function() {
       email: 'tinasung@comcast.net',
       languages: 'English',
       country: 'USA',
-      location: 'Silver Spring MD',
+      location: 'Silver Spring, MD',
       yearsOfExperience: '25',
       areasOfExpertise: 'Skilled Facilitation of Executive Groups; Governance; Non-profit and mid-market company growth strategies.',
       certifications: 'Certified International Facilitators Organization Facilitator; Certified Association Executive (CAE); National Association of Corporate Directors - Certified Director (NACD-DC)',
@@ -377,7 +377,7 @@ export default async function() {
       languages: 'English',
       country: 'USA',
       timezone: 'PST',
-      location: 'San Francisco',
+      location: 'San Francisco, CA',
       website: 'https://www.wensinggroup.com',
       yearsOfExperience: '20',
       areasOfExpertise: 'Training new groups/members; facilitating group meetings; planning and facilitating retreats; developing new peer group programs; facilitating strategic planning retreats for companies',
@@ -429,7 +429,7 @@ export default async function() {
       id: '26',
       createdDate: new Date(),
       updatedDate: new Date(),
-      firstName: 'EricaBeth',
+      firstName: 'Erica',
       lastName: 'Koffler',
       email: 'ericabethkoffler@gmail.com',
       languages: 'English',
@@ -459,7 +459,7 @@ export default async function() {
       email: 'stietzk@gmail.com',
       languages: 'English',
       country: 'USA',
-      location: 'Washington DC'
+      location: 'Washington, DC'
     },
     {
       id: '29',
@@ -469,7 +469,8 @@ export default async function() {
       lastName: 'Lunt',
       email: 'brianlunt@seedlevelstl.com',
       languages: 'English',
-      country: 'USA'
+      country: 'USA',
+      location: 'USA'
     },
     {
       id: '30',
@@ -626,7 +627,66 @@ export default async function() {
       languages: 'English',
       country: 'China',
       location: 'Shanghai'
+    },
+        {
+      id: '46',
+      createdDate: new Date(),
+      updatedDate: new Date(),
+      firstName: 'Steve',
+      lastName: 'Kantor',
+      email: '',
+      languages: 'English',
+      country: 'USA',
+      location: 'Bethesda, MD'
+    },
+        {
+      id: '47',
+      createdDate: new Date(),
+      updatedDate: new Date(),
+      firstName: 'Andro',
+      lastName: 'Donovan',
+      email: '',
+      languages: 'English',
+      country: 'United Kingdom',
+      location: 'United Kingdom'
+    },
+    
+    {
+      id: '48',
+      createdDate: new Date(),
+      updatedDate: new Date(),
+      firstName: 'Ash',
+      lastName: 'Shabudiin',
+      email: '',
+      languages: 'English',
+      country: 'USA',
+      location: 'Washington, DC'
+    },
+        {
+      id: '49',
+      createdDate: new Date(),
+      updatedDate: new Date(),
+      firstName: 'Dawn',
+      lastName: 'O\'Connor',
+      email: '',
+      languages: 'English',
+      country: 'Canada',
+      location: 'Calgary, Alberta'
+    },
+    {
+      id: '50',
+      createdDate: new Date(),
+      updatedDate: new Date(),
+      firstName: 'Deanna',
+      lastName: 'Williams',
+      email: '',
+      languages: 'English',
+      country: 'Canada',
+      location: 'Calgary, Alberta'
     }
+
+
+
   ]);
 }
 
