@@ -470,7 +470,7 @@ export default async function() {
       email: 'brianlunt@seedlevelstl.com',
       languages: 'English',
       country: 'USA',
-      location: 'USA'
+      location: 'St. Louis, MO'
     },
     {
       id: '30',
