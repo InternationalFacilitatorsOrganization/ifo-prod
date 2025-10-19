@@ -20,13 +20,13 @@ const facilitators = await db
       class="pt-38 px-10 pb-18 bg-linear-to-br from-warm-green to-cool-green"
     >
       <p class="text-center text-white text-3xl lg:text-5xl manrope-bold">
-        Facilitator Directory
+        Facilitator Marketplace
       </p>
     </div>
   </div>
   <div class="container mx-auto w-full pt-8 pb-0 flex flex-row justify-between">
     <p class="text-center text-gray-600">
-      There are {facilitators.length} facilitators in the directory.
+      There are {facilitators.length} facilitators in the marketplace.
     </p>
 
     <div class="text-right hidden md:block">
@@ -82,23 +82,6 @@ const facilitators = await db
       });
     }
   </script>
-
-  <!-- <script>
-  const facilitatorTable = document.getElementById(
-    "facilitator-directory-table"
-  );
-  // add an event listener for each row in the table, and toggle the subrow when the row is clicked
-  const rows = facilitatorTable ? facilitatorTable.querySelectorAll("tr") : [];
-  rows.forEach((row) => {
-    row.addEventListener("click", () => {
-      const subrow = row.nextElementSibling;
-      if (subrow) {
-        subrow.classList.toggle("hidden");
-      }
-    });
-  });
-</script> -->
-
   <div
     id="cardsContainer"
     class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-4 pb-16"

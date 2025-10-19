@@ -105,9 +105,9 @@ export const FacilitatorGrid = ({ facilitatorList }: { facilitatorList: any }) =
 
   return (
     <Table 
-    aria-label="Facilitator directory" 
+    aria-label="Facilitator Marketplace" 
     classNames={classNames}
-    id="facilitator-directory-table"
+    id="facilitator-marketplace-table"
     >
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.key} >{column.label}</TableColumn>}
