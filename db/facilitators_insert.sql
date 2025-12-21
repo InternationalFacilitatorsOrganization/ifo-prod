@@ -1,0 +1,139 @@
+-- SQLite INSERT statements for Facilitators table
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('1', datetime('now'), datetime('now'), 'Paul', 'Berman', 'paul@id8strategies.com', 'English, Gestalt', 'USA', NULL, 'Philadelphia or Colorado', 'https://www.id8strategies.com', '19', 'Peer Group & Retreat Facilitation, Business Coaching, and Consulting,', 'IFO', 'Coaching/Consulting from $1000/month, Live Peer Groups $1500-$2500 depending on amount of time, Retreats - customized depending on level of support desired. From complete retreat planning & execution to partial or full facilitation.', 'Most of my programs are customized based on the needs of client / Company, offer complimentary "good fit" call or calls to determine fit and needs.', 'Do not disclose under confidentiality.', 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('2', datetime('now'), datetime('now'), 'Debbie', 'Holcomb', 'debbie.holcomb@gmail.com', 'English', 'USA', 'CST', 'Rockford, Illinois', 'https://Debbieholcomb.com', '20', 'Shadow Work, breath-work , bio-energetic work , communication, gender differences, relationships, conflict/resolutionn', 'Shadow work . Shadow type profiling. Basic facilitator training. Advanced facilitator training. Couples coaching. Group Leadership training', '$3000 per day.', 'Retreats, individual coaching. Family retreats. Personality profiling. Basic Facilitator Training. Advanced Facilitator Training. Forum group leadership.', 'Yes', 'Pending');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('3', datetime('now'), datetime('now'), 'Stephanie', 'Ford', 'sford@warrenwhitney.com', 'English', 'USA', NULL, 'Richmond, VA', 'https://warrenwhitney.com/stephanie-ford/', '25', 'Strategic Planning, Succession Planning, Financing, Marketing, Business Development, Board Governance, Business Strategy', 'IFO Certified Facilitator, Six Sigma Green Belt', 'Fee structure to be determined after review of engagement details including scope, timing, and location.', 'Strategic Planning, Meeting/Group Facilitation, Succession Planning, Executive Coaching, Board Development', 'Virginia Council of CEOs and others upon request.', 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('4', datetime('now'), datetime('now'), 'James', 'Gallagher', 'jgallagher@psasecurity.com', 'English', 'USA', 'CST', 'Westminster, CO', 'https://psasecurity.com/', '3', 'Communication, Relationship Building, Collaboration Solutions, Meeting Facilitation', 'IFO Certified Facilitator', 'TBD', NULL, 'PSA Business Technology, PSA Cybersecurity Committee, PSA Emerging Technology Committee, PSA Finance & Accounting Committee, PSA Leadership Committee, PSA Managed Services Committee,  PSA Marketing Committee, PSA Next Generation Leadership Committee, PSA', 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('5', datetime('now'), datetime('now'), 'Atieno', 'Bird', 'atieno@gmail.com', 'English', 'USA', NULL, 'Crozet, VA', 'https://atienobird.com', '30', 'Morale; Engagement; Retention; Inclusion Culture and Psychological Safety; Team Cohesion; Fluid Collaboration; Mission Alignment, and Leadership Development', 'Certified Psychodramatist (CP); Coaches Training Institute Certified Coach (CPCC); International Coaching Federation Certified Coach (PCC); Yoga Instructor per Don and Amba Stapleton (CYI); trained in Appreciative Inquiry with Jane Macgruder Watkins and M', 'Program-dependent', 'Culture and leadership solutions through experiential learning events; curated retreats; peer exchange group facilitation, and executive coaching.', 'World Bank, NASA, FEMA, GSA, the SBA, Accenture, Adventist Health, police departments, public service agencies, hospitals, schools, and nonprofits; has coached over 250 private clients.', 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('6', datetime('now'), datetime('now'), 'Yuval', 'Yeret', 'yuval@yeretagility.com', 'English, Hebrew', 'USA', NULL, 'Boston, MA', 'https://yuvalyeret.com', '31', 'Organizational Agility, Product Development, Team and Organizational Coaching, Agile Leadership, OKRs, Strategic Alignment, Scaling', 'SAFe SPCT, SAFe Fellow, Professional Scrum Trainer', NULL, '', 'Biogen, BioMarin, Dyno Therapeutics, P&G, Gillette, CME Group, M:M Bio', 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('7', datetime('now'), datetime('now'), 'Jessie', 'Spressart', 'jessie@optiaconsulting.com', 'English', 'USA', NULL, 'Miami, FL', 'https://www.optiaconsulting.com', '20', 'Management & Leadership, Mental Health & Well-being, Coaching, Mindfulness', 'International Coach Federation (ACC), Mental Health First Aid Instructor, MBTI, DISC, Hogan Leadership, ACE Certified Coach', 'Dependent on program', 'Dependent on needs', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('8', datetime('now'), datetime('now'), 'Len', 'Siegal', 'lensiegal@gmail.com', 'English', 'USA', NULL, 'Travels from Chicago', 'https://siegalstrategies.com/', '20', 'Strategic Planning, Conflict resolution, facilitating, moderating, coaching', 'International Facilitators Organization', 'Per project', 'Available for coaching, planning, conflict resolution, facilitating, moderating', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('9', datetime('now'), datetime('now'), 'David', 'Ingram', 'David.Ingram@eosworldwide.com', 'English', 'USA', 'EST', 'Virginia', 'https://www.eosworldwide.com/david-ingram', NULL, 'Forum Facilitation, SBOs, Recruiting and Hiring', NULL, NULL, NULL, 'tbd', 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('10', datetime('now'), datetime('now'), 'Scot', 'McRoberts', 'smcroberts@vaceos.org', 'English', 'USA', NULL, 'Richmond, VA', 'https://www.vaceos.org', '24', 'Structure, care and feeding of successful peer roundtables.', 'MPA, IOM', 'Negotiable', 'Consulting for peer roundtable programs. Ad-hoc roundtables for meetings or conferences.', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('11', datetime('now'), datetime('now'), 'Christina', 'Chesseri', 'Cmchesseri@gmail.com', 'English', 'USA', NULL, 'New Jersey', NULL, NULL, 'Relationship Building and Meeting Facilitation', 'IFO Certified Facilitator', 'TBD', 'Peer group training and facilitation.', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('12', datetime('now'), datetime('now'), 'Kati', 'Jalali', 'katijalali@icloud.com', 'English, Farsi', 'USA', NULL, 'Washington, DC', 'https://www.happycinnamon.com', '10', 'Life & Transition Coaching, Leadership Development, Energy Leadership™ Master Practitioner, Energy Management, Wellness Strategist', 'MBA, Professional Coach, Energy Leadership™ Master Practitioner, Resilience Coach, Holistic Health Coach, Yoga Instructor, Six Sigma Process Excellence Black Belt', 'Customized based on client needs and service.  Ten one-on-one 60-minute coaching sessions starting at $2450', 'Complementary consultation, Individual and group coaching sessions, Energy Leadership Index Assessment and debrief session, Customized sessions based on client needs, Workshops', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('13', datetime('now'), datetime('now'), 'Nancy', 'Koleda', 'nancypkoleda@yahoo.com', 'Dutch, English', 'Netherlands', 'CET', 'Amsterdam', 'https://www.linkedin.com/in/nancy-koleda-2349585/', '25', 'Entrepreneurship, Executive Search, Psychological Safety, Hiring at C-Level, Interviewing, Leadership Development, Peer Group Facilitation', 'IFO Certified Facilitator', 'Fee structure to be determined after review of engagement details including scope, timing, and location.', 'Peer exchange group facilitation/Forum facilitation', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('14', datetime('now'), datetime('now'), 'Roger', 'Lee', 'rogerlee1960@gmail.com', 'Mandarin, English', 'Taiwan', 'EST +8', 'Taipei', NULL, '13', 'Coaching ; Leadership Development; Peer Group Facilitation', 'CFF 2009', '1950', 'To be confirmed', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('15', datetime('now'), datetime('now'), 'Jim', 'Randall', 'jim@autobahnconsultants.com', 'English', 'USA', NULL, 'Cleveland, OH', 'https://www.autobahnconsultants.com', '7', 'Strategic planning, operational consulting, management team diligence, executive coaching, hiring and candidate assessments for lower middle market organizations.', 'IFO Certified Facilitator, MBA', '5,000 - 10,000', 'Strategic planning consulting, management team event facilitation, management team diligence,  executive coaching.', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('17', datetime('now'), datetime('now'), 'Lauren', 'Basler', 'lauren@consciousascent.com', 'English, Spanish', 'USA, Spain', 'CST, CEST', 'Chicago, IL & Barcelona, Spain', 'https://www.consciousascent.com', '3', 'Team Facilitation and NLP Somatic Coaching', 'SpiralMethod Facilitator, IFO Facilitator, Currently pursuing ICF Certification', 'Contact Directly', 'Executive Team Forums, Peer Exchange Forums, Strategic Planning Workshops, Leadership Development Workshops, 1:1 Coaching', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('18', datetime('now'), datetime('now'), 'John', 'Haydock', 'john@sightcastingllc.com', 'English', 'USA', 'EST', 'Charlottesville, VA', 'https://sightcastingconsulting.com', '30', 'Assessing personal, team, and organization mission, vision and values. Building high performing teams and culture. Strategic planning. Corporate and team retreats. Constructive feedback tools.', NULL, '$300/hr. $2750/day. $1200 travel day plus expenses.', 'Meeting facilitation, executive coaching, conflict resolution, team building, establishing mission, vision, values.', 'Held leadership roles at Cadbury Schweppes, Burts Bees, Crutchfield, as well as President role at Plow and Hearth. Recent clients include Poppy Flowers, Runnymede, International Global Services, Beverage Tractor, Varnish Lane, Siglar Fishing, Starion Bank', 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('19', datetime('now'), datetime('now'), 'Leah', 'Litman', 'litmanleah@gmail.com', 'English, Spanish', 'USA', 'EST', 'Washington D.C. / New Orleans', NULL, '1', 'Conflict Resolution, Leadership Development, Diversity and Inclusion, Decision Making, Creative Problem Solving, Team Building', 'IFO Certified Facilitator', 'negotiable', 'peer group startup orientation, focus on starting peer groups within youth and college communities', 'younger communities ; startup', 'Pending');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('21', datetime('now'), datetime('now'), 'Jeff', 'Behrens', 'jeff@adviza.com', 'English. French (conversant). A little Spanish.', 'USA', NULL, 'Boston and/or California', 'https://www.adviza.com', '28', 'Biotech, high tech, life sciences. Angel investing. Fundraising. Company sales/exits.', 'IFO. PhD', 'TBD', 'Peer group training and facilitation. CEO coaching. Exit strategy prep and consulting.', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('22', datetime('now'), datetime('now'), 'Tina', 'Sung', 'tinasung@comcast.net', 'English', 'USA', NULL, 'Silver Spring, MD', NULL, '25', 'Skilled Facilitation of Executive Groups; Governance; Non-profit and mid-market company growth strategies.', 'Certified International Facilitators Organization Facilitator; Certified Association Executive (CAE); National Association of Corporate Directors - Certified Director (NACD-DC)', '$5000-$11,000 a day + travel and expenses', 'Skill Facilitation', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('23', datetime('now'), datetime('now'), 'Rob', 'Wensing', 'rob@wensinggroup.com', 'English', 'USA', 'PST', 'San Francisco, CA', 'https://www.wensinggroup.com', '20', 'Training new groups/members; facilitating group meetings; planning and facilitating retreats; developing new peer group programs; facilitating strategic planning retreats for companies', 'MBA - University of Colorado. MS Management and Organization - University of Colorado. Certified Facilitator by International Facilitators Organization.', 'Based on services', 'Training new groups/members; facilitating group meetings; planning and facilitating retreats; developing new peer group programs; facilitating company strategy and business planning  retreats', 'EO and YPO forums/members. Dropbox.', 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('24', datetime('now'), datetime('now'), 'Masha', 'Malka', 'masha@mashamalka.com', 'English and Russian fluent. Spanish spoken', 'Spain, Central European', 'CEST', 'Malaga, Spain or London, UK', 'https://www.mashamalka.com', '22', 'Executive coaching, Change management, Emotional Mastery, Hypnotherapy, Women Empowerment,Motivational Speaking, Team meeting facilitation, Retreat facilitation', 'IFO Certification, The Science of Wellbeing, Accelerated Learning Techniques, NLP, EFT (Emotional Freedom Technique), Change Management, Transformational Thinking', 'My fees are customized based on the clients objective', 'Change Management assessment, strategy and implementation. Year at a Glance Executive Coaching program. Emotional Mastery. Women in Leadership empowerment program.', 'ABN AMRO, ADB (Asian Development Bank), Xalq Bank (Uzbekistan), Shell Bulgaria, Inet Technologies, Mediacom', 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('25', datetime('now'), datetime('now'), 'Ed', 'Johnson', 'ed@craftedcoach.com', 'English', 'USA', 'EST', 'Warrenton, VA (metro DC)', 'https://www.craftedcoach.com', '15', 'Facilitation, Coaching, Leadership/Personal/Professional Development, Motivational Speaking, Peer Learning Groups', 'International Coaching Federation Professional Certified Coach (PCC), Certified Positive Intelligence Mental Fitness Coach & Facilitator, Certified TetraMap® Facilitator, Credentialed in The Harrison Assessment', NULL, 'Positive Intelligence, TetraMap, Board Retreats, Individualized Workshops, Peer Learning Experiences, 1:1 Executive Coaching', NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('26', datetime('now'), datetime('now'), 'Erica', 'Koffler', 'ericabethkoffler@gmail.com', 'English', 'USA', NULL, 'New York City', 'https://ConfidanteClub.com', NULL, 'Retreats, Johari Window', NULL, NULL, NULL, NULL, 'Active');
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('27', datetime('now'), datetime('now'), 'Rachael', 'Mizuno', 'rachael@swanzuno.com', 'English', 'USA', NULL, 'Chicago, IL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('28', datetime('now'), datetime('now'), 'Kimberly', 'Stietz', 'stietzk@gmail.com', 'English', 'USA', NULL, 'Washington, DC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('29', datetime('now'), datetime('now'), 'Brian', 'Lunt', 'brianlunt@seedlevelstl.com', 'English', 'USA', NULL, 'St. Louis, MO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('30', datetime('now'), datetime('now'), 'Angela', 'Momney', 'angela@momneyconsulting.com', 'English', 'USA', NULL, 'Los Angeles, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('31', datetime('now'), datetime('now'), 'Jennifer', 'Boyden', 'jenboyden10@gmail.com', 'English', 'USA', NULL, 'Richmond, VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('32', datetime('now'), datetime('now'), 'Mark', 'Fenner', 'markf@risepg.com', 'English', 'USA', NULL, 'Dallas, TX', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('33', datetime('now'), datetime('now'), 'Shayla', 'Alexander', 'shayla.alexander@shrm.org', 'English', 'USA', NULL, 'Washington DC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('34', datetime('now'), datetime('now'), 'Stacey', 'Lauren', 'stacey@dothethingformula.com', 'English', 'USA', NULL, 'San Diego, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('35', datetime('now'), datetime('now'), 'Lisa', 'Liguori', 'lisa.liguori@gmail.com', 'English', 'USA', NULL, 'San Diego, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('36', datetime('now'), datetime('now'), 'Ipek', 'Utun', 'ipek@ipekutun.com', 'English, Turkish', 'USA', NULL, 'Irvine, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('37', datetime('now'), datetime('now'), 'Hugo', 'Chou', 'hugo@thepartner.com.tw', 'English', 'Taiwan', 'EST +8', 'Taipei', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('39', datetime('now'), datetime('now'), 'Erica', 'Young', 'erica.young@shrm.org', 'English', 'USA', NULL, 'Alexandria, VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('40', datetime('now'), datetime('now'), 'Elisa', 'Garn', 'Elisa.garn@shrm.org', 'English', 'USA', NULL, 'Salt Lake City, UT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('41', datetime('now'), datetime('now'), 'Didrik', 'Etholm', 'didriketholm@gmail.com', 'English', 'USA', NULL, 'Boston, MA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('42', datetime('now'), datetime('now'), 'Anika', 'Dhir', 'anika.dhir@shrm.org', 'English', 'USA', NULL, 'Alexandria, VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('43', datetime('now'), datetime('now'), 'Alexander', 'Pullen', 'alexander.pullen@shrm.org', 'English', 'USA', NULL, 'Atlanta, GA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('45', datetime('now'), datetime('now'), 'Crystal', 'Yang', 'zimouqq@hotmail.com', 'English', 'China', NULL, 'Shanghai', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('46', datetime('now'), datetime('now'), 'Steve', 'Kantor', '', 'English', 'USA', NULL, 'Bethesda, MD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('47', datetime('now'), datetime('now'), 'Andro', 'Donovan', '', 'English', 'United Kingdom', NULL, 'United Kingdom', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('48', datetime('now'), datetime('now'), 'Ash', 'Shabudiin', '', 'English', 'USA', NULL, 'Washington, DC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('49', datetime('now'), datetime('now'), 'Dawn', 'O''Connor', '', 'English', 'Canada', NULL, 'Calgary, Alberta', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
+('50', datetime('now'), datetime('now'), 'Deanna', 'Williams', '', 'English', 'Canada', NULL, 'Calgary, Alberta', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);

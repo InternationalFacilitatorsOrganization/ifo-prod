@@ -3,14 +3,11 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import FacilitatorCard from "../../components/FacilitatorCard.astro";
-import { db, Facilitators } from "astro:db";
+import { getAllFacilitators } from "../../lib/turso";
 
 import { FacilitatorGrid } from "../../components/FacilitatorGrid.tsx";
 
-const facilitators = await db
-  .select()
-  .from(Facilitators)
-  .orderBy(Facilitators.lastName);
+const facilitators = await getAllFacilitators();
 ---
 
 <Layout title="Facilitators">

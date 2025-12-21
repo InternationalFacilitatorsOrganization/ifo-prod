@@ -37,12 +37,25 @@ const lastNameWithoutApostrophe = facilitator.lastName.replace(/'/g, "");
     }
   </p>
 
-  <div class="py-3 text-center w-full border-t-gray-300 border-t-1 mt-4">
+  <div
+    class="flex flex-row items-center p-4 justify-around space-x-4 border-t-gray-300 border-t-1 mt-4"
+  >
+    <a href={`/facilitators/${facilitator.id}`} class="no-underline flex-grow">
+      <button
+        onclick={`document.getElementById('profile-modal-${facilitator.id}').classList.remove('hidden')`}
+        class="rounded-full bg-cool-green text-white font-bold px-2 py-1 md:px-4 manrope-bold text-sm hover:cursor-pointer hover:bg-orange-300 hover:text-orange-800 focus:bg-warm-green focus:text-white"
+        type="button"
+      >
+        Profile
+      </button>
+    </a>
     <a href={`../contact?book-facilitator=${name}`} class="no-underline">
       <button
         class="rounded-full bg-cool-green text-white font-bold px-2 py-1 md:px-4 manrope-bold text-sm hover:cursor-pointer hover:bg-orange-300 hover:text-orange-800 focus:bg-warm-green focus:text-white"
-        >Request Booking</button
+        type="button"
       >
+        Request Booking
+      </button>
     </a>
   </div>
 </div>

@@ -10,7 +10,6 @@ import {
 
 import React, { useState } from "react";
 
-
 const columns = [
   {
     key: "identity",
