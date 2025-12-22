@@ -87,42 +87,41 @@ export const FacilitatorGrid = ({ facilitatorList }: { facilitatorList: any }) =
           return (
             <p className="text-gray-500 text-sm md:text-md w-50">{value}</p>
           )
-      case "actions":
-        const name = `${item.firstName} ${item.lastName}`
-        return (
-          <div className="text-center">
-            <a href={`../contact?book-facilitator=${name}`} className="no-underline">
-              <button
-                className="rounded-full bg-cool-green text-white font-bold px-2 py-1 md:px-4 manrope-bold text-sm  hover:cursor-pointer hover:bg-orange-300 hover:text-orange-800 focus:bg-warm-green focus:text-white text-nowrap">Request Booking</button>
-            </a>
-          </div>
-        );
+      
       default:
         return <p className="text-gray-500 text-sm md:text-md">{value}</p>;
     }
   }
 
-  return (
-    <Table 
-    aria-label="Facilitator Marketplace" 
-    classNames={classNames}
-    id="facilitator-marketplace-table"
-    >
-      <TableHeader columns={columns}>
-        {(column) => <TableColumn key={column.key} >{column.label}</TableColumn>}
-      </TableHeader>
-      <TableBody items={rows} emptyContent={"No facilitators found"} >
-        {(item) => (
-
-          <TableRow key={item.key} id={`row-${item.key}`} className="border-b-1 border-gray-200 hover:bg-gray-50" >
-            {(columnKey) => <TableCell>
-              <RenderCell item={item} columnKey={columnKey} />
-              </TableCell>}
-          </TableRow>
-          
-        )}
-
-      </TableBody>
-    </Table>
-  );
+    return (
+      <Table 
+        aria-label="Facilitator Marketplace" 
+        classNames={classNames}
+        id="facilitator-marketplace-table"
+      >
+        <TableHeader columns={columns}>
+          {(column) => <TableColumn key={column.key} >{column.label}</TableColumn>}
+        </TableHeader>
+        <TableBody items={rows} emptyContent={"No facilitators found"} >
+          {(item) => (
+            <TableRow 
+              key={item.key} 
+              id={`row-${item.key}`} 
+              className="border-b border-gray-200 hover:bg-gray-50 hover:cursor-pointer"
+            >
+              {(columnKey) => (
+                <TableCell>
+                  <a 
+                    href={`/facilitators/${item.key}`}
+                    className="block w-full h-full text-inherit no-underline"
+                  >
+                    <RenderCell item={item} columnKey={columnKey} />
+                  </a>
+                </TableCell>
+              )}
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    );
 };

@@ -73,67 +73,67 @@ INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, ema
 ('26', datetime('now'), datetime('now'), 'Erica', 'Koffler', 'ericabethkoffler@gmail.com', 'English', 'USA', NULL, 'New York City', 'https://ConfidanteClub.com', NULL, 'Retreats, Johari Window', NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('27', datetime('now'), datetime('now'), 'Rachael', 'Mizuno', 'rachael@swanzuno.com', 'English', 'USA', NULL, 'Chicago, IL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('27', datetime('now'), datetime('now'), 'Rachael', 'Mizuno', 'rachael@swanzuno.com', 'English', 'USA', NULL, 'Chicago, IL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('28', datetime('now'), datetime('now'), 'Kimberly', 'Stietz', 'stietzk@gmail.com', 'English', 'USA', NULL, 'Washington, DC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('28', datetime('now'), datetime('now'), 'Kimberly', 'Stietz', 'stietzk@gmail.com', 'English', 'USA', NULL, 'Washington, DC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('29', datetime('now'), datetime('now'), 'Brian', 'Lunt', 'brianlunt@seedlevelstl.com', 'English', 'USA', NULL, 'St. Louis, MO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('29', datetime('now'), datetime('now'), 'Brian', 'Lunt', 'brianlunt@seedlevelstl.com', 'English', 'USA', NULL, 'St. Louis, MO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('30', datetime('now'), datetime('now'), 'Angela', 'Momney', 'angela@momneyconsulting.com', 'English', 'USA', NULL, 'Los Angeles, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('30', datetime('now'), datetime('now'), 'Angela', 'Momney', 'angela@momneyconsulting.com', 'English', 'USA', NULL, 'Los Angeles, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('31', datetime('now'), datetime('now'), 'Jennifer', 'Boyden', 'jenboyden10@gmail.com', 'English', 'USA', NULL, 'Richmond, VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('31', datetime('now'), datetime('now'), 'Jennifer', 'Boyden', 'jenboyden10@gmail.com', 'English', 'USA', NULL, 'Richmond, VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('32', datetime('now'), datetime('now'), 'Mark', 'Fenner', 'markf@risepg.com', 'English', 'USA', NULL, 'Dallas, TX', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('32', datetime('now'), datetime('now'), 'Mark', 'Fenner', 'markf@risepg.com', 'English', 'USA', NULL, 'Dallas, TX', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('33', datetime('now'), datetime('now'), 'Shayla', 'Alexander', 'shayla.alexander@shrm.org', 'English', 'USA', NULL, 'Washington DC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('33', datetime('now'), datetime('now'), 'Shayla', 'Alexander', 'shayla.alexander@shrm.org', 'English', 'USA', NULL, 'Washington DC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('34', datetime('now'), datetime('now'), 'Stacey', 'Lauren', 'stacey@dothethingformula.com', 'English', 'USA', NULL, 'San Diego, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('34', datetime('now'), datetime('now'), 'Stacey', 'Lauren', 'stacey@dothethingformula.com', 'English', 'USA', NULL, 'San Diego, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('35', datetime('now'), datetime('now'), 'Lisa', 'Liguori', 'lisa.liguori@gmail.com', 'English', 'USA', NULL, 'San Diego, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('35', datetime('now'), datetime('now'), 'Lisa', 'Liguori', 'lisa.liguori@gmail.com', 'English', 'USA', NULL, 'San Diego, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('36', datetime('now'), datetime('now'), 'Ipek', 'Utun', 'ipek@ipekutun.com', 'English, Turkish', 'USA', NULL, 'Irvine, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('36', datetime('now'), datetime('now'), 'Ipek', 'Utun', 'ipek@ipekutun.com', 'English, Turkish', 'USA', NULL, 'Irvine, CA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('37', datetime('now'), datetime('now'), 'Hugo', 'Chou', 'hugo@thepartner.com.tw', 'English', 'Taiwan', 'EST +8', 'Taipei', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('37', datetime('now'), datetime('now'), 'Hugo', 'Chou', 'hugo@thepartner.com.tw', 'English', 'Taiwan', 'EST +8', 'Taipei', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('39', datetime('now'), datetime('now'), 'Erica', 'Young', 'erica.young@shrm.org', 'English', 'USA', NULL, 'Alexandria, VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('39', datetime('now'), datetime('now'), 'Erica', 'Young', 'erica.young@shrm.org', 'English', 'USA', NULL, 'Alexandria, VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('40', datetime('now'), datetime('now'), 'Elisa', 'Garn', 'Elisa.garn@shrm.org', 'English', 'USA', NULL, 'Salt Lake City, UT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('40', datetime('now'), datetime('now'), 'Elisa', 'Garn', 'Elisa.garn@shrm.org', 'English', 'USA', NULL, 'Salt Lake City, UT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('41', datetime('now'), datetime('now'), 'Didrik', 'Etholm', 'didriketholm@gmail.com', 'English', 'USA', NULL, 'Boston, MA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('41', datetime('now'), datetime('now'), 'Didrik', 'Etholm', 'didriketholm@gmail.com', 'English', 'USA', NULL, 'Boston, MA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('42', datetime('now'), datetime('now'), 'Anika', 'Dhir', 'anika.dhir@shrm.org', 'English', 'USA', NULL, 'Alexandria, VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('42', datetime('now'), datetime('now'), 'Anika', 'Dhir', 'anika.dhir@shrm.org', 'English', 'USA', NULL, 'Alexandria, VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('43', datetime('now'), datetime('now'), 'Alexander', 'Pullen', 'alexander.pullen@shrm.org', 'English', 'USA', NULL, 'Atlanta, GA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('43', datetime('now'), datetime('now'), 'Alexander', 'Pullen', 'alexander.pullen@shrm.org', 'English', 'USA', NULL, 'Atlanta, GA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('45', datetime('now'), datetime('now'), 'Crystal', 'Yang', 'zimouqq@hotmail.com', 'English', 'China', NULL, 'Shanghai', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('45', datetime('now'), datetime('now'), 'Crystal', 'Yang', 'zimouqq@hotmail.com', 'English', 'China', NULL, 'Shanghai', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('46', datetime('now'), datetime('now'), 'Steve', 'Kantor', '', 'English', 'USA', NULL, 'Bethesda, MD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('46', datetime('now'), datetime('now'), 'Steve', 'Kantor', '', 'English', 'USA', NULL, 'Bethesda, MD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('47', datetime('now'), datetime('now'), 'Andro', 'Donovan', '', 'English', 'United Kingdom', NULL, 'United Kingdom', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('47', datetime('now'), datetime('now'), 'Andro', 'Donovan', '', 'English', 'United Kingdom', NULL, 'United Kingdom', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('48', datetime('now'), datetime('now'), 'Ash', 'Shabudiin', '', 'English', 'USA', NULL, 'Washington, DC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('48', datetime('now'), datetime('now'), 'Ash', 'Shabudiin', '', 'English', 'USA', NULL, 'Washington, DC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('49', datetime('now'), datetime('now'), 'Dawn', 'O''Connor', '', 'English', 'Canada', NULL, 'Calgary, Alberta', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('49', datetime('now'), datetime('now'), 'Dawn', 'O''Connor', '', 'English', 'Canada', NULL, 'Calgary, Alberta', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');
 
 INSERT INTO Facilitators (id, createdDate, updatedDate, firstName, lastName, email, languages, country, timezone, location, website, yearsOfExperience, areasOfExpertise, certifications, fees, programOffered, clientList, status) VALUES
-('50', datetime('now'), datetime('now'), 'Deanna', 'Williams', '', 'English', 'Canada', NULL, 'Calgary, Alberta', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('50', datetime('now'), datetime('now'), 'Deanna', 'Williams', '', 'English', 'Canada', NULL, 'Calgary, Alberta', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active');

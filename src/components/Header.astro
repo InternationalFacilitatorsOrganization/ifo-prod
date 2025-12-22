@@ -1,5 +1,11 @@
 ---
 import ifoLogo from "../assets/IFO-no-background.jpg";
+import {
+  SignedIn,
+  SignedOut,
+  UserButton,
+  SignInButton,
+} from "@clerk/astro/components";
 ---
 
 <div id="container" class="fixed top-0 z-50 w-full">
@@ -34,80 +40,95 @@ import ifoLogo from "../assets/IFO-no-background.jpg";
           <li>
             <a href="/contact">Contact Us</a>
           </li>
+          <li>
+            <SignedOut>
+              <SignInButton mode="modal"> Sign In </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: "w-8 h-8",
+                  },
+                }}
+              />
+            </SignedIn>
+          </li>
         </ul>
+
+        <!-- Mobile Menu Button (Hidden on larger screens) -->
+        <div class="md:hidden text-right">
+          <button
+            id="menu-toggle"
+            class="text-gray-800 hover:text-primary focus:outline-none transition-colors duration-300"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
       </nav>
 
-      <!-- Mobile Menu Button (Hidden on larger screens) -->
-      <div class="md:hidden text-right">
-        <button
-          id="menu-toggle"
-          class="text-gray-800 hover:text-primary focus:outline-none transition-colors duration-300"
-        >
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-        </button>
-      </div>
+      <!-- Mobile Menu (Hidden by default) -->
+      <nav
+        id="mobile-menu"
+        class="hidden md:hidden bg-gray-100 border-t border-gray-300 text-cool-green transition-height duration-300 ease-in-out manrope-light mt-3 py-3 text-right"
+      >
+        <ul class="px-4">
+          <li>
+            <a href="/facilitator-training" class="block py-2">Get Certified</a>
+          </li>
+          <li>
+            <a href="/facilitators/" class="block py-2"
+              >Facilitator Marketplace</a
+            >
+          </li>
+          <li>
+            <a href="/forums/" class="block py-2">Forums</a>
+          </li>
+          <li>
+            <a href="/team" class="block py-2">The Team</a>
+          </li>
+          <li>
+            <a href="/contact" class="block py-2">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+    <script>
+      // Toggle mobile menu
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-    <!-- Mobile Menu (Hidden by default) -->
-    <nav
-      id="mobile-menu"
-      class="hidden md:hidden bg-gray-100 border-t border-gray-300 text-cool-green transition-height duration-300 ease-in-out manrope-light mt-3 py-3 text-right"
-    >
-      <ul class="px-4">
-        <li>
-          <a href="/facilitator-training" class="block py-2">Get Certified</a>
-        </li>
-        <li>
-          <a href="/facilitators/" class="block py-2">Facilitator Marketplace</a
-          >
-        </li>
-        <li>
-          <a href="/forums/" class="block py-2">Forums</a>
-        </li>
-        <li>
-          <a href="/team" class="block py-2">The Team</a>
-        </li>
-        <li>
-          <a href="/contact" class="block py-2">Contact Us</a>
-        </li>
-      </ul>
-    </nav>
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          if (!mobileMenu.classList.contains("hidden")) {
+            mobileMenu.style.height = mobileMenu.scrollHeight + "px"; // Set height for transition
+          } else {
+            mobileMenu.style.height = "0";
+          }
+        });
+      }
+    </script>
+
+    <style>
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </header>
-  <script>
-    // Toggle mobile menu
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        if (!mobileMenu.classList.contains("hidden")) {
-          mobileMenu.style.height = mobileMenu.scrollHeight + "px"; // Set height for transition
-        } else {
-          mobileMenu.style.height = "0";
-        }
-      });
-    }
-  </script>
-
-  <style>
-    a {
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
 </div>

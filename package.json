@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
+    "@clerk/astro": "^2.16.10",
+    "@clerk/react": "^5.16.0",
     "@heroui/react": "^2.8.7",
     "@heroui/system": "^2.4.25",
     "@heroui/table": "^2.2.24",

@@ -4,10 +4,11 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import FacilitatorCard from "../../components/FacilitatorCard.astro";
 import { getAllFacilitators } from "../../lib/turso";
-
 import { FacilitatorGrid } from "../../components/FacilitatorGrid.tsx";
 
 const facilitators = await getAllFacilitators();
+const viewParam = Astro.url.searchParams.get("view");
+const isListView = viewParam === "list";
 ---
 
 <Layout title="Facilitators">
@@ -31,13 +32,23 @@ const facilitators = await getAllFacilitators();
         <span class="text-gray-400">Display as:</span>
         <a
           id="cardToggle"
-          class="mx-4 px-2 rounded-md border-1 text-gray-400 manrope-bold hover:cursor-pointer hover:underline"
+          class:list={[
+            "mx-4 px-2 rounded-md",
+            isListView
+              ? "text-cool-green hover:cursor-pointer hover:underline"
+              : "text-gray-400 manrope-bold border-1 cursor-default",
+          ]}
         >
           Cards
         </a>
         <a
           id="gridToggle"
-          class="px-2 rounded-md text-cool-green hover:cursor-pointer hover:underline"
+          class:list={[
+            "px-2 rounded-md",
+            isListView
+              ? "text-gray-400 manrope-bold border-1 cursor-default"
+              : "text-cool-green hover:cursor-pointer hover:underline",
+          ]}
         >
           List
         </a>
@@ -46,6 +57,17 @@ const facilitators = await getAllFacilitators();
   </div>
 
   <script>
+    // Utility function to update URL with view parameter
+    function setViewParam(view: "cards" | "list") {
+      const url = new URL(window.location.href);
+      if (view === "list") {
+        url.searchParams.set("view", "list");
+      } else {
+        url.searchParams.delete("view");
+      }
+      window.history.pushState({}, "", url.toString());
+    }
+
     // Toggle grid v card
     const cardToggle = document.getElementById("cardToggle");
     const gridToggle = document.getElementById("gridToggle");
@@ -54,34 +76,75 @@ const facilitators = await getAllFacilitators();
 
     if (cardToggle && cardsContainer && gridToggle && gridContainer) {
       cardToggle.addEventListener("click", () => {
+        // Don't do anything if already showing cards
+        if (!cardsContainer.classList.contains("hidden")) return;
+
+        setViewParam("cards");
         cardsContainer.classList.remove("hidden");
         gridContainer.classList.add("hidden");
         gridToggle.classList.remove(
           "text-gray-400",
           "manrope-bold",
-          "border-1"
+          "border-1",
+          "cursor-default"
         );
-        gridToggle.classList.add("text-cool-green");
-        cardToggle.classList.remove("text-cool-green");
-        cardToggle.classList.add("text-gray-400", "manrope-bold", "border-1");
+        gridToggle.classList.add(
+          "text-cool-green",
+          "hover:cursor-pointer",
+          "hover:underline"
+        );
+        cardToggle.classList.remove(
+          "text-cool-green",
+          "hover:cursor-pointer",
+          "hover:underline"
+        );
+        cardToggle.classList.add(
+          "text-gray-400",
+          "manrope-bold",
+          "border-1",
+          "cursor-default"
+        );
       });
+
       gridToggle.addEventListener("click", () => {
+        // Don't do anything if already showing list
+        if (!gridContainer.classList.contains("hidden")) return;
+
+        setViewParam("list");
         cardsContainer.classList.add("hidden");
         gridContainer.classList.remove("hidden");
-        gridToggle.classList.remove("text-cool-green");
-        gridToggle.classList.add("text-gray-400", "manrope-bold", "border-1");
+        gridToggle.classList.remove(
+          "text-cool-green",
+          "hover:cursor-pointer",
+          "hover:underline"
+        );
+        gridToggle.classList.add(
+          "text-gray-400",
+          "manrope-bold",
+          "border-1",
+          "cursor-default"
+        );
         cardToggle.classList.remove(
           "text-gray-400",
           "manrope-bold",
-          "border-1"
+          "border-1",
+          "cursor-default"
         );
-        cardToggle.classList.add("text-cool-green");
+        cardToggle.classList.add(
+          "text-cool-green",
+          "hover:cursor-pointer",
+          "hover:underline"
+        );
       });
     }
   </script>
+
   <div
     id="cardsContainer"
-    class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-4 pb-16"
+    class:list={[
+      "container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-4 pb-16",
+      { hidden: isListView },
+    ]}
   >
     {
       facilitators.map((facilitator: any) => (
@@ -89,8 +152,11 @@ const facilitators = await getAllFacilitators();
       ))
     }
   </div>
-  <div id="gridContainer" class="hidden lg:mx-8 mx-2 pt-8 pb-16">
-    <FacilitatorGrid facilitatorList={facilitators} />
+  <div
+    id="gridContainer"
+    class:list={["lg:mx-8 mx-2 pt-8 pb-16", { hidden: !isListView }]}
+  >
+    <FacilitatorGrid facilitatorList={facilitators} client:load />
   </div>
   <Footer />
 </Layout>
