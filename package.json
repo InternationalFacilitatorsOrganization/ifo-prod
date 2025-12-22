@@ -31,6 +31,7 @@
     "yet-another-react-lightbox": "^3.24.0"
   },
   "devDependencies": {
+    "@astrojs/netlify": "^6.6.3",
     "prettier": "^3.6.1",
     "prettier-plugin-tailwindcss": "^0.6.13"
   }
