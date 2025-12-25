@@ -31,7 +31,7 @@ export default function ContactModal({
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap manrope-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white"
+        className="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap manrope-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white solway-bold"
         type="button"
       >
         <i className="icon-mail-alt pr-1"></i>Contact

@@ -12,21 +12,23 @@ const { facilitator } = Astro.props;
 const name = `${facilitator.firstName} ${facilitator.lastName}`;
 ---
 
-<div class="container lg:w-2/3 md:text-lg px-8 pt-8 md:pt-10 text-center">
-  <p class="manrope-bold text-cool-green text-xl" id="bio-view">
+<div
+  class="container lg:w-5/8 md:w-2/3 md:text-lg px-8 pt-8 md:pt-10 text-justify"
+>
+  <p class="solway-light text-cool-green text-xl tracking-tight" id="bio-view">
     {facilitator.bio}
   </p>
 
   <label
     for="bio-edit"
-    class="manrope-bold text-gray-500 text-sm block mt-2 mb-1 hidden"
+    class="solway-light text-gray-500 text-sm block mt-2 mb-1 hidden"
     >Bio:</label
   >
   <textarea
     rows={5}
     id="bio-edit"
     value={facilitator.bio || ""}
-    class="w-full max-w-3xl mx-auto border border-gray-300 rounded px-3 py-2 manrope focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+    class="w-full max-w-3xl mx-auto border border-gray-300 rounded px-3 py-2 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="bio">{facilitator.bio || ""}</textarea
   >
 </div>
@@ -36,10 +38,10 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
 >
   <hr class="col-span-2 border-t border-t-gray-300 my-4" />
 
-  <p class="md:text-right text-gray-500 manrope-bold">Certifications:</p>
+  <p class="md:text-right text-gray-500 solway-bold">Certifications:</p>
   <div
     id="certifications-view"
-    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 manrope"
+    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway"
   >
     {
       facilitator.certifications || (
@@ -51,15 +53,15 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     type="text"
     id="certifications-edit"
     value={facilitator.certifications || ""}
-    class="pl-2 border border-gray-300 rounded px-3 py-1 manrope focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+    class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="certifications"
   />
   <hr class="col-span-2 border-t border-t-gray-300 my-4" />
 
-  <p class="md:text-right text-gray-500 manrope-bold">Experience:</p>
+  <p class="md:text-right text-gray-500 solway-bold">Experience:</p>
   <div
     id="yearsOfExperience-view"
-    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 manrope"
+    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway"
   >
     {
       facilitator.yearsOfExperience ? (
@@ -73,15 +75,15 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     type="text"
     id="yearsOfExperience-edit"
     value={facilitator.yearsOfExperience || ""}
-    class="pl-2 border border-gray-300 rounded px-3 py-1 manrope focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+    class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="yearsOfExperience"
   />
   <hr class="col-span-2 border-t border-t-gray-300 my-4" />
 
-  <p class="md:text-right text-gray-500 manrope-bold">Languages:</p>
+  <p class="md:text-right text-gray-500 solway-bold">Languages:</p>
   <div
     id="languages-view"
-    class="pl-2 md:text-left text-cool-green manrope pb-3 md:pb-0"
+    class="pl-2 md:text-left text-cool-green solway pb-3 md:pb-0"
   >
     {facilitator.languages || <span class="text-gray-500 italic">N/A</span>}
   </div>
@@ -89,15 +91,15 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     type="text"
     id="languages-edit"
     value={facilitator.languages || ""}
-    class="indent-6 md:indent-0 border border-gray-300 rounded px-3 py-1 manrope focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+    class="indent-6 md:indent-0 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="languages"
   />
   <hr class="col-span-2 border-t border-t-gray-300 my-4" />
 
-  <p class="md:text-right text-gray-500 manrope-bold">Location:</p>
+  <p class="md:text-right text-gray-500 solway-bold">Location:</p>
   <div
     id="location-view"
-    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 manrope"
+    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway"
   >
     {facilitator.location || <span class="text-gray-500 italic">N/A</span>}
   </div>
@@ -105,17 +107,17 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     type="text"
     id="location-edit"
     value={facilitator.location || ""}
-    class="pl-2 border border-gray-300 rounded px-3 py-1 manrope focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+    class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="location"
   />
   <hr class="col-span-2 border-t border-t-gray-300 my-4" />
 
-  <p class="md:text-right text-gray-500 manrope-bold text-nowrap">
+  <p class="md:text-right text-gray-500 solway-bold text-nowrap">
     Program(s) Offered:
   </p>
   <div
     id="programOffered-view"
-    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 manrope"
+    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway"
   >
     {
       facilitator.programOffered || facilitator.programsOffered || (
@@ -126,13 +128,13 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
   <textarea
     id="programOffered-edit"
     rows={3}
-    class="pl-2 border border-gray-300 rounded px-3 py-1 manrope focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+    class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="programOffered"
     >{facilitator.programOffered || facilitator.programsOffered || ""}</textarea
   >
   <hr class="col-span-2 border-t border-t-gray-300 my-4" />
 
-  <p class="md:text-right text-gray-500 manrope-bold">&nbsp;</p>
+  <p class="md:text-right text-gray-500 solway-bold">&nbsp;</p>
 
   <div class="pt-8 flex flex-row gap-8" id="contact-section">
     <ContactModal
@@ -145,7 +147,7 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
       {
         facilitator.website && (
           <a href={facilitator.website} class="no-underline" target="_blank">
-            <button class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap manrope-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap">
+            <button class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap solway-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap">
               Website <i class="icon-link-ext" />
             </button>
           </a>
@@ -155,7 +157,7 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
 
     <a href={`../contact?book-facilitator=${name}`} class="no-underline">
       <button
-        class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap manrope-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap"
+        class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap solway-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap"
         type="button"
       >
         Request Booking
@@ -167,13 +169,13 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     class="py-4 flex flex-row gap-2 items-center hidden"
     id="website-edit-container"
   >
-    <label class="text-gray-500 manrope-bold text-nowrap">Website URL:</label>
+    <label class="text-gray-500 solway-bold text-nowrap">Website URL:</label>
     <input
       type="text"
       id="website-edit"
       value={facilitator.website || ""}
       placeholder="https://example.com"
-      class="flex-1 border border-gray-300 rounded px-3 py-1 manrope focus:outline-none focus:ring-2 focus:ring-cool-green"
+      class="flex-1 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green"
       data-field="website"
     />
   </div>
@@ -186,14 +188,14 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
 >
   <button
     id="cancel-button"
-    class="rounded-full px-6 py-2 manrope-bold text-gray-700 hover:bg-gray-100"
+    class="rounded-full px-6 py-2 solway-bold text-gray-700 hover:bg-gray-100"
   >
     Cancel
   </button>
   <button
     id="review-button"
     disabled
-    class="rounded-full bg-cool-green text-white font-bold px-6 py-2 manrope-bold hover:bg-warm-green disabled:bg-gray-300 disabled:cursor-not-allowed"
+    class="rounded-full bg-cool-green text-white font-bold px-6 py-2 solway-bold hover:bg-warm-green disabled:bg-gray-300 disabled:cursor-not-allowed"
   >
     Review Changes
   </button>
@@ -212,13 +214,13 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
       <button
         type="button"
         id="modal-cancel"
-        class="rounded-full px-6 py-2 manrope-bold text-gray-700 hover:bg-gray-100"
+        class="rounded-full px-6 py-2 solway-bold text-gray-700 hover:bg-gray-100"
       >
         Cancel
       </button>
       <button
         id="save-button"
-        class="rounded-full bg-cool-green text-white font-bold px-6 py-2 manrope-bold hover:bg-warm-green disabled:bg-gray-400"
+        class="rounded-full bg-cool-green text-white font-bold px-6 py-2 solway-bold hover:bg-warm-green disabled:bg-gray-400"
       >
         Save Changes
       </button>
@@ -310,7 +312,7 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
       const div = document.createElement("div");
       div.className = "border-b pb-2";
       div.innerHTML = `
-        <p class="text-sm text-gray-500 manrope-bold">${formatFieldName(field)}</p>
+        <p class="text-sm text-gray-500 solway-bold">${formatFieldName(field)}</p>
         <div class="flex gap-2 items-center">
           <span class="text-gray-400 line-through text-sm">${originalData[field] || "N/A"}</span>
           <span class="text-gray-400">→</span>
