@@ -16,12 +16,18 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
   <p class="manrope-bold text-cool-green text-xl" id="bio-view">
     {facilitator.bio}
   </p>
+
+  <label
+    for="bio-edit"
+    class="manrope-bold text-gray-500 text-sm block mt-2 mb-1 hidden"
+    >Bio:</label
+  >
   <textarea
+    rows={5}
     id="bio-edit"
-    rows={3}
     value={facilitator.bio || ""}
-    class="pl-2 border border-gray-300 rounded px-3 py-1 manrope focus:outline-none focus:ring-2 focus:ring-cool-green hidden w-3xl mx-auto"
-    data-field="bio-edit">{facilitator.bio || ""}</textarea
+    class="w-full max-w-3xl mx-auto border border-gray-300 rounded px-3 py-2 manrope focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+    data-field="bio">{facilitator.bio || ""}</textarea
   >
 </div>
 
@@ -263,9 +269,7 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
       const viewEl = document.getElementById(`${field}-view`);
       const editEl = document.getElementById(`${field}-edit`);
       viewEl?.classList.toggle("hidden", editing);
-      if (field !== "website") {
-        editEl?.classList.toggle("hidden", !editing);
-      }
+      editEl?.classList.toggle("hidden", !editing);
     });
   }
 
