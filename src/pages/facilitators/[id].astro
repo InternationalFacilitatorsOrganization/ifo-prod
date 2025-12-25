@@ -3,16 +3,10 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import EditableFacilitatorProfile from "../../components/EditableFacilitatorProfile.astro";
-import { getAllFacilitators, getFacilitatorById } from "../../lib/turso";
-import { Protect } from "@clerk/astro/components";
+import { getFacilitatorById } from "../../lib/turso";
+import { clerkClient } from "@clerk/astro/server";
 
-export async function getStaticPaths() {
-  const facilitators = await getAllFacilitators();
-
-  return facilitators.map((facilitator) => ({
-    params: { id: facilitator.id },
-  }));
-}
+export const prerender = false;
 
 const { id } = Astro.params;
 const f = await getFacilitatorById(id);
@@ -20,6 +14,20 @@ const f = await getFacilitatorById(id);
 if (!f) {
   return Astro.redirect("/404");
 }
+
+const user = await Astro.locals.currentUser();
+
+const orgMemberships = user
+  ? await clerkClient(Astro).users.getOrganizationMembershipList({
+      userId: user.id,
+    })
+  : null;
+const userEmail = user?.emailAddresses?.[0]?.emailAddress;
+const canEdit =
+  user &&
+  (orgMemberships?.data?.some((org) => org.role === "org:admin") ||
+    userEmail === f.email);
+console.log(userEmail, f.email, canEdit);
 ---
 
 <Layout title="Facilitators">
@@ -45,20 +53,24 @@ if (!f) {
             {f.firstName}
             {f.lastName}
           </p>
-          <Protect condition={(has) => has({ role: "org:admin" })}>
-            <button
-              id="edit-button"
-              class="rounded-full bg-white text-cool-green font-bold px-4 py-1 manrope-bold hover:bg-orange-300 hover:text-amber-700 hover:cursor-pointer text-sm"
-            >
-              Edit Profile
-            </button>
-            <button
-              id="cancel-button-header"
-              class="rounded-full bg-white text-gray-700 font-bold px-4 py-1 manrope-bold hover:bg-gray-100 text-sm hidden hover:cursor-pointer"
-            >
-              Cancel
-            </button>
-          </Protect>
+          {
+            canEdit && (
+              <>
+                <button
+                  id="edit-button"
+                  class="rounded-full bg-white text-cool-green font-bold px-4 py-1 manrope-bold hover:bg-orange-300 hover:text-amber-700 hover:cursor-pointer text-sm"
+                >
+                  Edit Profile
+                </button>
+                <button
+                  id="cancel-button-header"
+                  class="rounded-full bg-white text-gray-700 font-bold px-4 py-1 manrope-bold hover:bg-gray-100 text-sm hidden hover:cursor-pointer"
+                >
+                  Cancel
+                </button>
+              </>
+            )
+          }
         </div>
       </div>
     </div>
