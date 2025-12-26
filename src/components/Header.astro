@@ -22,6 +22,7 @@ import {
           <img src={ifoLogo.src} width="200" alt="IFO Homepage" />
         </a>
       </div>
+
       <!-- Desktop Navigation (Hidden on smaller screens) -->
       <nav class="hidden md:block manrope-light justify-items-end md:ml-6">
         <ul class="flex space-x-6 text-nowrap flex-wrap">
@@ -55,55 +56,55 @@ import {
             </SignedIn>
           </li>
         </ul>
+      </nav>
 
-        <!-- Mobile Menu Button (Hidden on larger screens) -->
-        <div class="md:hidden text-right">
-          <button
-            id="menu-toggle"
-            class="text-gray-800 hover:text-primary focus:outline-none transition-colors duration-300"
+      <!-- Mobile Menu Button (Visible only on smaller screens) -->
+      <div class="md:hidden">
+        <button
+          id="menu-toggle"
+          class="text-gray-800 hover:text-primary focus:outline-none transition-colors duration-300"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <svg
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-          </button>
-        </div>
-      </nav>
-
-      <!-- Mobile Menu (Hidden by default) -->
-      <nav
-        id="mobile-menu"
-        class="hidden md:hidden bg-gray-100 border-t border-gray-300 text-cool-green transition-height duration-300 ease-in-out manrope-light mt-3 py-3 text-right"
-      >
-        <ul class="px-4">
-          <li>
-            <a href="/facilitator-training" class="block py-2">Get Certified</a>
-          </li>
-          <li>
-            <a href="/facilitators/" class="block py-2"
-              >Facilitator Marketplace</a
-            >
-          </li>
-          <li>
-            <a href="/forums/" class="block py-2">Forums</a>
-          </li>
-          <li>
-            <a href="/team" class="block py-2">The Team</a>
-          </li>
-          <li>
-            <a href="/contact" class="block py-2">Contact Us</a>
-          </li>
-        </ul>
-      </nav>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
     </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <nav
+      id="mobile-menu"
+      class="hidden md:hidden bg-gray-100 border-t border-gray-300 text-cool-green transition-height duration-300 ease-in-out manrope-light mt-3 py-3 text-right"
+    >
+      <ul class="px-4">
+        <li>
+          <a href="/facilitator-training" class="block py-2">Get Certified</a>
+        </li>
+        <li>
+          <a href="/facilitators/" class="block py-2">Facilitator Marketplace</a
+          >
+        </li>
+        <li>
+          <a href="/forums/" class="block py-2">Forums</a>
+        </li>
+        <li>
+          <a href="/team" class="block py-2">The Team</a>
+        </li>
+        <li>
+          <a href="/contact" class="block py-2">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
     <script>
       // Toggle mobile menu
       const menuToggle = document.getElementById("menu-toggle");
