@@ -29,7 +29,7 @@ export interface Facilitator {
 }
 
 export async function getAllFacilitators(): Promise<Facilitator[]> {
-  const result = await turso.execute("SELECT * FROM Facilitators WHERE status = 'Active' ORDER BY lastName");
+  const result = await turso.execute("SELECT * FROM Facilitators ORDER BY lastName");
   return result.rows as unknown as Facilitator[];
 }
 

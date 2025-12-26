@@ -1,5 +1,12 @@
 ---
-const { facilitator } = Astro.props;
+import type { Facilitator } from "../lib/turso";
+
+interface Props {
+  facilitator: Facilitator;
+  showStatus?: boolean;
+}
+
+const { facilitator, showStatus = false } = Astro.props;
 const name = `${facilitator.firstName} ${facilitator.lastName}`;
 // if item.lastName contains an apostraphe, strip it out for the photo URL
 const lastNameWithoutApostrophe = facilitator.lastName.replace(/'/g, "");
@@ -37,5 +44,21 @@ const lastNameWithoutApostrophe = facilitator.lastName.replace(/'/g, "");
         )
       }
     </p>
+    {
+      showStatus && facilitator.status && (
+        <p class="text-md text-gray-500 mt-1 text-center">
+          Status:{" "}
+          <span
+            class:list={[
+              facilitator.status === "Active"
+                ? "text-green-600"
+                : "text-red-600",
+            ]}
+          >
+            {facilitator.status}
+          </span>
+        </p>
+      )
+    }
   </div>
 </a>

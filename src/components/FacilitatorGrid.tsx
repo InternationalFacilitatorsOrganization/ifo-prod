@@ -34,7 +34,7 @@ const columns = [
   }
 ];
 
-export const FacilitatorGrid = ({ facilitatorList }: { facilitatorList: any }) => {
+export const FacilitatorGrid = ({ facilitatorList, showStatus = false }: { facilitatorList: any, showStatus?: boolean }) => {
 
   const rows = facilitatorList.map((facilitator: any) => ({
     key: facilitator.id,
@@ -44,7 +44,8 @@ export const FacilitatorGrid = ({ facilitatorList }: { facilitatorList: any }) =
     languages: facilitator.languages,
     country: facilitator.country,
     location: facilitator.location,
-    website: facilitator.website
+    website: facilitator.website,
+    status: facilitator.status
   }));
 
   const classNames = React.useMemo(
@@ -64,23 +65,27 @@ export const FacilitatorGrid = ({ facilitatorList }: { facilitatorList: any }) =
     switch (columnKey) {      
       case "identity":
         return (
-          <div className="flex flex-row items-center">
-            <div
-              style={{
-                backgroundImage: `url(/facilitator-photos/${item.firstName}${lastNameWithoutApostrophe}.jpg)`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                width: "3rem",
-                height: "3rem",
-                borderRadius: "0.33rem",
-                marginRight: "0.33rem",
-              }}
-              aria-placeholder="/facilitator-photos/placeholder.jpg"
-            ></div>
-            <div>
-              <p className="text-nowrap text-md lg:text-lg text-cool-green solway-medium">{item.firstName} {item.lastName}</p>
+          <div className="flex flex-col">
+            <div className="flex flex-row items-center">
+              <div
+                style={{
+                  backgroundImage: `url(/facilitator-photos/${item.firstName}${lastNameWithoutApostrophe}.jpg)`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  width: "3rem",
+                  height: "3rem",
+                  borderRadius: "0.33rem",
+                  marginRight: "0.33rem",
+                }}
+                aria-placeholder="/facilitator-photos/placeholder.jpg"
+              ></div>
+              <div>
+                <p className="text-nowrap text-md lg:text-lg text-cool-green solway-medium">{item.firstName} {item.lastName}</p>
+              </div>
             </div>
-              
+            {showStatus && item.status && (
+              <span className="text-xs text-gray-500 mt-1 ml-14">Status: {item.status}</span>
+            )}
           </div>
         );
         case "languages":
