@@ -2,7 +2,6 @@
 // filepath: /Users/finkelscott/dev/ifo-prod/src/components/EditableFacilitatorProfile.astro
 import type { Facilitator } from "../lib/turso";
 import ContactModal from "./ContactModal";
-import { Protect } from "@clerk/astro/components";
 
 interface Props {
   facilitator: Facilitator;
@@ -18,15 +17,15 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
   <p class="solway-light text-cool-green text-xl tracking-tight" id="bio-view">
     {facilitator.bio}
   </p>
-  <div id="bio-edit-container">
-    <label class="solway-light text-gray-500 text-sm block mt-2 mb-1 hidden"
+  <div id="bio-edit-container" class="hidden">
+    <label class="md:text-right text-gray-500 solway-bold text-nowrap"
       >Bio:</label
     >
     <textarea
       rows={5}
       id="bio-edit"
       value={facilitator.bio || ""}
-      class="w-full max-w-3xl mx-auto border border-gray-300 rounded px-3 py-2 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+      class="w-full max-w-3xl mx-auto border border-gray-300 rounded px-3 py-2 solway focus:outline-none focus:ring-2 focus:ring-cool-green"
       data-field="bio">{facilitator.bio || ""}</textarea
     >
   </div>
@@ -37,16 +36,21 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
 >
   <hr class="col-span-2 border-t border-t-gray-300 my-4" />
 
-  <p class="md:text-right text-gray-500 solway-bold">Certifications:</p>
+  <p
+    class="md:text-right text-gray-500 solway-bold"
+    id="certifications-label"
+    class:list={[{ hidden: !facilitator.certifications }]}
+  >
+    Certifications:
+  </p>
   <div
     id="certifications-view"
-    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway"
+    class:list={[
+      "pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway",
+      { hidden: !facilitator.certifications },
+    ]}
   >
-    {
-      facilitator.certifications || (
-        <span class="text-gray-500 italic">N/A</span>
-      )
-    }
+    {facilitator.certifications}
   </div>
   <input
     type="text"
@@ -55,19 +59,30 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="certifications"
   />
-  <hr class="col-span-2 border-t border-t-gray-300 my-4" />
+  <hr
+    class="col-span-2 border-t border-t-gray-300 my-4"
+    id="certifications-hr"
+    class:list={[{ hidden: !facilitator.certifications }]}
+  />
 
-  <p class="md:text-right text-gray-500 solway-bold">Experience:</p>
+  <p
+    class="md:text-right text-gray-500 solway-bold"
+    id="yearsOfExperience-label"
+    class:list={[{ hidden: !facilitator.yearsOfExperience }]}
+  >
+    Experience:
+  </p>
   <div
     id="yearsOfExperience-view"
-    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway"
+    class:list={[
+      "pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway",
+      { hidden: !facilitator.yearsOfExperience },
+    ]}
   >
     {
-      facilitator.yearsOfExperience ? (
-        `${facilitator.yearsOfExperience} years`
-      ) : (
-        <span class="text-gray-500 italic">N/A</span>
-      )
+      facilitator.yearsOfExperience
+        ? `${facilitator.yearsOfExperience} years`
+        : ""
     }
   </div>
   <input
@@ -77,14 +92,27 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="yearsOfExperience"
   />
-  <hr class="col-span-2 border-t border-t-gray-300 my-4" />
+  <hr
+    class="col-span-2 border-t border-t-gray-300 my-4"
+    id="yearsOfExperience-hr"
+    class:list={[{ hidden: !facilitator.yearsOfExperience }]}
+  />
 
-  <p class="md:text-right text-gray-500 solway-bold">Languages:</p>
+  <p
+    class="md:text-right text-gray-500 solway-bold"
+    id="languages-label"
+    class:list={[{ hidden: !facilitator.languages }]}
+  >
+    Languages:
+  </p>
   <div
     id="languages-view"
-    class="pl-2 md:text-left text-cool-green solway pb-3 md:pb-0"
+    class:list={[
+      "pl-2 md:text-left text-cool-green solway pb-3 md:pb-0",
+      { hidden: !facilitator.languages },
+    ]}
   >
-    {facilitator.languages || <span class="text-gray-500 italic">N/A</span>}
+    {facilitator.languages}
   </div>
   <input
     type="text"
@@ -93,14 +121,27 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     class="indent-6 md:indent-0 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="languages"
   />
-  <hr class="col-span-2 border-t border-t-gray-300 my-4" />
+  <hr
+    class="col-span-2 border-t border-t-gray-300 my-4"
+    id="languages-hr"
+    class:list={[{ hidden: !facilitator.languages }]}
+  />
 
-  <p class="md:text-right text-gray-500 solway-bold">Location:</p>
+  <p
+    class="md:text-right text-gray-500 solway-bold"
+    id="location-label"
+    class:list={[{ hidden: !facilitator.location }]}
+  >
+    Location:
+  </p>
   <div
     id="location-view"
-    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway"
+    class:list={[
+      "pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway",
+      { hidden: !facilitator.location },
+    ]}
   >
-    {facilitator.location || <span class="text-gray-500 italic">N/A</span>}
+    {facilitator.location}
   </div>
   <input
     type="text"
@@ -109,20 +150,29 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
     data-field="location"
   />
-  <hr class="col-span-2 border-t border-t-gray-300 my-4" />
+  <hr
+    class="col-span-2 border-t border-t-gray-300 my-4"
+    id="location-hr"
+    class:list={[{ hidden: !facilitator.location }]}
+  />
 
-  <p class="md:text-right text-gray-500 solway-bold text-nowrap">
+  <p
+    class="md:text-right text-gray-500 solway-bold text-nowrap"
+    id="programOffered-label"
+    class:list={[
+      { hidden: !facilitator.programOffered && !facilitator.programsOffered },
+    ]}
+  >
     Program(s) Offered:
   </p>
   <div
     id="programOffered-view"
-    class="pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway"
+    class:list={[
+      "pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway",
+      { hidden: !facilitator.programOffered && !facilitator.programsOffered },
+    ]}
   >
-    {
-      facilitator.programOffered || facilitator.programsOffered || (
-        <span class="text-gray-500 italic">N/A</span>
-      )
-    }
+    {facilitator.programOffered || facilitator.programsOffered}
   </div>
   <textarea
     id="programOffered-edit"
@@ -131,7 +181,13 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     data-field="programOffered"
     >{facilitator.programOffered || facilitator.programsOffered || ""}</textarea
   >
-  <hr class="col-span-2 border-t border-t-gray-300 my-4" />
+  <hr
+    class="col-span-2 border-t border-t-gray-300 my-4"
+    id="programOffered-hr"
+    class:list={[
+      { hidden: !facilitator.programOffered && !facilitator.programsOffered },
+    ]}
+  />
 
   <p class="md:text-right text-gray-500 solway-bold">&nbsp;</p>
 
@@ -181,9 +237,12 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
 
   <div
     id="status-view"
-    class="pl-2 md:text-left text-white pb-3 md:pb-0 solway flex items-center"
+    class:list={[
+      "pl-2 md:text-left text-white pb-3 md:pb-0 solway flex items-center",
+      { hidden: !facilitator.status },
+    ]}
   >
-    {facilitator.status || <span class="text-gray-500 italic">N/A</span>}
+    {facilitator.status}
   </div>
   <div
     id="status-edit-container"
@@ -276,6 +335,7 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     const statusEditContainer = document.getElementById(
       "status-edit-container"
     );
+    const bioEditContainer = document.getElementById("bio-edit-container");
 
     const fields = [
       "certifications",
@@ -297,12 +357,32 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
       contactSection.classList.toggle("hidden", editing);
       websiteEditContainer?.classList.toggle("hidden", !editing);
       statusEditContainer?.classList.toggle("hidden", !editing);
+      bioEditContainer?.classList.toggle("hidden", !editing);
+
+      // Toggle bio view separately since it's not in the grid
+      const bioView = document.getElementById("bio-view");
+      bioView?.classList.toggle("hidden", editing);
 
       fields.forEach((field) => {
         const viewEl = document.getElementById(`${field}-view`);
         const editEl = document.getElementById(`${field}-edit`);
-        viewEl?.classList.toggle("hidden", editing);
-        editEl?.classList.toggle("hidden", !editing);
+        const labelEl = document.getElementById(`${field}-label`);
+        const hrEl = document.getElementById(`${field}-hr`);
+
+        if (editing) {
+          // Show all fields when editing
+          viewEl?.classList.add("hidden");
+          editEl?.classList.remove("hidden");
+          labelEl?.classList.remove("hidden");
+          hrEl?.classList.remove("hidden");
+        } else {
+          // Hide empty fields when not editing
+          const hasValue = originalData[field];
+          viewEl?.classList.toggle("hidden", !hasValue);
+          editEl?.classList.add("hidden");
+          labelEl?.classList.toggle("hidden", !hasValue);
+          hrEl?.classList.toggle("hidden", !hasValue);
+        }
       });
     }
 
@@ -345,9 +425,9 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
         div.innerHTML = `
         <p class="text-sm text-gray-500 solway-bold">${formatFieldName(field)}</p>
         <div class="flex gap-2 items-center">
-          <span class="text-gray-400 line-through text-sm">${originalData[field] || "N/A"}</span>
+          <span class="text-gray-400 line-through text-sm">${originalData[field] || "(empty)"}</span>
           <span class="text-gray-400">→</span>
-          <span class="text-cool-green font-semibold">${newValue || "N/A"}</span>
+          <span class="text-cool-green font-semibold">${newValue || "(empty)"}</span>
         </div>
       `;
         changesList.appendChild(div);

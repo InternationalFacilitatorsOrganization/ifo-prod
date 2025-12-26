@@ -10,31 +10,35 @@ import {
 
 import React, { useState } from "react";
 
-const columns = [
-  {
-    key: "identity",
-    label: "Identity"
-  },
-  {
-    key: "languages",
-    label: "Language(s)",
-  },
-  {
-    key: "location",
-    label: "Location",
-    sortable: true
-  },
-  {
-    key: "country",
-    label: "Country",
-  },
-  {
-    key: "actions",
-    label: "",
-  }
-];
-
 export const FacilitatorGrid = ({ facilitatorList, showStatus = false }: { facilitatorList: any, showStatus?: boolean }) => {
+
+  const columns = [
+    {
+      key: "identity",
+      label: "Identity"
+    },
+    {
+      key: "languages",
+      label: "Language(s)",
+    },
+    {
+      key: "location",
+      label: "Location",
+      sortable: true
+    },
+    {
+      key: "country",
+      label: "Country",
+    },
+    ...(showStatus ? [{
+      key: "status",
+      label: "Status",
+    }] : []),
+    {
+      key: "actions",
+      label: "",
+    }
+  ];
 
   const rows = facilitatorList.map((facilitator: any) => ({
     key: facilitator.id,
@@ -83,15 +87,24 @@ export const FacilitatorGrid = ({ facilitatorList, showStatus = false }: { facil
                 <p className="text-nowrap text-md lg:text-lg text-cool-green solway-medium">{item.firstName} {item.lastName}</p>
               </div>
             </div>
-            {showStatus && item.status && (
-              <span className="text-xs text-gray-500 mt-1 ml-14">Status: {item.status}</span>
-            )}
           </div>
         );
-        case "languages":
-          return (
-            <p className="text-gray-500 text-sm md:text-md w-50">{value}</p>
-          )
+      case "status":
+        return (
+          <span
+            className={
+              item.status === "Active"
+                ? "text-green-600"
+                : "text-red-600"
+            }
+          >
+            {item.status}
+          </span>
+        );
+      case "languages":
+        return (
+          <p className="text-gray-500 text-sm md:text-md w-50">{value}</p>
+        );
       
       default:
         return <p className="text-gray-500 text-sm md:text-md">{value}</p>;
