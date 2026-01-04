@@ -3,14 +3,29 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import FacilitatorCard from "../../components/FacilitatorCard.astro";
-import { db, Facilitators } from "astro:db";
-
+import { getAllFacilitators } from "../../lib/turso";
 import { FacilitatorGrid } from "../../components/FacilitatorGrid.tsx";
+import { clerkClient } from "@clerk/astro/server";
 
-const facilitators = await db
-  .select()
-  .from(Facilitators)
-  .orderBy(Facilitators.lastName);
+export const prerender = false;
+
+const user = await Astro.locals.currentUser();
+const orgMemberships = user
+  ? await clerkClient(Astro).users.getOrganizationMembershipList({
+      userId: user.id,
+    })
+  : null;
+const isAdmin = orgMemberships?.data?.some((org) => org.role === "org:admin");
+
+const allFacilitators = await getAllFacilitators();
+const viewParam = Astro.url.searchParams.get("view");
+const showAllParam = Astro.url.searchParams.get("showAll");
+const isListView = viewParam === "list";
+const showAll = isAdmin && showAllParam === "true";
+
+const facilitators = showAll
+  ? allFacilitators
+  : allFacilitators.filter((f) => f.status === "Active");
 ---
 
 <Layout title="Facilitators">
@@ -29,71 +44,176 @@ const facilitators = await db
       There are {facilitators.length} facilitators in the marketplace.
     </p>
 
-    <div class="text-right hidden md:block">
-      <div class="flex flex-row space-x-2">
-        <span class="text-gray-400">Display as:</span>
-        <a
-          id="cardToggle"
-          class="mx-4 px-2 rounded-md border-1 text-gray-400 manrope-bold hover:cursor-pointer hover:underline"
-        >
-          Cards
-        </a>
-        <a
-          id="gridToggle"
-          class="px-2 rounded-md text-cool-green hover:cursor-pointer hover:underline"
-        >
-          List
-        </a>
+    <div class="flex flex-row items-center gap-4">
+      {
+        isAdmin && (
+          <label class="flex items-center gap-2 text-gray-600 cursor-pointer  lg:mr-30">
+            <input
+              type="checkbox"
+              id="showAllToggle"
+              checked={showAll}
+              class="cursor-pointer"
+            />
+            <span>Show all facilitators (including inactive)</span>
+          </label>
+        )
+      }
+
+      <div class="text-right hidden md:block">
+        <div class="flex flex-row space-x-2">
+          <span class="text-gray-400">Display as:</span>
+          <a
+            id="cardToggle"
+            class:list={[
+              "mx-4 px-2 rounded-md",
+              isListView
+                ? "text-cool-green hover:cursor-pointer hover:underline"
+                : "text-gray-400 manrope-bold border-1 cursor-default",
+            ]}
+          >
+            Cards
+          </a>
+          <a
+            id="gridToggle"
+            class:list={[
+              "px-2 rounded-md",
+              isListView
+                ? "text-gray-400 manrope-bold border-1 cursor-default"
+                : "text-cool-green hover:cursor-pointer hover:underline",
+            ]}
+          >
+            List
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
-  <script>
-    // Toggle grid v card
-    const cardToggle = document.getElementById("cardToggle");
-    const gridToggle = document.getElementById("gridToggle");
-    const cardsContainer = document.getElementById("cardsContainer");
-    const gridContainer = document.getElementById("gridContainer");
+  <script define:vars={{ isAdmin }}>
+    // Wait for DOM to be fully ready
+    document.addEventListener("DOMContentLoaded", () => {
+      // Show all toggle
+      if (isAdmin) {
+        const showAllToggle = document.getElementById("showAllToggle");
+        if (showAllToggle) {
+          showAllToggle.addEventListener("change", () => {
+            const url = new URL(window.location.href);
+            if (showAllToggle.checked) {
+              url.searchParams.set("showAll", "true");
+            } else {
+              url.searchParams.delete("showAll");
+            }
+            window.location.href = url.toString();
+          });
+        }
+      }
 
-    if (cardToggle && cardsContainer && gridToggle && gridContainer) {
-      cardToggle.addEventListener("click", () => {
-        cardsContainer.classList.remove("hidden");
-        gridContainer.classList.add("hidden");
-        gridToggle.classList.remove(
-          "text-gray-400",
-          "manrope-bold",
-          "border-1"
-        );
-        gridToggle.classList.add("text-cool-green");
-        cardToggle.classList.remove("text-cool-green");
-        cardToggle.classList.add("text-gray-400", "manrope-bold", "border-1");
-      });
-      gridToggle.addEventListener("click", () => {
-        cardsContainer.classList.add("hidden");
-        gridContainer.classList.remove("hidden");
-        gridToggle.classList.remove("text-cool-green");
-        gridToggle.classList.add("text-gray-400", "manrope-bold", "border-1");
-        cardToggle.classList.remove(
-          "text-gray-400",
-          "manrope-bold",
-          "border-1"
-        );
-        cardToggle.classList.add("text-cool-green");
-      });
-    }
+      // Toggle grid v card - wait a bit for React component to hydrate
+      setTimeout(() => {
+        const cardToggle = document.getElementById("cardToggle");
+        const gridToggle = document.getElementById("gridToggle");
+        const cardsContainer = document.getElementById("cardsContainer");
+        const gridContainer = document.getElementById("gridContainer");
+
+        if (cardToggle && cardsContainer && gridToggle && gridContainer) {
+          cardToggle.addEventListener("click", () => {
+            // Don't do anything if already showing cards
+            if (!cardsContainer.classList.contains("hidden")) return;
+
+            // Update URL without reload
+            const url = new URL(window.location.href);
+            url.searchParams.delete("view");
+            window.history.pushState({}, "", url.toString());
+
+            // Toggle visibility
+            cardsContainer.classList.remove("hidden");
+            gridContainer.classList.add("hidden");
+            gridToggle.classList.remove(
+              "text-gray-400",
+              "manrope-bold",
+              "border-1",
+              "cursor-default"
+            );
+            gridToggle.classList.add(
+              "text-cool-green",
+              "hover:cursor-pointer",
+              "hover:underline"
+            );
+            cardToggle.classList.remove(
+              "text-cool-green",
+              "hover:cursor-pointer",
+              "hover:underline"
+            );
+            cardToggle.classList.add(
+              "text-gray-400",
+              "manrope-bold",
+              "border-1",
+              "cursor-default"
+            );
+          });
+
+          gridToggle.addEventListener("click", () => {
+            // Don't do anything if already showing list
+            if (!gridContainer.classList.contains("hidden")) return;
+
+            // Update URL without reload
+            const url = new URL(window.location.href);
+            url.searchParams.set("view", "list");
+            window.history.pushState({}, "", url.toString());
+
+            // Toggle visibility
+            cardsContainer.classList.add("hidden");
+            gridContainer.classList.remove("hidden");
+            gridToggle.classList.remove(
+              "text-cool-green",
+              "hover:cursor-pointer",
+              "hover:underline"
+            );
+            gridToggle.classList.add(
+              "text-gray-400",
+              "manrope-bold",
+              "border-1",
+              "cursor-default"
+            );
+            cardToggle.classList.remove(
+              "text-gray-400",
+              "manrope-bold",
+              "border-1",
+              "cursor-default"
+            );
+            cardToggle.classList.add(
+              "text-cool-green",
+              "hover:cursor-pointer",
+              "hover:underline"
+            );
+          });
+        }
+      }, 100);
+    });
   </script>
+
   <div
     id="cardsContainer"
-    class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-4 pb-16"
+    class:list={[
+      "container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-4 pb-16",
+      { hidden: isListView },
+    ]}
   >
     {
       facilitators.map((facilitator: any) => (
-        <FacilitatorCard facilitator={facilitator} />
+        <FacilitatorCard facilitator={facilitator} showStatus={showAll} />
       ))
     }
   </div>
-  <div id="gridContainer" class="hidden lg:mx-8 mx-2 pt-8 pb-16">
-    <FacilitatorGrid facilitatorList={facilitators} />
+  <div
+    id="gridContainer"
+    class:list={["lg:mx-8 mx-2 pt-8 pb-16", { hidden: !isListView }]}
+  >
+    <FacilitatorGrid
+      facilitatorList={facilitators}
+      showStatus={showAll}
+      client:load
+    />
   </div>
   <Footer />
 </Layout>

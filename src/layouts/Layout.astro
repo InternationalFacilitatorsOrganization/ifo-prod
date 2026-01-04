@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import "../styles/fontello.css";
+import HeroUIProvider from "../components/HeroUIProvider.tsx";
 ---
 
 <!doctype html>
@@ -23,6 +24,8 @@ import "../styles/fontello.css";
     <title>International Facilitators Organization</title>
   </head>
   <body>
-    <slot />
+    <HeroUIProvider client:load>
+      <slot />
+    </HeroUIProvider>
   </body>
 </html>

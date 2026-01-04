@@ -1,48 +1,64 @@
 ---
-const { facilitator } = Astro.props;
+import type { Facilitator } from "../lib/turso";
+
+interface Props {
+  facilitator: Facilitator;
+  showStatus?: boolean;
+}
+
+const { facilitator, showStatus = false } = Astro.props;
 const name = `${facilitator.firstName} ${facilitator.lastName}`;
 // if item.lastName contains an apostraphe, strip it out for the photo URL
 const lastNameWithoutApostrophe = facilitator.lastName.replace(/'/g, "");
 ---
 
-<div
-  class="bg-gray-200 rounded-xl shadow-lg/25 duration-300 pt-6 w-5/6 md:w-full mx-auto md:min-w-full"
->
+<a href={`/facilitators/${facilitator.id}`} class="no-underline flex-grow">
   <div
-    class="rounded-full border-3 border-white w-24 h-24 mx-auto"
-    style={{
-      backgroundImage: `url(/facilitator-photos/${facilitator.firstName}${lastNameWithoutApostrophe}.jpg)`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      width: "6rem",
-      height: "6rem",
-      borderRadius: "6rem",
-    }}
+    class="bg-gray-200 rounded-xl shadow-lg/25 duration-300 py-6 w-5/6 md:w-full mx-auto md:min-w-full hover:shadow-xl/30 hover:scale-104 transition-transform"
   >
-  </div>
+    <div
+      class="rounded-full border-3 border-white w-24 h-24 mx-auto"
+      style={{
+        backgroundImage: `url(/facilitator-photos/${facilitator.firstName}${lastNameWithoutApostrophe}.jpg)`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "6rem",
+        height: "6rem",
+        borderRadius: "6rem",
+      }}
+    >
+    </div>
 
-  <p
-    class="text-pretty text-center text-xl md:text-xl lg:text-2xl solway-medium text-cool-green mt-4"
-  >
-    {facilitator.firstName}
-    {facilitator.lastName}
-  </p>
-  <p
-    class="text-sm md:text-md xl:text-lg text-gray-500 text-center text-nowrap manrope-light px-2"
-  >
+    <p
+      class="text-pretty text-center text-xl md:text-xl lg:text-2xl solway-medium text-cool-green mt-4"
+    >
+      {facilitator.firstName}
+      {facilitator.lastName}
+    </p>
+    <p
+      class="text-sm md:text-md xl:text-lg text-gray-500 text-center text-nowrap manrope-light px-2"
+    >
+      {
+        facilitator.location || (
+          <span class="italic text-gray-400 text-sm">location n/a</span>
+        )
+      }
+    </p>
     {
-      facilitator.location || (
-        <span class="italic text-gray-400 text-sm">location n/a</span>
+      showStatus && facilitator.status && (
+        <p class="text-md text-gray-500 mt-1 text-center">
+          Status:{" "}
+          <span
+            class:list={[
+              facilitator.status === "Active"
+                ? "text-green-600"
+                : "text-red-600",
+            ]}
+          >
+            {facilitator.status}
+          </span>
+        </p>
       )
     }
-  </p>
-
-  <div class="py-3 text-center w-full border-t-gray-300 border-t-1 mt-4">
-    <a href={`../contact?book-facilitator=${name}`} class="no-underline">
-      <button
-        class="rounded-full bg-cool-green text-white font-bold px-2 py-1 md:px-4 manrope-bold text-sm hover:cursor-pointer hover:bg-orange-300 hover:text-orange-800 focus:bg-warm-green focus:text-white"
-        >Request Booking</button
-      >
-    </a>
   </div>
-</div>
+</a>

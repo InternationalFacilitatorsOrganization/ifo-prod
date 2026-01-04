@@ -2,109 +2,79 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { db, eq, Facilitators } from "astro:db";
+import EditableFacilitatorProfile from "../../components/EditableFacilitatorProfile.astro";
+import { getFacilitatorById } from "../../lib/turso";
+import { clerkClient } from "@clerk/astro/server";
 
-export async function getStaticPaths() {
-  const facilitators = await db.select().from(Facilitators);
-
-  return facilitators.map((facilitator: any) => ({
-    params: { id: facilitator.id },
-  }));
-}
+export const prerender = false;
 
 const { id } = Astro.params;
-const facilitator = await db
-  .select()
-  .from(Facilitators)
-  .where(eq(Facilitators.id, id));
+const f = await getFacilitatorById(id);
 
-const f = facilitator[0];
+if (!f) {
+  return Astro.redirect("/404");
+}
+
+const user = await Astro.locals.currentUser();
+
+const orgMemberships = user
+  ? await clerkClient(Astro).users.getOrganizationMembershipList({
+      userId: user.id,
+    })
+  : null;
+const userEmail = user?.emailAddresses?.[0]?.emailAddress;
+const canEdit =
+  user &&
+  (orgMemberships?.data?.some((org) => org.role === "org:admin") ||
+    userEmail === f.email);
+console.log(userEmail, f.email, canEdit);
 ---
 
 <Layout title="Facilitators">
   <Header />
   <div class="w-full mx-auto">
     <div
-      class="pt-32 pb-8 mx-auto pl-4 md:pl-18 bg-linear-to-br from-warm-green to-cool-green flex flex-row items-center md:gap-4 gap-2 justify-around"
+      class="pt-22 bg-linear-to-br from-warm-green to-cool-green flex flex-col items-center"
     >
-      <div
-        class="rounded-full border-1 border-cool-green w-24 h-24 md:w-32 md:h-32 mx-auto overflow-hidden"
-      >
-        <img
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficon-library.com%2Fimages%2Fgeneric-user-icon%2Fgeneric-user-icon-3.jpg&f=1&nofb=1&ipt=a3675a5ca7f584ad893f3b23f735c53fcfffdc09ccdfc3103a423a3bdd07770d"
-          alt="Facilitator placeholder image"
-          class="object-cover"
-        />
-      </div>
-      <p class="text-white text-3xl lg:text-5xl solway-bold flex-grow-1">
-        {f.firstName}
-        {f.lastName}
-      </p>
-    </div>
-    <div
-      class="container lg:w-2/3 px-8 py-8 md:py-14 grid grid-cols-1 md:grid-cols-[20%_1fr] md:gap-4 gap-1"
-    >
-      <p class="md:text-right text-gray-500 manrope-light">Certifications:</p>
-      <p
-        class="pl-6 md:pl-0 md:text-left text-cool-green pb-3 md:pb-0 manrope-bold"
-      >
-        {f.certifications || <span class="text-gray-400 italic">N/A</span>}
-      </p>
-      <p class="md:text-right text-gray-500 manrope-light">Experience:</p>
-      <p
-        class="pl-6 md:pl-0 md:text-left text-cool-green pb-3 md:pb-0 manrope-bold"
-      >
-        {
-          f.yearsOfExperience + " years" || (
-            <span class="text-gray-400 italic">N/A</span>
-          )
-        }
-      </p>
-
-      <p class="md:text-right text-gray-500 manrope-light">Languages:</p>
-      <p
-        class="indent-6 md:indent-0 md:text-left text-cool-green manrope-bold pb-3 md:pb-0"
-      >
-        {f.languages || <span class="text-gray-400 italic">N/A</span>}
-      </p>
-
-      <p class="md:text-right text-gray-500 manrope-light">Location:</p>
-      <p
-        class="pl-6 md:pl-0 md:text-left text-cool-green pb-3 md:pb-0 manrope-bold"
-      >
-        {f.location || <span class="text-gray-400 italic">N/A</span>}
-      </p>
-
-      <p class="md:text-right text-gray-500 manrope-light text-nowrap">
-        Program(s) Offered:
-      </p>
-      <p
-        class="pl-6 md:pl-0 md:text-left text-cool-green pb-3 md:pb-0 manrope-bold"
-      >
-        {f.programOffered || <span class="text-gray-400 italic">N/A</span>}
-      </p>
-
-      <p class="md:text-right text-gray-500 manrope-light">&nbsp;</p>
-
-      <div class="pt-8">
-        <a href=`mailto:${f.email}` class="no-underline mr-4">
-          <button
-            class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap manrope-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white"
-            ><i class="icon-mail-alt pr-1"></i>Email</button
-          >
-        </a>
-
-        {
-          f.website && (
-            <a href={f.website} class="no-underline" target="_blank">
-              <button class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap manrope-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap">
-                Website <i class="icon-link-ext" />
-              </button>
-            </a>
-          )
-        }
+      <div class="flex flex-row md:gap-4 gap-2 mx-auto items-center">
+        <div
+          class="max-w-24 max-h-24 md:max-w-64 md:max-h-64 mx-auto overflow-hidden"
+        >
+          <img
+            src={`/facilitator-photos/${f.firstName}${f.lastName.replace(/'/g, "")}.jpg`}
+            alt="Facilitator placeholder image"
+            class="object-cover"
+          />
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 grow"
+        >
+          <p class="text-white text-3xl lg:text-5xl solway-bold">
+            {f.firstName}
+            {f.lastName}
+          </p>
+          {
+            canEdit && (
+              <>
+                <button
+                  id="edit-button"
+                  class="rounded-full bg-white text-cool-green font-bold px-4 py-1 manrope-bold hover:bg-orange-300 hover:text-amber-700 hover:cursor-pointer text-sm"
+                >
+                  Edit Profile
+                </button>
+                <button
+                  id="cancel-button-header"
+                  class="rounded-full bg-white text-gray-700 font-bold px-4 py-1 manrope-bold hover:bg-gray-100 text-sm hidden hover:cursor-pointer"
+                >
+                  Cancel
+                </button>
+              </>
+            )
+          }
+        </div>
       </div>
     </div>
+    <EditableFacilitatorProfile client:load facilitator={f} />
   </div>
   <Footer />
 </Layout>

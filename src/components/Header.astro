@@ -1,5 +1,11 @@
 ---
 import ifoLogo from "../assets/IFO-no-background.jpg";
+import {
+  SignedIn,
+  SignedOut,
+  UserButton,
+  SignInButton,
+} from "@clerk/astro/components";
 ---
 
 <div id="container" class="fixed top-0 z-50 w-full">
@@ -16,6 +22,7 @@ import ifoLogo from "../assets/IFO-no-background.jpg";
           <img src={ifoLogo.src} width="200" alt="IFO Homepage" />
         </a>
       </div>
+
       <!-- Desktop Navigation (Hidden on smaller screens) -->
       <nav class="hidden md:block manrope-light justify-items-end md:ml-6">
         <ul class="flex space-x-6 text-nowrap flex-wrap">
@@ -34,11 +41,25 @@ import ifoLogo from "../assets/IFO-no-background.jpg";
           <li>
             <a href="/contact">Contact Us</a>
           </li>
+          <li>
+            <SignedOut>
+              <SignInButton mode="modal"> Sign In </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: "w-8 h-8",
+                  },
+                }}
+              />
+            </SignedIn>
+          </li>
         </ul>
       </nav>
 
-      <!-- Mobile Menu Button (Hidden on larger screens) -->
-      <div class="md:hidden text-right">
+      <!-- Mobile Menu Button (Visible only on smaller screens) -->
+      <div class="md:hidden">
         <button
           id="menu-toggle"
           class="text-gray-800 hover:text-primary focus:outline-none transition-colors duration-300"
@@ -83,31 +104,32 @@ import ifoLogo from "../assets/IFO-no-background.jpg";
         </li>
       </ul>
     </nav>
+
+    <script>
+      // Toggle mobile menu
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          if (!mobileMenu.classList.contains("hidden")) {
+            mobileMenu.style.height = mobileMenu.scrollHeight + "px"; // Set height for transition
+          } else {
+            mobileMenu.style.height = "0";
+          }
+        });
+      }
+    </script>
+
+    <style>
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </header>
-  <script>
-    // Toggle mobile menu
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        if (!mobileMenu.classList.contains("hidden")) {
-          mobileMenu.style.height = mobileMenu.scrollHeight + "px"; // Set height for transition
-        } else {
-          mobileMenu.style.height = "0";
-        }
-      });
-    }
-  </script>
-
-  <style>
-    a {
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
 </div>
