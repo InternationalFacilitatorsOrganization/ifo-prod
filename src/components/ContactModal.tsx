@@ -34,7 +34,7 @@ export default function ContactModal({
         className="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap manrope-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white solway-bold"
         type="button"
       >
-        <i className="icon-mail-alt pr-1"></i>Contact
+        <i className="icon-mail-alt pr-1 hidden md:inline-block"></i>Contact
       </button>
 
       {isOpen && (

@@ -27,7 +27,6 @@ const canEdit =
   user &&
   (orgMemberships?.data?.some((org) => org.role === "org:admin") ||
     userEmail === f.email);
-console.log(userEmail, f.email, canEdit);
 ---
 
 <Layout title="Facilitators">

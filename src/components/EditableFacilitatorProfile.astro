@@ -11,10 +11,11 @@ const { facilitator } = Astro.props;
 const name = `${facilitator.firstName} ${facilitator.lastName}`;
 ---
 
-<div
-  class="container lg:w-5/8 md:w-2/3 md:text-lg px-8 pt-8 md:pt-10 text-justify"
->
-  <p class="solway-light text-cool-green text-xl tracking-tight" id="bio-view">
+<div class="container lg:w-5/8 md:w-2/3 md:text-lg px-8 pt-8 md:pt-10">
+  <p
+    class="solway-light text-cool-green text-xl tracking-tight md:text-justify"
+    id="bio-view"
+  >
     {facilitator.bio}
   </p>
   <div id="bio-edit-container" class="hidden">
@@ -31,200 +32,231 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
   </div>
 </div>
 
-<div
-  class="container lg:w-2/3 md:text-lg px-8 py-4 grid grid-cols-1 md:grid-cols-[25%_1fr] md:gap-2 gap-1"
->
-  <hr class="col-span-2 border-t border-t-gray-300 my-4" />
+<div class="container lg:w-2/3 md:text-lg px-8 py-4">
+  <hr class="border-t border-t-gray-300 my-4" />
 
-  <p
-    class="md:text-right text-gray-500 solway-bold"
-    id="certifications-label"
-    class:list={[{ hidden: !facilitator.certifications }]}
-  >
-    Certifications:
-  </p>
-  <div
-    id="certifications-view"
-    class:list={[
-      "pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway",
-      { hidden: !facilitator.certifications },
-    ]}
-  >
-    {facilitator.certifications}
+  <div class="flex flex-col md:flex-row md:gap-2 gap-1">
+    <p
+      class="md:text-right text-gray-500 solway-bold md:w-1/4 flex-shrink-0"
+      id="certifications-label"
+      class:list={[{ hidden: !facilitator.certifications }]}
+    >
+      Certifications:
+    </p>
+    <div class="flex-1">
+      <div
+        id="certifications-view"
+        class:list={[
+          "text-cool-green pb-3 md:pb-0 solway",
+          { hidden: !facilitator.certifications },
+        ]}
+      >
+        {facilitator.certifications}
+      </div>
+      <input
+        type="text"
+        id="certifications-edit"
+        value={facilitator.certifications || ""}
+        class="w-full border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+        data-field="certifications"
+      />
+    </div>
   </div>
-  <input
-    type="text"
-    id="certifications-edit"
-    value={facilitator.certifications || ""}
-    class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
-    data-field="certifications"
-  />
   <hr
-    class="col-span-2 border-t border-t-gray-300 my-4"
+    class="border-t border-t-gray-300 my-4"
     id="certifications-hr"
     class:list={[{ hidden: !facilitator.certifications }]}
   />
 
-  <p
-    class="md:text-right text-gray-500 solway-bold"
-    id="yearsOfExperience-label"
-    class:list={[{ hidden: !facilitator.yearsOfExperience }]}
-  >
-    Experience:
-  </p>
-  <div
-    id="yearsOfExperience-view"
-    class:list={[
-      "pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway",
-      { hidden: !facilitator.yearsOfExperience },
-    ]}
-  >
-    {
-      facilitator.yearsOfExperience
-        ? `${facilitator.yearsOfExperience} years`
-        : ""
-    }
+  <div class="flex flex-col md:flex-row md:gap-2 gap-1">
+    <p
+      class="md:text-right text-gray-500 solway-bold md:w-1/4 flex-shrink-0"
+      id="yearsOfExperience-label"
+      class:list={[{ hidden: !facilitator.yearsOfExperience }]}
+    >
+      Experience:
+    </p>
+    <div class="flex-1">
+      <div
+        id="yearsOfExperience-view"
+        class:list={[
+          "text-cool-green pb-3 md:pb-0 solway",
+          { hidden: !facilitator.yearsOfExperience },
+        ]}
+      >
+        {
+          facilitator.yearsOfExperience
+            ? `${facilitator.yearsOfExperience} years`
+            : ""
+        }
+      </div>
+      <input
+        type="text"
+        id="yearsOfExperience-edit"
+        value={facilitator.yearsOfExperience || ""}
+        class="w-full border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+        data-field="yearsOfExperience"
+      />
+    </div>
   </div>
-  <input
-    type="text"
-    id="yearsOfExperience-edit"
-    value={facilitator.yearsOfExperience || ""}
-    class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
-    data-field="yearsOfExperience"
-  />
   <hr
-    class="col-span-2 border-t border-t-gray-300 my-4"
+    class="border-t border-t-gray-300 my-4"
     id="yearsOfExperience-hr"
     class:list={[{ hidden: !facilitator.yearsOfExperience }]}
   />
 
-  <p
-    class="md:text-right text-gray-500 solway-bold"
-    id="languages-label"
-    class:list={[{ hidden: !facilitator.languages }]}
-  >
-    Languages:
-  </p>
-  <div
-    id="languages-view"
-    class:list={[
-      "pl-2 md:text-left text-cool-green solway pb-3 md:pb-0",
-      { hidden: !facilitator.languages },
-    ]}
-  >
-    {facilitator.languages}
+  <div class="flex flex-col md:flex-row md:gap-2 gap-1">
+    <p
+      class="md:text-right text-gray-500 solway-bold md:w-1/4 flex-shrink-0"
+      id="languages-label"
+      class:list={[{ hidden: !facilitator.languages }]}
+    >
+      Languages:
+    </p>
+    <div class="flex-1">
+      <div
+        id="languages-view"
+        class:list={[
+          "text-cool-green solway pb-3 md:pb-0",
+          { hidden: !facilitator.languages },
+        ]}
+      >
+        {facilitator.languages}
+      </div>
+      <input
+        type="text"
+        id="languages-edit"
+        value={facilitator.languages || ""}
+        class="w-full border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+        data-field="languages"
+      />
+    </div>
   </div>
-  <input
-    type="text"
-    id="languages-edit"
-    value={facilitator.languages || ""}
-    class="indent-6 md:indent-0 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
-    data-field="languages"
-  />
   <hr
-    class="col-span-2 border-t border-t-gray-300 my-4"
+    class="border-t border-t-gray-300 my-4"
     id="languages-hr"
     class:list={[{ hidden: !facilitator.languages }]}
   />
 
-  <p
-    class="md:text-right text-gray-500 solway-bold"
-    id="location-label"
-    class:list={[{ hidden: !facilitator.location }]}
-  >
-    Location:
-  </p>
-  <div
-    id="location-view"
-    class:list={[
-      "pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway",
-      { hidden: !facilitator.location },
-    ]}
-  >
-    {facilitator.location}
+  <div class="flex flex-col md:flex-row md:gap-2 gap-1">
+    <p
+      class="md:text-right text-gray-500 solway-bold md:w-1/4 flex-shrink-0"
+      id="location-label"
+      class:list={[{ hidden: !facilitator.location }]}
+    >
+      Location:
+    </p>
+    <div class="flex-1">
+      <div
+        id="location-view"
+        class:list={[
+          "text-cool-green pb-3 md:pb-0 solway",
+          { hidden: !facilitator.location },
+        ]}
+      >
+        {facilitator.location}
+      </div>
+      <input
+        type="text"
+        id="location-edit"
+        value={facilitator.location || ""}
+        class="w-full border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+        data-field="location"
+      />
+    </div>
   </div>
-  <input
-    type="text"
-    id="location-edit"
-    value={facilitator.location || ""}
-    class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
-    data-field="location"
-  />
   <hr
-    class="col-span-2 border-t border-t-gray-300 my-4"
+    class="border-t border-t-gray-300 my-4"
     id="location-hr"
     class:list={[{ hidden: !facilitator.location }]}
   />
 
-  <p
-    class="md:text-right text-gray-500 solway-bold text-nowrap"
-    id="programOffered-label"
-    class:list={[
-      { hidden: !facilitator.programOffered && !facilitator.programsOffered },
-    ]}
-  >
-    Program(s) Offered:
-  </p>
-  <div
-    id="programOffered-view"
-    class:list={[
-      "pl-2 md:text-left text-cool-green pb-3 md:pb-0 solway",
-      { hidden: !facilitator.programOffered && !facilitator.programsOffered },
-    ]}
-  >
-    {facilitator.programOffered || facilitator.programsOffered}
+  <div class="flex flex-col md:flex-row md:gap-2 gap-1">
+    <p
+      class="md:text-right text-gray-500 solway-bold text-nowrap md:w-1/4 shrink-0"
+      id="programOffered-label"
+      class:list={[
+        { hidden: !facilitator.programOffered && !facilitator.programsOffered },
+      ]}
+    >
+      Program(s) Offered:
+    </p>
+    <div class="flex-1">
+      <div
+        id="programOffered-view"
+        class:list={[
+          "text-cool-green pb-3 md:pb-0 solway",
+          {
+            hidden: !facilitator.programOffered && !facilitator.programsOffered,
+          },
+        ]}
+      >
+        {facilitator.programOffered || facilitator.programsOffered}
+      </div>
+      <textarea
+        id="programOffered-edit"
+        rows={3}
+        class="w-full border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
+        data-field="programOffered"
+        >{
+          facilitator.programOffered || facilitator.programsOffered || ""
+        }</textarea
+      >
+    </div>
   </div>
-  <textarea
-    id="programOffered-edit"
-    rows={3}
-    class="pl-2 border border-gray-300 rounded px-3 py-1 solway focus:outline-none focus:ring-2 focus:ring-cool-green hidden"
-    data-field="programOffered"
-    >{facilitator.programOffered || facilitator.programsOffered || ""}</textarea
-  >
   <hr
-    class="col-span-2 border-t border-t-gray-300 my-4"
+    class="border-t border-t-gray-300 my-4"
     id="programOffered-hr"
     class:list={[
       { hidden: !facilitator.programOffered && !facilitator.programsOffered },
     ]}
   />
 
-  <p class="md:text-right text-gray-500 solway-bold">&nbsp;</p>
+  <div class="flex flex-col md:flex-row md:gap-2 gap-1">
+    <p class="md:text-right text-gray-500 solway-bold md:w-1/4 flex-shrink-0">
+      &nbsp;
+    </p>
 
-  <div class="pt-8 flex flex-row gap-8" id="contact-section">
-    <ContactModal
-      facilitatorName={`${facilitator.firstName} ${facilitator.lastName}`}
-      facilitatorEmail={facilitator.email}
-      client:load
-    />
+    <div
+      class="md:pt-8 flex flex-row md:gap-8 gap-4 flex-1"
+      id="contact-section"
+    >
+      <ContactModal
+        facilitatorName={`${facilitator.firstName} ${facilitator.lastName}`}
+        facilitatorEmail={facilitator.email}
+        client:load
+      />
 
-    <div id="website-view">
-      {
-        facilitator.website && (
-          <a href={facilitator.website} class="no-underline" target="_blank">
-            <button class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap solway-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap">
-              Website <i class="icon-link-ext" />
-            </button>
-          </a>
-        )
-      }
+      <div id="website-view">
+        {
+          facilitator.website && (
+            <a href={facilitator.website} class="no-underline" target="_blank">
+              <button class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap solway-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap">
+                Website <i class="icon-link-ext" />
+              </button>
+            </a>
+          )
+        }
+      </div>
+
+      <a href={`../contact?book-facilitator=${name}`} class="no-underline">
+        <button
+          class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap solway-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap"
+          type="button"
+        >
+          Request Booking
+        </button>
+      </a>
     </div>
-
-    <a href={`../contact?book-facilitator=${name}`} class="no-underline">
-      <button
-        class="rounded-full bg-orange-300 text-orange-800 font-bold p-1 flex-nowrap solway-bold text-sm md:text-lg px-2 md:px-3 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green focus:text-white text-nowrap"
-        type="button"
-      >
-        Request Booking
-      </button>
-    </a>
   </div>
 
   <div
-    class="py-4 flex flex-row gap-2 items-center hidden"
+    class="py-4 flex flex-col md:flex-row gap-2 items-start md:items-center hidden"
     id="website-edit-container"
   >
-    <label class="text-gray-500 solway-bold text-nowrap">Website URL:</label>
+    <label class="text-gray-500 solway-bold text-nowrap md:w-1/4 md:text-right"
+      >Website URL:</label
+    >
     <input
       type="text"
       id="website-edit"
@@ -238,7 +270,7 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
   <div
     id="status-view"
     class:list={[
-      "pl-2 md:text-left text-white pb-3 md:pb-0 solway flex items-center",
+      "text-white pb-3 md:pb-0 solway flex items-center",
       { hidden: !facilitator.status },
     ]}
   >
@@ -246,10 +278,11 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
   </div>
   <div
     id="status-edit-container"
-    class="hidden flex flex-row items-center justify-center gap-2 lg:ml-100"
+    class="hidden flex flex-col md:flex-row items-start md:items-center gap-2"
   >
-    <label class="text-gray-500 solway-bold text-nowrap" for="status-edit"
-      >Status:</label
+    <label
+      class="text-gray-500 solway-bold text-nowrap md:w-1/4 md:text-right"
+      for="status-edit">Status:</label
     >
     <select
       id="status-edit"
@@ -265,10 +298,10 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     </select>
   </div>
 
-  <div class="col-span-2 mb-4 text-center" id="edit-section">&nbsp;</div>
+  <div class="mb-4 text-center" id="edit-section">&nbsp;</div>
 
   <div
-    class="col-span-2 mb-4 hidden justify-center gap-4 border-t border-gray-300 pt-8 my=5"
+    class="mb-4 hidden justify-center gap-4 border-t border-gray-300 pt-8 my=5"
     id="action-buttons"
   >
     <button
