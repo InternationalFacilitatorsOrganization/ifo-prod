@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import FacilitatorBadge from "../assets/ifo-certified-facilitator-badge.png";
+import ContactModal from "../components/ContactModal";
 ---
 
 <Layout>
@@ -104,18 +104,31 @@ import FacilitatorBadge from "../assets/ifo-certified-facilitator-badge.png";
       </div>
     </div>
     <div
-      class="lg:hidden flex flex-col md:flex-row text-center md:justify-center pb-6"
+      class="container mx-auto px-4 w-full manrope-light flex justify-center"
     >
-      <a
-        href="https://lp.constantcontactpages.com/ev/reg/mt2sbfz/lp/2f79f9db-95a1-47ef-a02d-37d6835f3663"
-        target="_blank"
-        rel="noopener noreferrer"
+      <p class="mb-6 text-xl text-cool-green">
+        Questions?
+        <ContactModal
+          facilitatorName="Nancy"
+          facilitatorEmail="nancy@internationalfacilitators.org"
+          title="Ask Nancy"
+          client:load
+        />
+      </p>
+      <div
+        class="lg:hidden flex flex-col md:flex-row text-center md:justify-center pb-6"
       >
-        <button
-          class="rounded-full bg-orange-300 text-orange-800 font-bold p-2 flex-nowrap text-lg md:text-xl lg:text-2xl px-8 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green"
-          ">Register Today</button
+        <a
+          href="https://lp.constantcontactpages.com/ev/reg/mt2sbfz/lp/2f79f9db-95a1-47ef-a02d-37d6835f3663"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-      </a>
+          <button
+            class="rounded-full bg-orange-300 text-orange-800 font-bold p-2 flex-nowrap text-lg md:text-xl lg:text-2xl px-8 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green"
+            ">Register Today</button
+          >
+        </a>
+      </div>
     </div>
   </div>
   <Footer />
