@@ -12,9 +12,13 @@ import CigarBarImg from "../assets/ifo-experience/CigarBar.jpg";
 import MoAngelaImg from "../assets/ifo-experience/MoAngela.jpg";
 import CigarBar2Img from "../assets/ifo-experience/CigarBar2.jpg";
 import Img3140 from "../assets/ifo-experience/IMG_3140.jpg";
+import Img2641 from "../assets/ifo-experience/IMG_2641.jpg";
+import Img2644 from "../assets/ifo-experience/IMG_2644.jpg";
 
 
 const photos = [
+  { src: Img2644.src, width: 1210, height: 907, alt: 'A group of three men and three women smiling for a photo in front of a light green faceted background' },
+  { src: Img2641.src, width: 850, height: 1000, alt: 'A group of three men and three women smiling for a photo in front of a purple faceted background' },
   { src: handshakeImg.src, width: 1285, height: 1714, alt: 'Two men shaking hands indoors' },
   { src: Img4145.src, width: 1210, height: 907, alt: 'A selfie of a group of smiling men and women outdoors' },
   { src: Img9609.src, width: 1285, height: 1714, alt: 'A group of smiling men and women posing on indoors stairs' },  

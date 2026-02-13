@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ContactModal from "../components/ContactModal";
+---
+
+<Layout>
+  <Header />
+
+  <div class="pt-38 px-10 pb-18 bg-linear-to-br from-warm-green to-cool-green">
+    <p class="text-center text-white text-3xl lg:text-5xl manrope-bold">
+      March 2026 Training
+    </p>
+  </div>
+
+  <div class="container mx-auto md:px-30 bg-white">
+    <p
+      class="text-center text-pretty text-2xl md:text-3xl lg:text-4xl py-2 mt-6 solway-medium text-cool-green"
+    >
+      Forum Basics & Facilitator Certification
+    </p>
+    <p
+      class="text-center text-lg md:text-xl lg:text-2xl py-2 solway-light text-cool-green"
+    >
+      March 25-27, 2026 • Alexandria, VA
+    </p>
+    <div
+      class="flex flex-col md:flex-row text-center md:justify-center pt-6 gap-6 md:gap-10"
+    >
+      <a
+        href="https://lp.constantcontactpages.com/ev/reg/mt2sbfz/lp/2f79f9db-95a1-47ef-a02d-37d6835f3663"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button
+          class="rounded-full bg-orange-300 text-orange-800 font-bold p-2 flex-nowrap text-lg md:text-xl lg:text-2xl px-8 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green"
+          ">Register Today</button
+        >
+      </a>
+    </div>
+
+    <!-- Two-column layout: 60-40 split on desktop, single column on mobile -->
+    <div class="flex flex-col lg:flex-row gap-6 py-10">
+      <!-- Left column (60%) -->
+      <div
+        class="lg:w-[60%] solway-light lg:border-r-gray-400 lg:border-r-2 pr-6"
+      >
+        <!-- <h2 class="text-2xl font-bold mb-4">Left Column (60%)</h2> -->
+        <p class="pb-4 md:text-xl">
+          This three-day program begins with <strong
+            >Forum (Peer Group) Basics</strong
+          >, an immersive, interactive session introducing the core principles,
+          mindset, protocols, and structure of a forum-a confidential
+          peer-learning environment grounded in vulnerability and experience
+          sharing rather than advice-giving. The following two and a half days
+          focus on Facilitator Certification Program, building on this
+          foundation and expanding facilitation capabilities beyond forum peer
+          groups to a wide range of group and organizational settings.
+        </p>
+        <p class="pb-4">
+          New to Forum? You must complete Forum (Peer Group) Basics before
+          joining IFO's Facilitator Certification Program. Experienced
+          participants (EO, YPO, or other Forum programs) are exempt.
+        </p>
+        <p class="pb-4">
+          MAX PARTICIPATION: To maximize program benefits and replicate a forum
+          environment, registration is limited to 10 participants.
+        </p>
+      </div>
+
+      <!-- Right column (40%) -->
+      <div class="lg:w-[40%]">
+        <h3 class="text-xl font-bold mb-4 text-cool-green">AGENDA</h3>
+        <p class="mb-4">
+          <strong>March 25</strong>
+          <br />
+          8am—5pm: Forum (Peer Group) Basics
+          <br />
+          7:00pm: Dinner & cohort introduction exercises
+        </p>
+        <p class="mb-8">
+          <strong>March 26 & 27</strong>
+          <br />
+          9am—5pm: Facilitator Certification Program Training and Exercises
+        </p>
+        <h3 class="text-xl font-bold mb-4 text-cool-green">REGISTRATION FEE</h3>
+        <p class="mb-4">
+          <ul class="list-disc pl-4">
+            <li>Day 1 Forum Basics: $1,095</li>
+            <li>Days 2-3 Facilitator Certification Program : $2,450</li>
+            <li>
+              Full 3-Day Program (Forum Basics + FCP): $3,545 → <strong
+                >Discounted to $3,145</strong
+              >
+            </li>
+          </ul>
+        </p>
+        <p class="mt-4">
+          Includes training materials and access to IFO Certified Trainer
+          resources | breakfast & lunch days 1 (Forum Basics), 2 & 3 (FCP) and
+          dinner days 1 & 2 (FCP)
+        </p>
+      </div>
+    </div>
+    <div
+      class="container mx-auto px-4 w-full manrope-light flex flex-col-reverse justify-center"
+    >
+      <p
+        class="mb-6 text-xl text-cool-green w-full md:w-full text-center solway-medium"
+      >
+        Questions?
+        <ContactModal
+          facilitatorName="Nancy"
+          facilitatorEmail="nancy@internationalfacilitators.org"
+          title="Ask Nancy"
+          client:load
+        />
+      </p>
+      <div
+        class="lg:hidden flex flex-col md:flex-row text-center md:justify-center pb-6"
+      >
+        <a
+          href="https://lp.constantcontactpages.com/ev/reg/mt2sbfz/lp/2f79f9db-95a1-47ef-a02d-37d6835f3663"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button
+            class="rounded-full bg-orange-300 text-orange-800 font-bold p-2 flex-nowrap text-lg md:text-xl lg:text-2xl px-8 hover:cursor-pointer hover:bg-cool-green hover:text-white focus:bg-warm-green"
+            ">Register Today</button
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Layout>
