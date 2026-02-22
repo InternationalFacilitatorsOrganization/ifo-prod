@@ -1,6 +1,7 @@
 ---
 import ClientList from "../components/ClientList.astro";
 import ContactButton from "./utils/ContactButton.html";
+import TestimonialCarousel from "./TestimonialCarousel.tsx";
 ---
 
 <div class="bg-white w-full">
@@ -31,86 +32,7 @@ import ContactButton from "./utils/ContactButton.html";
     <div
       class="mx-auto manrope-light px-4 w-full md:px-25 lg:px-20 pb-10 lg:max-w-250"
     >
-      <div class="p-10">
-        <h3 class="text-gray-100 text-3xl solway-medium text-center">
-          Testimonials
-        </h3>
-      </div>
-      <div class="flex md:mx-14 text-center justify-center">
-        <span class="text-lime-300 text-9xl font-cursive leading-12"
-          >&quot;</span
-        >
-        <p
-          class="text-white text-xl md:text-3xl font-script text-pretty leading-8"
-        >
-          We had a fantastic experience with International Facilitators
-          Organization. They were professional, flexible, and brought great
-          energy to our Forum Stir Fry. Truly easy to work with from start to
-          finish.
-        </p>
-      </div>
-      <div class="pt-2 md:pt-6 pb-10 md:mx-14 mx-6 text-center">
-        <p class="text-gray-200 text-md text-pretty md:text-xl font-sans">
-          —Åsa Westin, Manager, YPO Dallas Chapter
-        </p>
-      </div>
-      <hr class="border-1 border-gray-400" />
-
-      <div class="flex mt-12 md:mx-14 text-center justify-center">
-        <span class="text-lime-300 text-9xl font-cursive leading-12"
-          >&quot;</span
-        >
-        <p
-          class="text-white text-xl md:text-3xl font-script text-pretty leading-8"
-        >
-          The feedback we received from our members regarding your insight was
-          overwhelmingly positive. Your expertise and experience were truly
-          inspiring, and the generated thought will undoubtedly benefit our
-          members for years to come.
-        </p>
-      </div>
-      <div class="pt-2 md:pt-6 pb-10 md:mx-14 mx-6 text-center">
-        <p class="text-gray-200 text-md text-pretty md:text-xl font-sans">
-          —Omar Issa, Executive Director, TRTCLE Corporation
-        </p>
-      </div>
-      <hr class="border-1 border-gray-400" />
-      <div class="flex mt-12 md:mx-14 text-center justify-center">
-        <span class="text-lime-300 text-9xl font-cursive leading-14"
-          >&quot;</span
-        >
-        <p
-          class="text-white text-xl md:text-3xl font-script text-pretty leading-8"
-        >
-          Thank you for an outstanding facilitation of our retreat. I think we
-          made about 3 years of progress in one day. We are very grateful for
-          your gifts.
-        </p>
-      </div>
-      <div class="pt-2 md:pt-6 pb-10 mx-14 text-center">
-        <p class="text-gray-200 text-md md:text-xl font-sans">
-          —Roy R. Morris, Partner, Dunlap, Bennett, &amp; Ludwig
-        </p>
-      </div>
-
-      <hr class="border-1 border-gray-300" />
-
-      <div class="flex mt-12 md:mx-14 text-center justify-center">
-        <span class="text-lime-200 text-9xl font-cursive leading-14"
-          >&quot;</span
-        >
-        <p
-          class="text-white text-xl md:text-3xl font-script text-pretty leading-8"
-        >
-          Long-term relationships between peers makes the forum experience very
-          special.
-        </p>
-      </div>
-      <div class="pt-2 md:pt-6 pb-10 mx-14 text-center">
-        <p class="text-gray-200 text-md md:text-xl font-sans">
-          —Neil Balter, Founder, California Closets Co.
-        </p>
-      </div>
+      <TestimonialCarousel client:load />
     </div>
   </div>
 </div>
