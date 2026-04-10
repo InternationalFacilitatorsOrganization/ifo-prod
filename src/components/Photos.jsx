@@ -14,9 +14,13 @@ import CigarBar2Img from "../assets/ifo-experience/CigarBar2.jpg";
 import Img3140 from "../assets/ifo-experience/IMG_3140.jpg";
 import Img2641 from "../assets/ifo-experience/IMG_2641.jpg";
 import Img2644 from "../assets/ifo-experience/IMG_2644.jpg";
+import Img3450 from "../assets/ifo-experience/IMG_3450.jpg";
+import Img3458 from "../assets/ifo-experience/IMG_3458.jpg";
 
 
 const photos = [
+  { src: Img3458.src, width: 320, height: 240, alt: 'A group of people smiling for a photo indoors' },
+  { src: Img3450.src, width: 320, height: 240, alt: 'A group of nine smiling people posing outdoors on a balcony' },
   { src: Img2644.src, width: 1210, height: 907, alt: 'A group of three men and three women smiling for a photo in front of a light green faceted background' },
   { src: Img2641.src, width: 850, height: 1000, alt: 'A group of three men and three women smiling for a photo in front of a purple faceted background' },
   { src: handshakeImg.src, width: 1285, height: 1714, alt: 'Two men shaking hands indoors' },
