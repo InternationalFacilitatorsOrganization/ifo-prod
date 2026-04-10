@@ -1,24 +1,39 @@
 import { useEffect, useState } from "react";
 
 export default function SetPhotoURL({ facilitator }: { facilitator: any }) {
-  const [photoUrl, setPhotoUrl] = useState(
-    new URL("/facilitator-photos/placeholder.jpg", import.meta.url).toString()
-  );
+  const placeholderUrl = "/facilitator-photos/placeholder.jpg";
+  const [photoUrl, setPhotoUrl] = useState(placeholderUrl);
 
   useEffect(() => {
     async function fetchPhotoUrl() {
+      // Strip apostrophes from last name to match the static file naming convention
+      const lastNameClean = (facilitator.lastName || "").replace(/'/g, "");
+      const staticUrl = `/facilitator-photos/${facilitator.firstName}${lastNameClean}.jpg`;
+
       try {
-        const url = new URL(
-          `/facilitator-photos/${facilitator.firstName}${facilitator.lastName}.jpg`,
-          import.meta.url
-        ).toString();
-        const response = await fetch(url);
-        if (response.ok) {
-          setPhotoUrl(url);
+        // Try the static file first
+        const staticResponse = await fetch(staticUrl, { method: "HEAD" });
+        if (staticResponse.ok) {
+          setPhotoUrl(staticUrl);
+          return;
         }
-      } catch (error) {
-        // Error handling can be added here
+      } catch {
+        // ignore
       }
+
+      try {
+        // Fall back to DB blob via API
+        const dbUrl = `/api/facilitators/${facilitator.id}/photo`;
+        const dbResponse = await fetch(dbUrl, { method: "HEAD" });
+        if (dbResponse.ok) {
+          setPhotoUrl(dbUrl);
+          return;
+        }
+      } catch {
+        // ignore
+      }
+
+      // Stays on placeholder
     }
 
     fetchPhotoUrl();

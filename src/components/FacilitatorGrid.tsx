@@ -73,16 +73,29 @@ export const FacilitatorGrid = ({ facilitatorList, showStatus = false }: { facil
             <div className="flex flex-row items-center">
               <div
                 style={{
-                  backgroundImage: `url(/facilitator-photos/${item.firstName}${lastNameWithoutApostrophe}.jpg)`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
                   width: "3rem",
                   height: "3rem",
                   borderRadius: "0.33rem",
                   marginRight: "0.33rem",
+                  overflow: "hidden",
                 }}
-                aria-placeholder="/facilitator-photos/placeholder.jpg"
-              ></div>
+              >
+                <img
+                  src={`/facilitator-photos/${item.firstName}${lastNameWithoutApostrophe}.jpg`}
+                  alt={`${item.firstName} ${item.lastName}`}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    const dbUrl = `/api/facilitators/${item.key}/photo`;
+                    const placeholder = `/facilitator-photos/placeholder.jpg`;
+                    if (img.src.includes("/api/facilitators/")) {
+                      img.src = placeholder;
+                    } else {
+                      img.src = dbUrl;
+                    }
+                  }}
+                />
+              </div>
               <div>
                 <p className="text-nowrap text-md lg:text-lg text-cool-green solway-medium">{item.firstName} {item.lastName}</p>
               </div>

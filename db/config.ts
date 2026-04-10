@@ -19,7 +19,8 @@ const Facilitators = defineTable({
     fees: column.text({ optional: true }),
     programOffered: column.text({ optional: true }),
     clientList: column.text({ optional: true }),
-    status: column.text({ optional: true })
+    status: column.text({ optional: true }),
+    photo: column.blob({ optional: true }),
   }
 })
 

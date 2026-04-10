@@ -10,6 +10,9 @@ const { facilitator, showStatus = false } = Astro.props;
 const name = `${facilitator.firstName} ${facilitator.lastName}`;
 // if item.lastName contains an apostraphe, strip it out for the photo URL
 const lastNameWithoutApostrophe = facilitator.lastName.replace(/'/g, "");
+const staticPhotoUrl = `/facilitator-photos/${facilitator.firstName}${lastNameWithoutApostrophe}.jpg`;
+const dbPhotoUrl = `/api/facilitators/${facilitator.id}/photo`;
+const placeholderUrl = `/facilitator-photos/placeholder.jpg`;
 ---
 
 <a href={`/facilitators/${facilitator.id}`} class="no-underline flex-grow">
@@ -17,16 +20,19 @@ const lastNameWithoutApostrophe = facilitator.lastName.replace(/'/g, "");
     class="bg-gray-200 rounded-xl shadow-lg/25 duration-300 py-6 w-5/6 md:w-full mx-auto md:min-w-full hover:shadow-xl/30 hover:scale-104 transition-transform"
   >
     <div
-      class="rounded-full border-3 border-white w-24 h-24 mx-auto"
+      class="rounded-full border-3 border-white mx-auto overflow-hidden"
       style={{
-        backgroundImage: `url(/facilitator-photos/${facilitator.firstName}${lastNameWithoutApostrophe}.jpg)`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         width: "6rem",
         height: "6rem",
         borderRadius: "6rem",
       }}
     >
+      <img
+        src={staticPhotoUrl}
+        alt={name}
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        onerror={`this.onerror=function(){this.onerror=null;this.src='${placeholderUrl}';};this.src='${dbPhotoUrl}';`}
+      />
     </div>
 
     <p

@@ -41,8 +41,9 @@ const canEdit =
         >
           <img
             src={`/facilitator-photos/${f.firstName}${f.lastName.replace(/'/g, "")}.jpg`}
-            alt="Facilitator placeholder image"
+            alt={`${f.firstName} ${f.lastName}`}
             class="object-cover"
+            onerror={`this.onerror=function(){this.onerror=null;this.src='/facilitator-photos/placeholder.jpg';};this.src='/api/facilitators/${f.id}/photo';`}
           />
         </div>
         <div
