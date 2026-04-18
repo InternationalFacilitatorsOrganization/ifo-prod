@@ -9,8 +9,9 @@ interface Props {
 const { facilitator, showStatus = false } = Astro.props;
 const name = `${facilitator.firstName} ${facilitator.lastName}`;
 // if item.lastName contains an apostraphe, strip it out for the photo URL
-const lastNameWithoutApostrophe = facilitator.lastName.replace(/'/g, "");
-const staticPhotoUrl = `/facilitator-photos/${facilitator.firstName}${lastNameWithoutApostrophe}.jpg`;
+const lastNameWithoutApostrophe = facilitator.lastName.replace(/[' ]/g, "");
+const firstNameNormalized = facilitator.firstName.replace(/[' ]/g, "");
+const staticPhotoUrl = `/facilitator-photos/${firstNameNormalized}${lastNameWithoutApostrophe}.jpg`;
 const dbPhotoUrl = `/api/facilitators/${facilitator.id}/photo`;
 const placeholderUrl = `/facilitator-photos/placeholder.jpg`;
 ---

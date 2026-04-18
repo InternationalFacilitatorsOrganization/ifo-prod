@@ -61,10 +61,29 @@ export const FacilitatorGrid = ({ facilitatorList, showStatus = false }: { facil
     [],
   );
   
+  function FacilitatorPhoto({ item }: { item: any }) {
+    const lastNameClean = item.lastName.replace(/[' ]/g, '');
+    const firstNameClean = item.firstName.replace(/[' ]/g, '');
+    const srcs = [
+      `/facilitator-photos/${firstNameClean}${lastNameClean}.jpg`,
+      `/api/facilitators/${item.key}/photo`,
+      `/facilitator-photos/placeholder.jpg`,
+    ];
+    const [srcIndex, setSrcIndex] = useState(0);
+    return (
+      <img
+        src={srcs[srcIndex]}
+        alt={`${item.firstName} ${item.lastName}`}
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        onError={() => {
+          setSrcIndex((prev) => Math.min(prev + 1, srcs.length - 1));
+        }}
+      />
+    );
+  }
+
   function RenderCell({ item, columnKey }: any) {
     const value = getKeyValue(item, columnKey);
-      // if item.lastName contains an apostraphe, strip it out for the photo URL
-    const lastNameWithoutApostrophe = item.lastName.replace(/'/g, '');
 
     switch (columnKey) {      
       case "identity":
@@ -80,26 +99,7 @@ export const FacilitatorGrid = ({ facilitatorList, showStatus = false }: { facil
                   overflow: "hidden",
                 }}
               >
-                <img
-                  src={`/facilitator-photos/${item.firstName}${lastNameWithoutApostrophe}.jpg`}
-                  alt={`${item.firstName} ${item.lastName}`}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  onError={(e) => {
-                    const img = e.currentTarget;
-                    const dbUrl = `/api/facilitators/${item.key}/photo`;
-                    const placeholder = `/facilitator-photos/placeholder.jpg`;
-                    if (img.src.includes("/api/facilitators/")) {
-                      img.onerror = null;
-                      img.src = placeholder;
-                    } else {
-                      img.onerror = () => {
-                        img.onerror = null;
-                        img.src = placeholder;
-                      };
-                      img.src = dbUrl;
-                    }
-                  }}
-                />
+                <FacilitatorPhoto item={item} />
               </div>
               <div>
                 <p className="text-nowrap text-md lg:text-lg text-cool-green solway-medium">{item.firstName} {item.lastName}</p>
