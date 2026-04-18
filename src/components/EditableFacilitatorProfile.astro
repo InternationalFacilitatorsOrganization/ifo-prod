@@ -311,39 +311,12 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
       Cancel
     </button>
     <button
-      id="review-button"
+      id="save-button"
       disabled
       class="rounded-full bg-cool-green text-white font-bold px-6 py-2 solway-bold hover:bg-warm-green disabled:bg-gray-300 disabled:cursor-not-allowed"
     >
-      Review Changes
+      Save Changes
     </button>
-  </div>
-
-  <!-- Changes Summary Modal -->
-  <div
-    id="changes-modal"
-    class="fixed inset-0 flex items-center justify-center z-50 hidden"
-  >
-    <div class="fixed inset-0 bg-gray-900 opacity-50" id="modal-backdrop"></div>
-    <div class="bg-white rounded-lg p-6 relative z-10 max-w-lg w-full mx-4">
-      <h2 class="text-2xl solway-bold text-cool-green mb-4">Review Changes</h2>
-      <div class="space-y-3 mb-6" id="changes-list"></div>
-      <div class="flex justify-between pt-4">
-        <button
-          type="button"
-          id="modal-cancel"
-          class="rounded-full px-6 py-2 solway-bold text-gray-700 hover:bg-gray-100"
-        >
-          Cancel
-        </button>
-        <button
-          id="save-button"
-          class="rounded-full bg-cool-green text-white font-bold px-6 py-2 solway-bold hover:bg-warm-green disabled:bg-gray-400"
-        >
-          Save Changes
-        </button>
-      </div>
-    </div>
   </div>
 
   <script define:vars={{ facilitator }}>
@@ -354,21 +327,20 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
     const editButton = document.getElementById("edit-button");
     const cancelButton = document.getElementById("cancel-button");
     const cancelButtonHeader = document.getElementById("cancel-button-header");
-    const reviewButton = document.getElementById("review-button");
+    const saveButton = document.getElementById("save-button");
     const editSection = document.getElementById("edit-section");
     const actionButtons = document.getElementById("action-buttons");
     const contactSection = document.getElementById("contact-section");
-    const modal = document.getElementById("changes-modal");
-    const modalBackdrop = document.getElementById("modal-backdrop");
-    const modalCancel = document.getElementById("modal-cancel");
-    const saveButton = document.getElementById("save-button");
     const websiteEditContainer = document.getElementById(
-      "website-edit-container"
+      "website-edit-container",
     );
     const statusEditContainer = document.getElementById(
-      "status-edit-container"
+      "status-edit-container",
     );
     const bioEditContainer = document.getElementById("bio-edit-container");
+    const photoOverlayWrapper = document.getElementById(
+      "photo-overlay-wrapper",
+    );
 
     const fields = [
       "certifications",
@@ -391,6 +363,10 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
       websiteEditContainer?.classList.toggle("hidden", !editing);
       statusEditContainer?.classList.toggle("hidden", !editing);
       bioEditContainer?.classList.toggle("hidden", !editing);
+      if (photoOverlayWrapper) {
+        if (editing) photoOverlayWrapper.setAttribute("data-edit-active", "");
+        else photoOverlayWrapper.removeAttribute("data-edit-active");
+      }
 
       // Toggle bio view separately since it's not in the grid
       const bioView = document.getElementById("bio-view");
@@ -438,35 +414,7 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
       } else {
         delete changes[field];
       }
-      reviewButton.disabled = Object.keys(changes).length === 0;
-    }
-
-    function formatFieldName(field) {
-      return field
-        .replace(/([A-Z])/g, " $1")
-        .replace(/^./, (str) => str.toUpperCase())
-        .trim();
-    }
-
-    function showModal() {
-      const changesList = document.getElementById("changes-list");
-      changesList.innerHTML = "";
-
-      Object.entries(changes).forEach(([field, newValue]) => {
-        const div = document.createElement("div");
-        div.className = "border-b pb-2";
-        div.innerHTML = `
-        <p class="text-sm text-gray-500 solway-bold">${formatFieldName(field)}</p>
-        <div class="flex gap-2 items-center">
-          <span class="text-gray-400 line-through text-sm">${originalData[field] || "(empty)"}</span>
-          <span class="text-gray-400">→</span>
-          <span class="text-cool-green font-semibold">${newValue || "(empty)"}</span>
-        </div>
-      `;
-        changesList.appendChild(div);
-      });
-
-      modal.classList.remove("hidden");
+      saveButton.disabled = Object.keys(changes).length === 0;
     }
 
     async function handleSave() {
@@ -494,28 +442,12 @@ const name = `${facilitator.firstName} ${facilitator.lastName}`;
       }
     }
 
-    editButton?.addEventListener("click", () => toggleEdit(true));
-    cancelButton?.addEventListener("click", () => {
-      changes = {};
-      fields.forEach((field) => {
-        const editEl = document.getElementById(`${field}-edit`);
-        if (editEl) editEl.value = originalData[field] || "";
-      });
-      toggleEdit(false);
-    });
-    reviewButton?.addEventListener("click", () => {
-      if (Object.keys(changes).length > 0) showModal();
-    });
-    modalBackdrop?.addEventListener("click", () =>
-      modal.classList.add("hidden")
-    );
-    modalCancel?.addEventListener("click", () => modal.classList.add("hidden"));
     saveButton?.addEventListener("click", handleSave);
 
     fields.forEach((field) => {
       const editEl = document.getElementById(`${field}-edit`);
       editEl?.addEventListener("input", (e) =>
-        handleChange(field, e.target.value)
+        handleChange(field, e.target.value),
       );
     });
   </script>

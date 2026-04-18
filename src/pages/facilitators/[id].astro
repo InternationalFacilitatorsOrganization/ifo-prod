@@ -29,6 +29,21 @@ const canEdit =
     userEmail === f.email);
 ---
 
+<style is:global>
+  #photo-overlay-wrapper #edit-photo-button {
+    pointer-events: none;
+  }
+  #photo-overlay-wrapper[data-edit-active]:hover #profile-photo-img {
+    filter: brightness(0.45);
+  }
+  #photo-overlay-wrapper[data-edit-active]:hover #edit-photo-button {
+    opacity: 1;
+  }
+  #photo-overlay-wrapper[data-edit-active] #edit-photo-button {
+    pointer-events: auto;
+  }
+</style>
+
 <Layout title="Facilitators">
   <Header />
   <div class="w-full mx-auto">
@@ -37,14 +52,28 @@ const canEdit =
     >
       <div class="flex flex-row md:gap-4 gap-2 mx-auto items-center">
         <div
-          class="max-w-24 max-h-24 md:max-w-64 md:max-h-64 mx-auto overflow-hidden"
+          class="max-w-24 max-h-24 md:max-w-64 md:max-h-64 mx-auto overflow-hidden relative"
+          id="photo-overlay-wrapper"
         >
           <img
             src={`/facilitator-photos/${f.firstName}${f.lastName.replace(/'/g, "")}.jpg`}
             alt={`${f.firstName} ${f.lastName}`}
-            class="object-cover"
+            class="object-cover w-full h-full transition-[filter] duration-200"
+            id="profile-photo-img"
             onerror={`this.onerror=function(){this.onerror=null;this.src='/facilitator-photos/placeholder.jpg';};this.src='/api/facilitators/${f.id}/photo';`}
           />
+          {
+            canEdit && (
+              <button
+                id="edit-photo-button"
+                type="button"
+                aria-label="Edit photo"
+                class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 cursor-pointer"
+              >
+                <i class="icon-camera text-white text-3xl md:text-5xl drop-shadow-lg" />
+              </button>
+            )
+          }
         </div>
         <div
           class="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 grow"
@@ -75,6 +104,159 @@ const canEdit =
       </div>
     </div>
     <EditableFacilitatorProfile client:load facilitator={f} />
+    <!-- Hidden photo upload elements (triggered by Edit Photo button in header) -->
+    <input
+      type="file"
+      id="photo-file-input"
+      accept=".jpg,.jpeg,.png,.webp,.avif,.gif,.heic,.heif,image/jpeg,image/png,image/webp,image/avif,image/gif,image/heic,image/heif"
+      class="hidden"
+    />
+    <div
+      id="photo-upload-popup"
+      data-facilitator-id={f.id}
+      class="hidden fixed inset-0 items-end sm:items-center justify-center z-50 px-4 pb-6 sm:pb-0"
+    >
+      <div class="absolute inset-0 bg-black/40" id="photo-popup-backdrop"></div>
+      <div
+        class="relative bg-white rounded-xl shadow-2xl p-6 w-full max-w-sm flex flex-col gap-4"
+      >
+        <p class="solway-bold text-cool-green text-lg">Update Profile Photo</p>
+        <p class="text-gray-400 solway text-xs">
+          jpg, jpeg, png, webp, avif, gif, heic — max 5 MB
+        </p>
+        <label class="flex flex-col gap-2">
+          <input
+            type="file"
+            id="photo-file-input-popup"
+            accept=".jpg,.jpeg,.png,.webp,.avif,.gif,.heic,.heif,image/jpeg,image/png,image/webp,image/avif,image/gif,image/heic,image/heif"
+            class="block w-full text-gray-600 solway text-sm file:mr-3 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 file:cursor-pointer"
+          />
+        </label>
+        <p id="photo-message" class="text-sm hidden"></p>
+        <div class="flex justify-between pt-2">
+          <button
+            id="photo-popup-cancel"
+            type="button"
+            class="rounded-full px-5 py-1.5 solway-bold text-gray-600 hover:bg-gray-100 text-sm"
+            >Cancel</button
+          >
+          <button
+            id="upload-photo-button"
+            type="button"
+            disabled
+            class="rounded-full bg-cool-green text-white font-bold px-5 py-1.5 solway-bold text-sm hover:bg-warm-green disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >Upload Photo</button
+          >
+        </div>
+      </div>
+    </div>
   </div>
   <Footer />
 </Layout>
+
+<script>
+  const popup = document.getElementById(
+    "photo-upload-popup",
+  ) as HTMLElement | null;
+  const backdrop = document.getElementById("photo-popup-backdrop");
+  const cancelBtn = document.getElementById("photo-popup-cancel");
+  const fileInput = document.getElementById(
+    "photo-file-input-popup",
+  ) as HTMLInputElement | null;
+  const uploadBtn = document.getElementById(
+    "upload-photo-button",
+  ) as HTMLButtonElement | null;
+  const messageEl = document.getElementById("photo-message");
+  const editPhotoBtn = document.getElementById("edit-photo-button");
+  const facilitatorId = popup?.dataset.facilitatorId;
+
+  const ALLOWED = [
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "image/avif",
+    "image/gif",
+    "image/heic",
+    "image/heif",
+  ];
+  const MAX_SIZE = 5 * 1024 * 1024;
+
+  function openPopup() {
+    if (!popup) return;
+    popup.classList.remove("hidden");
+    popup.style.display = "flex";
+  }
+
+  function closePopup() {
+    if (!popup) return;
+    popup.classList.add("hidden");
+    popup.style.display = "";
+    if (fileInput) fileInput.value = "";
+    if (uploadBtn) uploadBtn.disabled = true;
+    if (messageEl) {
+      messageEl.textContent = "";
+      messageEl.classList.add("hidden");
+    }
+  }
+
+  function showMsg(text: string, error: boolean) {
+    if (!messageEl) return;
+    messageEl.textContent = text;
+    messageEl.className = `text-sm ${error ? "text-red-600" : "text-green-600"}`;
+    messageEl.classList.remove("hidden");
+  }
+
+  editPhotoBtn?.addEventListener("click", openPopup);
+  backdrop?.addEventListener("click", closePopup);
+  cancelBtn?.addEventListener("click", closePopup);
+
+  fileInput?.addEventListener("change", (e) => {
+    const file = (e.target as HTMLInputElement).files?.[0] ?? null;
+    if (messageEl) messageEl.classList.add("hidden");
+    if (uploadBtn) uploadBtn.disabled = true;
+    if (!file) return;
+    if (!ALLOWED.includes(file.type)) {
+      showMsg("Allowed formats: jpg, png, webp, avif, gif, heic.", true);
+      (e.target as HTMLInputElement).value = "";
+      return;
+    }
+    if (file.size > MAX_SIZE) {
+      showMsg("File size must be 5 MB or less.", true);
+      (e.target as HTMLInputElement).value = "";
+      return;
+    }
+    if (uploadBtn) uploadBtn.disabled = false;
+  });
+
+  uploadBtn?.addEventListener("click", async () => {
+    const file = fileInput?.files?.[0];
+    if (!file || !facilitatorId) return;
+    uploadBtn!.disabled = true;
+    uploadBtn!.textContent = "Uploading\u2026";
+    if (messageEl) messageEl.classList.add("hidden");
+    try {
+      const fd = new FormData();
+      fd.append("photo", file);
+      const res = await fetch(`/api/facilitators/${facilitatorId}/photo`, {
+        method: "POST",
+        body: fd,
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        showMsg("Photo uploaded successfully!", false);
+        uploadBtn!.textContent = "Upload Photo";
+        if (fileInput) fileInput.value = "";
+        uploadBtn!.disabled = true;
+        setTimeout(() => window.location.reload(), 1200);
+      } else {
+        showMsg(data.error || "Failed to upload photo.", true);
+        uploadBtn!.disabled = false;
+        uploadBtn!.textContent = "Upload Photo";
+      }
+    } catch {
+      showMsg("Network error. Please try again.", true);
+      uploadBtn!.disabled = false;
+      uploadBtn!.textContent = "Upload Photo";
+    }
+  });
+</script>

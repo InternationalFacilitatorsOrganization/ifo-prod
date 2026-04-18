@@ -129,11 +129,19 @@ export default function AddFacilitatorModal({
     }
 
     // Client-side validation
-    const validTypes = ["image/jpeg", "image/png"];
+    const validTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+      "image/avif",
+      "image/gif",
+      "image/heic",
+      "image/heif",
+    ];
     if (!validTypes.includes(file.type)) {
       setMessage({
         type: "error",
-        text: "Only .jpg and .png files are allowed.",
+        text: "Allowed formats: jpg, jpeg, png, webp, avif, gif, heic.",
       });
       e.target.value = "";
       return;
@@ -464,11 +472,11 @@ export default function AddFacilitatorModal({
                 <div className="space-y-4">
                   <div>
                     <label className={labelClass}>
-                      Photo (.jpg or .png, max 5 MB)
+                      Photo (jpg, png, webp, avif, gif, heic — max 5 MB)
                     </label>
                     <input
                       type="file"
-                      accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                      accept=".jpg,.jpeg,.png,.webp,.avif,.gif,.heic,.heif,image/jpeg,image/png,image/webp,image/avif,image/gif,image/heic,image/heif"
                       onChange={handlePhotoSelect}
                       className="block w-full text-gray-600 solway file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cool-green file:text-white hover:file:bg-warm-green file:cursor-pointer"
                     />

@@ -89,8 +89,13 @@ export const FacilitatorGrid = ({ facilitatorList, showStatus = false }: { facil
                     const dbUrl = `/api/facilitators/${item.key}/photo`;
                     const placeholder = `/facilitator-photos/placeholder.jpg`;
                     if (img.src.includes("/api/facilitators/")) {
+                      img.onerror = null;
                       img.src = placeholder;
                     } else {
+                      img.onerror = () => {
+                        img.onerror = null;
+                        img.src = placeholder;
+                      };
                       img.src = dbUrl;
                     }
                   }}

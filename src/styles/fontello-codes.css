@@ -1,5 +1,6 @@
 
 .icon-user:before { content: '\e800'; } /* '' */
 .icon-home:before { content: '\e801'; } /* '' */
+.icon-camera:before { content: '\e802'; } /* '' */
 .icon-link-ext:before { content: '\f08e'; } /* '' */
 .icon-mail-alt:before { content: '\f0e0'; } /* '' */

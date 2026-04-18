@@ -5,7 +5,15 @@ import { turso } from "../../../../lib/turso";
 export const prerender = false;
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
-const ALLOWED_TYPES = new Set(["image/jpeg", "image/png"]);
+const ALLOWED_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/avif",
+  "image/gif",
+  "image/heic",
+  "image/heif",
+]);
 
 // --- GET: serve the photo blob from the database ---
 export const GET: APIRoute = async ({ params }) => {
@@ -78,7 +86,19 @@ export const POST: APIRoute = async (context) => {
     (org: any) => org.role === "org:admin"
   );
 
+  // Also allow the facilitator themselves to upload their own photo
+  let isSelf = false;
   if (!isAdmin) {
+    const facilitatorResult = await turso.execute({
+      sql: "SELECT email FROM Facilitators WHERE id = ?",
+      args: [id],
+    });
+    const facilitatorEmail = (facilitatorResult.rows[0] as any)?.email;
+    const userEmail = user.emailAddresses?.[0]?.emailAddress;
+    isSelf = !!(facilitatorEmail && userEmail && facilitatorEmail === userEmail);
+  }
+
+  if (!isAdmin && !isSelf) {
     return new Response(JSON.stringify({ error: "Forbidden" }), {
       status: 403,
       headers: { "Content-Type": "application/json" },
@@ -100,7 +120,7 @@ export const POST: APIRoute = async (context) => {
     if (!ALLOWED_TYPES.has(file.type)) {
       return new Response(
         JSON.stringify({
-          error: "Invalid file type. Only .jpg and .png are allowed.",
+          error: "Invalid file type. Allowed formats: jpg, png, webp, avif, gif, heic.",
         }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
