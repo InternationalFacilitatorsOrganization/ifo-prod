@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-// import clerk from "@clerk/astro";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 import netlify from '@astrojs/netlify';
@@ -9,7 +8,7 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
   output: 'server',
   adapter: netlify(),
-  integrations: [react(), clerk()],
+  integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
   },
