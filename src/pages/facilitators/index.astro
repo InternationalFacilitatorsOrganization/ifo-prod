@@ -5,17 +5,16 @@ import Footer from "../../components/Footer.astro";
 import FacilitatorCard from "../../components/FacilitatorCard.astro";
 import { getAllFacilitators } from "../../lib/turso";
 import { FacilitatorGrid } from "../../components/FacilitatorGrid.tsx";
+<<<<<<< Updated upstream
 import { clerkClient } from "@clerk/astro/server";
+=======
+import AddFacilitatorModal from "../../components/AddFacilitatorModal";
+// import { clerkClient } from "@clerk/astro/server";
+>>>>>>> Stashed changes
 
 export const prerender = false;
 
-const user = await Astro.locals.currentUser();
-const orgMemberships = user
-  ? await clerkClient(Astro).users.getOrganizationMembershipList({
-      userId: user.id,
-    })
-  : null;
-const isAdmin = orgMemberships?.data?.some((org) => org.role === "org:admin");
+const isAdmin = false;
 
 const allFacilitators = await getAllFacilitators();
 const viewParam = Astro.url.searchParams.get("view");

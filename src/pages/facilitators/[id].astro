@@ -4,11 +4,16 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import EditableFacilitatorProfile from "../../components/EditableFacilitatorProfile.astro";
 import { getFacilitatorById } from "../../lib/turso";
-import { clerkClient } from "@clerk/astro/server";
+// import { clerkClient } from "@clerk/astro/server";
 
 export const prerender = false;
 
 const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect("/404");
+}
+
 const f = await getFacilitatorById(id);
 
 if (!f) {
@@ -17,16 +22,9 @@ if (!f) {
 
 const user = await Astro.locals.currentUser();
 
-const orgMemberships = user
-  ? await clerkClient(Astro).users.getOrganizationMembershipList({
-      userId: user.id,
-    })
-  : null;
+const isAdmin = false;
 const userEmail = user?.emailAddresses?.[0]?.emailAddress;
-const canEdit =
-  user &&
-  (orgMemberships?.data?.some((org) => org.role === "org:admin") ||
-    userEmail === f.email);
+const canEdit = user && (isAdmin || userEmail === f.email);
 ---
 
 <Layout title="Facilitators">
