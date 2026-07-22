@@ -1,5 +1,4 @@
 import type { APIRoute } from "astro";
-// import { clerkClient } from "@clerk/astro/server";
 import { turso } from "../../../../lib/turso";
 
 export const prerender = false;
@@ -61,47 +60,12 @@ export const GET: APIRoute = async ({ params }) => {
 
 // --- POST: upload a photo blob to the database ---
 export const POST: APIRoute = async (context) => {
-  const { params, request, locals } = context;
+  const { params, request } = context;
   const { id } = params;
 
   if (!id) {
     return new Response(JSON.stringify({ error: "ID is required" }), {
       status: 400,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  // --- Admin-only auth guard ---
-  const user = await locals.currentUser();
-  if (!user) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), {
-      status: 401,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  // const orgMemberships = await clerkClient(context)
-  //   .users.getOrganizationMembershipList({ userId: user.id });
-  // const isAdmin = orgMemberships?.data?.some(
-  //   (org: any) => org.role === "org:admin"
-  // );
-  const isAdmin = false;
-
-  // Also allow the facilitator themselves to upload their own photo
-  let isSelf = false;
-  if (!isAdmin) {
-    const facilitatorResult = await turso.execute({
-      sql: "SELECT email FROM Facilitators WHERE id = ?",
-      args: [id],
-    });
-    const facilitatorEmail = (facilitatorResult.rows[0] as any)?.email;
-    const userEmail = user.emailAddresses?.[0]?.emailAddress;
-    isSelf = !!(facilitatorEmail && userEmail && facilitatorEmail === userEmail);
-  }
-
-  if (!isAdmin && !isSelf) {
-    return new Response(JSON.stringify({ error: "Forbidden" }), {
-      status: 403,
       headers: { "Content-Type": "application/json" },
     });
   }

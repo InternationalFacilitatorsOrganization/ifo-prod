@@ -1,37 +1,12 @@
 import type { APIRoute } from "astro";
-// import { clerkClient } from "@clerk/astro/server";
 import type { InValue } from "@libsql/client";
 import { turso } from "../../../lib/turso";
-import { sanitizeFields } from "../../../lib/facilitator-fields";
 
 export const prerender = false;
 
 export const POST: APIRoute = async (context) => {
-  const { request, locals } = context;
+  const { request } = context;
 
-  // --- Admin-only auth guard ---
-  const user = await locals.currentUser();
-  if (!user) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), {
-      status: 401,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  // const orgMemberships = await clerkClient(context)
-  //   .users.getOrganizationMembershipList({ userId: user.id });
-  // const isAdmin = orgMemberships?.data?.some(
-  //   (org: any) => org.role === "org:admin"
-  // );
-
-  // if (!isAdmin) {
-  //   return new Response(JSON.stringify({ error: "Forbidden" }), {
-  //     status: 403,
-  //     headers: { "Content-Type": "application/json" },
-  //   });
-  // }
-
-  const isAdmin = false;
   try {
     const raw = await request.json();
 
@@ -52,7 +27,6 @@ export const POST: APIRoute = async (context) => {
     const newId = String(Number(maxId) + 1);
 
     // Sanitize writable fields, then manually add managed fields
-    const safeData = sanitizeFields(raw);
     const now = new Date()
       .toISOString()
       .replace("T", " ")
@@ -67,7 +41,7 @@ export const POST: APIRoute = async (context) => {
       lastName,
       email,
       status: status || "Active",
-      ...safeData, // overlay any other valid fields
+      // ...safeData, // overlay any other valid fields
     };
 
     const columns = Object.keys(record);

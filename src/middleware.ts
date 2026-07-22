@@ -1,3 +1,1 @@
-import { clerkMiddleware } from "@clerk/astro/server";
-
-export const onRequest = clerkMiddleware();
+export const onRequest = (_context: any, next: () => Promise<Response>) => next();

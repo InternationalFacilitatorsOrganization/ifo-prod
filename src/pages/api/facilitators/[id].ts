@@ -1,12 +1,6 @@
 import type { APIRoute } from "astro";
-<<<<<<< Updated upstream
-import { turso } from "../../../lib/turso";
-=======
-// import { clerkClient } from "@clerk/astro/server";
 import type { InValue } from "@libsql/client";
-import { turso, getFacilitatorById } from "../../../lib/turso";
-import { sanitizeFields } from "../../../lib/facilitator-fields";
->>>>>>> Stashed changes
+import { turso } from "../../../lib/turso";
 
 export const prerender = false;
 
@@ -20,37 +14,7 @@ export const PUT: APIRoute = async ({ params, request }) => {
     });
   }
 
-<<<<<<< Updated upstream
-=======
-  // --- Auth guard ---
-  const user = await locals.currentUser();
-  if (!user) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), {
-      status: 401,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
 
-  // const orgMemberships = await clerkClient(context)
-  //   .users.getOrganizationMembershipList({ userId: user.id });
-  // const isAdmin = orgMemberships?.data?.some(
-  //   (org: any) => org.role === "org:admin"
-  // );
-
-  const isAdmin = false;
-  // Allow admin OR self-edit (user's email matches facilitator's email)
-  if (!isAdmin) {
-    const facilitator = await getFacilitatorById(id);
-    const userEmail = user.emailAddresses?.[0]?.emailAddress;
-    if (!facilitator || facilitator.email !== userEmail) {
-      return new Response(JSON.stringify({ error: "Forbidden" }), {
-        status: 403,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
-  }
-
->>>>>>> Stashed changes
   try {
     const updates = await request.json();
     
